@@ -1,4 +1,4 @@
-from flask import Flask, session, app, request
+from flask import Flask, session, app, request, render_template
 from connection import mysql_info, mysql_connect
 from exts import db
 
@@ -15,5 +15,10 @@ db.init_app(app)
 @app.route('/')
 def index():
     return 'this is index page, OK'
+
+@app.route('/login')
+def login():
+    html = render_template('/login.html')
+    return html
 
 app.run(host='0.0.0.0', port=5000)

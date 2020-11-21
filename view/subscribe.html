@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/subscribe.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100"> 
+					<div class="navbar">
+					<img class="logo" src="../static/images/icons/leaf.png" width="30" height="30" class="d-inline-block align-top" alt="">
+					<div class="brandname">
+						RE-FIT 리핏
+					</div>
+					   <div id="input-form">
+							<input type="text" id="searchbar" placeholder="검색어를 입력하세요." onkeyup="search(this);">
+						</div>
+					<nav>
+						<ul class="nav__logos">
+							<li><a href="#" id="btn_search"><img src="../static/images/icons/search.png" width="20" height="20" class="d-inline-block align-top" alt=""></a></li>
+							<li><a href="shoppingcart.html"><img src="../static/images/icons/shopping-cart.png" width="20" height="20" class="d-inline-block align-top" alt="" ></a></li>
+						</ul>
+					</nav>
+					</div>
+					
+					<div class="content">
+
+					<section id="main_container">
+						<div class="inner">
+				
+							<div class="contents_box">
+								<article class="contents">
+									<header class="top">
+										<div class="user_container">
+											<div class="profile_img">
+												<img src="../static/images/thumb.jpeg" alt="프로필이미지">
+											</div>
+											<div class="user_name">
+												<div class="nick_name m_text">KindTiger</div>
+												<div class="country s_text">Seoul, South Korea</div>
+											</div>
+				
+										</div>
+				
+										<div class="sprite_more_icon" data-name="more">
+											<ul class="toggle_box">
+											   <li><input type="submit" class="follow" value="팔로우" data-name="follow"></li>
+												<li>수정</li>
+												<li>삭제</li>
+											</ul>
+										</div>
+									</header>
+				
+									<div class="img_section">
+										<div class="trans_inner">
+											<div><img src="../static/images/img_section/img01.jpg" alt="visual01"></div>
+										</div>
+									</div>
+				
+									<div class="bottom_icons">
+										<div class="left_icons">
+											<div class="heart_btn">
+												<div class="sprite_heart_icon_outline" name="39" data-name="heartbeat"></div>
+											</div>
+											<div class="sprite_bubble_icon"></div>
+											<div class="sprite_share_icon" data-name="share"></div>
+										</div>
+										<div class="right_icon">
+											<div class="sprite_bookmark_outline" data-name="bookmark"></div>
+										</div>
+									</div>
+				
+									<div class="likes m_text">
+										좋아요
+										<span id="like-count-39">2,346</span>
+										<span id="bookmark-count-39"></span>
+										개
+									</div>
+				
+									<div class="comment_container">
+										<div class="comment" id="comment-list-ajax-post37">
+											<div class="comment-detail">
+												<div class="nick_name m_text">dongdong2</div>
+												<div>강아지가 너무 귀여워요~!</div>
+											</div>
+										</div>
+										<div class="small_heart">
+											<div class="sprite_small_heart_icon_outline"></div>
+										</div>
+									</div>
+				
+									<div class="timer">1시간 전</div>
+				
+									<div class="comment_field" id="add-comment-post37">
+										<input type="text" placeholder="댓글달기...">
+										<div class="upload_btn m_text" data-name="comment">게시</div>
+									</div>
+								</article>
+								<article class="contents">
+									<header class="top">
+										<div class="user_container">
+											<div class="profile_img">
+												<img src="../static/images/thumb.jpeg" alt="프로필이미지">
+											</div>
+											<div class="user_name">
+												<div class="nick_name m_text">KindTiger</div>
+												<div class="country s_text">Seoul, South Korea</div>
+											</div>
+				
+										</div>
+				
+										<div class="sprite_more_icon" data-name="more">
+											<ul class="toggle_box">
+												<li><input type="submit" class="follow" value="팔로우" data-name="follow"></li>
+												<li>수정</li>
+												<li>삭제</li>
+											</ul>
+										</div>
+									</header>
+				
+									<div class="img_section">
+										<div class="trans_inner">
+											<div><img src="../static/images/img_section/img01.jpg" alt="visual01"></div>
+										</div>
+									</div>
+				
+									<div class="bottom_icons">
+										<div class="left_icons">
+											<div class="heart_btn">
+												<div class="sprite_heart_icon_outline" name="39" data-name="heartbeat"></div>
+											</div>
+											<div class="sprite_bubble_icon"></div>
+											<div class="sprite_share_icon" data-name="share"></div>
+										</div>
+										<div class="right_icon">
+											<div class="sprite_bookmark_outline" data-name="bookmark"></div>
+										</div>
+									</div>
+				
+									<div class="likes m_text">
+										좋아요
+										<span id="like-count-39">2,346</span>
+										개
+									</div>
+				
+									<div class="comment_container">
+										<div class="comment" id="comment-list-ajax-post37">
+											<div class="comment-detail">
+												<div class="nick_name m_text">dongdong2</div>
+												<div>강아지가 너무 귀여워요~!</div>
+											</div>
+										</div>
+										<div class="small_heart">
+											<div class="sprite_small_heart_icon_outline"></div>
+										</div>
+									</div>
+				
+									<div class="timer">1시간 전</div>
+				
+									<div class="comment_field" id="add-comment-post37">
+										<input type="text" placeholder="댓글달기...">
+										<div class="upload_btn m_text" data-name="comment">게시</div>
+									</div>
+								</article>
+								<article class="contents">
+									<header class="top">
+										<div class="user_container">
+											<div class="profile_img">
+												<img src="../static/images/thumb.jpeg" alt="프로필이미지">
+											</div>
+											<div class="user_name">
+												<div class="nick_name m_text">KindTiger</div>
+												<div class="country s_text">Seoul, South Korea</div>
+											</div>
+				
+										</div>
+				
+										<div class="sprite_more_icon" data-name="more">
+											<ul class="toggle_box">
+												<li><input type="submit" class="follow" value="팔로우" data-name="follow"></li>
+												<li>수정</li>
+												<li>삭제</li>
+											</ul>
+										</div>
+									</header>
+				
+									<div class="img_section">
+										<div class="trans_inner">
+											<div><img src="../static/images/img_section/img01.jpg" alt="visual01"></div>
+										</div>
+									</div>
+				
+									<div class="bottom_icons">
+										<div class="left_icons">
+											<div class="heart_btn">
+												<div class="sprite_heart_icon_outline" name="39" data-name="heartbeat"></div>
+											</div>
+											<div class="sprite_bubble_icon"></div>
+											<div class="sprite_share_icon" data-name="share"></div>
+										</div>
+										<div class="right_icon">
+											<div class="sprite_bookmark_outline" data-name="bookmark"></div>
+										</div>
+									</div>
+				
+									<div class="likes m_text">
+										좋아요
+										<span id="like-count-39">2,346</span>
+										개
+									</div>
+				
+									<div class="comment_container">
+										<div class="comment" id="comment-list-ajax-post37">
+											<div class="comment-detail">
+												<div class="nick_name m_text">dongdong2</div>
+												<div>강아지가 너무 귀여워요~!</div>
+											</div>
+										</div>
+										<div class="small_heart">
+											<div class="sprite_small_heart_icon_outline"></div>
+										</div>
+									</div>
+				
+									<div class="timer">1시간 전</div>
+				
+									<div class="comment_field" id="add-comment-post37">
+										<input type="text" placeholder="댓글달기...">
+										<div class="upload_btn m_text" data-name="comment">게시</div>
+									</div>
+								</article>
+								<article class="contents">
+									<header class="top">
+										<div class="user_container">
+											<div class="profile_img">
+												<img src="../static/images/thumb.jpeg" alt="프로필이미지">
+											</div>
+											<div class="user_name">
+												<div class="nick_name m_text">KindTiger</div>
+												<div class="country s_text">Seoul, South Korea</div>
+											</div>
+				
+										</div>
+				
+										<div class="sprite_more_icon" data-name="more">
+											<ul class="toggle_box">
+												<li><input type="submit" class="follow" value="팔로우" data-name="follow"></li>
+												<li>수정</li>
+												<li>삭제</li>
+											</ul>
+										</div>
+									</header>
+				
+									<div class="img_section">
+										<div class="trans_inner">
+											<div><img src="../static/images/img_section/img01.jpg" alt="visual01"></div>
+										</div>
+									</div>
+				
+									<div class="bottom_icons">
+										<div class="left_icons">
+											<div class="heart_btn">
+												<div class="sprite_heart_icon_outline" name="39" data-name="heartbeat"></div>
+											</div>
+											<div class="sprite_bubble_icon"></div>
+											<div class="sprite_share_icon" data-name="share"></div>
+										</div>
+										<div class="right_icon">
+											<div class="sprite_bookmark_outline" data-name="bookmark"></div>
+										</div>
+									</div>
+				
+									<div class="likes m_text">
+										좋아요
+										<span id="like-count-39">2,346</span>
+										개
+									</div>
+				
+									<div class="comment_container">
+										<div class="comment" id="comment-list-ajax-post37">
+											<div class="comment-detail">
+												<div class="nick_name m_text">dongdong2</div>
+												<div>강아지가 너무 귀여워요~!</div>
+											</div>
+										</div>
+										<div class="small_heart">
+											<div class="sprite_small_heart_icon_outline"></div>
+										</div>
+									</div>
+				
+									<div class="timer">1시간 전</div>
+				
+									<div class="comment_field" id="add-comment-post37">
+										<input type="text" placeholder="댓글달기...">
+										<div class="upload_btn m_text" data-name="comment">게시</div>
+									</div>
+								</article>
+				
+				
+				
+							</div>
+							<input type="hidden" id="page" value="1">
+						</section>
+					</div>
+					
+
+
+		
+			<div>
+				<nav class="nav_bottom">
+					<a href="main.html" class="nav__link">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/home-2.png" class="icon-home"></i> 
+						<span class="nav__text">Home</span>
+					</a>
+					<a href="subscribe.html" class="nav__link nav__link--active">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/heart.png" class="icon-subscribe"></i>
+						<span class="nav__text">구독</span>
+					</a>
+					<a href="register.html" class="nav__link">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/add-button.png" class="icon-add"></i>
+						<span class="nav__text">등록</span>
+					</a>
+					<a href="like.html" class="nav__link">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/bookmark.png" class="icon-bookmark"></i>
+						<span class="nav__text">저장</span>
+					</a>
+					<a href="mypage.html" class="nav__link">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/user.png" class="icon-user"></i>
+						<span class="nav__text">My Page</span>
+					</a>
+	
+				</nav>
+
+			</nav>
+			</div>
+			
+
+			
+			</div>
+
+		</div>
+	</div>
+
+	
+<!--===============================================================================================-->
+	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/bootstrap/js/popper.js"></script>
+	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/js/main.js"></script>
+	<script src="../static/js/mypage.js"></script>
+
+</body>
+</html>

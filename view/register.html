@@ -1,0 +1,192 @@
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/nav.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<!--===============================================================================================-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <!-- Facebook Meta Tags / 페이스북 오픈 그래프 -->
+    <meta property="og:url" content="http://kindtiger.dothome.co.kr/insta">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="instagram">
+    <meta property="og:description" content="instagram clone">
+    <meta property="og:image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
+    .
+    <!-- Twitter Meta Tags / 트위터 -->
+    <meta name="twitter:card" content="instagram clone">
+    <meta name="twitter:title" content="instagram">
+    <meta name="twitter:description" content="instagram clone">
+    <meta name="twitter:image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
+
+    <!-- Google / Search Engine Tags / 구글 검색 엔진 -->
+    <meta itemprop="name" content="instagram">
+    <meta itemprop="description" content="instagram clone">
+    <meta itemprop="image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
+
+
+    <title>instagram</title>
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/new_post.css">
+    <link rel="shortcut icon" href="../static/imgs/instagram.png">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100"> 
+				<div class="navbar">
+					<img class="logo" src="../static/images/icons/leaf.png" width="30" height="30" class="d-inline-block align-top" alt="">
+					<div class="brandname">
+						RE-FIT 리핏
+					</div>
+					<nav>
+						<ul class="nav__logos">
+							<li><a href="#"><img src="../static/images/icons/search.png" width="20" height="20" class="d-inline-block align-top" alt=""></a></li>
+							<li><a href="shoppingcart.html"><img src="../static/images/icons/shopping-cart.png" width="20" height="20" class="d-inline-block align-top" alt="" ></a></li>
+						</ul>
+					</nav>
+				</div>
+
+			<div class="content">
+			    <div id="main_container">
+					<div class="post_form_container">
+						<form action="#" class="post_form">
+							<div class="title">
+								NEW POST
+							</div>
+							<div class="preview">
+								<div class="upload">
+									<div class="post_btn">
+										<div class="plus_icon">
+											<span></span>
+											<span></span>
+										</div>
+										<p>포스트 이미지 추가</p>
+										<canvas id="imageCanvas"></canvas>
+										<!--<p><img id="img_id" src="#" style="width: 300px; height: 300px; object-fit: cover" alt="thumbnail"></p>-->
+									</div>
+								</div>
+							</div>
+							<p>
+								<input type="file" name="photo" id="id_photo" required="required">
+							</p>
+							<p>
+								<textarea name="content" id="text_field" cols="50" rows="5" placeholder="140자 까지 등록 가능합니다.
+			#태그명 을 통해서 검색 태그를 등록할 수 있습니다.
+			예시 : I # love # insta!"></textarea>
+
+							</p>
+							<input class="submit_btn" type="submit" value="저장">
+						</form>
+
+					</div>
+
+				</div>
+
+
+			</section>
+
+			<script src="js/insta.js"></script>
+
+			<script>
+				   var fileInput  = document.querySelector( "#id_photo" ),
+					   button     = document.querySelector( ".input-file-trigger" ),
+					   the_return = document.querySelector(".file-return");
+
+				   // Show image
+				   fileInput.addEventListener('change', handleImage, false);
+				   var canvas = document.getElementById('imageCanvas');
+				   var ctx = canvas.getContext('2d');
+
+
+					function handleImage(e){
+					   var reader = new FileReader();
+					   reader.onload = function(event){
+						   var img = new Image();
+						   // var imgWidth =
+						   img.onload = function(){
+							   canvas.width = 300;
+							   canvas.height = 300;
+							   ctx.drawImage(img,0,0,300,300);
+						   };
+						   img.src = event.target.result;
+						   // img.width = img.width*0.5
+						   // canvas.height = img.height;
+					   };
+					   reader.readAsDataURL(e.target.files[0]);
+				   }
+
+
+			</script>
+			
+			</div>
+		
+			<div>
+				<nav class="nav_bottom">
+					<a href="main.html" class="nav__link">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/home-2.png" class="icon-home"></i> 
+						<span class="nav__text">Home</span>
+					</a>
+					<a href="subscribe.html" class="nav__link nav__link--active">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/heart.png" class="icon-subscribe"></i>
+						<span class="nav__text">구독</span>
+					</a>
+					<a href="register.html" class="nav__link">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/add-button.png" class="icon-add"></i>
+						<span class="nav__text">등록</span>
+					</a>
+					<a href="like.html" class="nav__link">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/bookmark.png" class="icon-bookmark"></i>
+						<span class="nav__text">저장</span>
+					</a>
+					<a href="mypage.html" class="nav__link">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/user.png" class="icon-user"></i>
+						<span class="nav__text">My Page</span>
+					</a>
+	
+				</nav>
+
+			</nav>
+			</div>
+			
+
+			
+			</div>
+
+		</div>
+	</div>
+
+	
+<!--===============================================================================================-->
+	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/bootstrap/js/popper.js"></script>
+	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/js/main.js"></script>
+
+</body>
+</html>
+
+
+</html>

@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-images/icons/logo1.png
+
 	<link rel="icon" type="image/png" href="{{url_for('static',filename='images/icons/favicon.ico/')}}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}">
@@ -71,9 +71,7 @@ images/icons/logo1.png
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<form method="POST" action = "../sd.py">
-								<div class="g-signin2" data-onsuccess="onSignIn"></div>
-							</form>	
+							  <div class="g-signin2" data-onsuccess="onSignIn"></div>
 						</div>
 					</div>
 
@@ -106,25 +104,24 @@ images/icons/logo1.png
 	  dictlogin['User_Name'] =  profile.getName()
 	  dictlogin['User_Image_URL'] =  profile.getImageUrl()
 	  dictlogin['User_Email'] =  profile.getEmail()
-	  
 
 	  $.ajax({
-		  		url: "/user_login_pro",
+		  		url: '/user_login_pro',
 				type: 'POST',
 				data: dictlogin,
-				dataType: 'json',
+
 				success: function(response) {
 
 					alert('로그인이 완료되었습니다');
 
-					document.id.action="http://localhost:5000/main.html";
-					document.id.submit();
+					location.replace("/");
+					
+				},
+				error : function(data) { console.log("에이젝스 실패")},
 
-				}
+
+			
 			});
-
-
-	
 
 
 	}</script>

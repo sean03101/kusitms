@@ -42,6 +42,8 @@ def user_logout():
     session.clear()
     return 'OK'
 
+#좋아요 업데이트
+
 #mypage, 다른사람 페이지 접근 시 고려해야함, 좋아요리스트?
 @user_blue.route('/mypage')
 def mypage():

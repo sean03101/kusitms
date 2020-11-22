@@ -37,20 +37,32 @@ def upload_post():
     else:
         user_idx = 1
     
-    #data받기
+    title = request.form['title']
+    description_tags = request.form['description']
+    price = request.form['price']
+    category = request.form['category']
+    size = request.form['size']
+    brand = request.form['brand']
+    certificate = request.form['certificate']
+    receipt = request.form['receipt']
+    file_list = request.file.get_list() #check
+    img_count = len(file_list)
+    
     post_dir = current_app.config['POST_FILE']
-    title = 'hi'
-    post_file = 'file'
 
-    post_idx = product_dao.add_post(user_idx, title)
- 
-    f_name = datetime.datetime.now().strftime("%Y%m%d_")+'{post_idx}_'.format(post_idx=post_idx)+secure_filename(post_file.filename)
-    f_location = os.path.join(post_dir,f_name)
-    post_file.save(f_location)
-    user_dao.add_post_file(post_idx, 1, f_location)    
+    post_idx = product_dao.add_post(user_idx, title, description, tags, price, category, size, brand, certificate, receipt)
+    
+    n=1
+    for post_file in file_list:
+        f_name = datetime.datetime.now().strftime("%Y%m%d_")+'{post_idx}_{num}'.format(post_idx=post_idx, num=n)+secure_filename(post_file.filename)
+        f_location = os.path.join(post_dir,f_name)
+        post_file.save(f_location)
+        user_dao.add_post_file(post_idx, 1, f_location)
+        n += 1
 
     return 'OK'
 
+#상품 삭제?
 
 #상세페이지 컬럼 정해야
 @product_blue.route('/post/post_id=<post_idx>', methods=['get'])
@@ -62,6 +74,25 @@ def post_detail(post_idx):
         post_detail['comments'] = comments
     html = render_template('detail.html', data=post_detail)
     return html
+
+
+@product_blue.route('/upload_comment', methods=['post'])
+def upload_comment():
+    if 'user_idx' in session:
+        user_idx = session['user_idx']
+    else:
+        user_idx = 2
+    
+    post_idx = request.form['post_idx']
+    comment_text = request.form['text']
+    comment_count = request.form['comment']
+    
+    product_dao.add_comment(post_idx, user_idx, comment_text)
+    product_dao.update_comment_count(post_idx, comment_count)
+    
+    return 'OK'
+    
+#코멘트 삭제?
 
 #구독페이지 1차
 @product_blue.route('/subscribe')
@@ -112,10 +143,8 @@ def wishlist():
     else:
         user_idx = 2
         
-    data = get_wishlist(user_idx)
-    
-    html = render_template('like.html', data=data)
-    
+    data = product_dao.get_wishlist(user_idx)
+    html = render_template('like.html', post_list=data)
     return html
 
-#위시리스트
+#위시리스트 업데이트

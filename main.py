@@ -9,6 +9,7 @@ mysql = mysql_info.info
 app.config['SECRET_KEY'] = 'horangsecrettt'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://'+mysql['user']+':'+mysql['password']+'@'+mysql['host']+'/'+mysql['db']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['POST_FILE'] = './static/images/post_file'
 
 db.init_app(app)
 

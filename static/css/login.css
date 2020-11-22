@@ -25,7 +25,10 @@
   src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
 }
 
-
+@font-face {
+  font-family: GongGothicBold;
+  src: url('../fonts/GongGothicBold.ttf.ttf'); 
+}
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -37,14 +40,18 @@
 	box-sizing: border-box;
 }
 
+.p-b-26 {
+  padding-bottom: 0px;
+}
+
 body, html {
 	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+	font-family: GongGothicBold, sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: Poppins-Regular;
+	font-family: GongGonthicBold;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -74,7 +81,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: Poppins-Regular;
+	font-family: GongGothicBold;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -141,14 +148,14 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Poppins-Regular;
+  font-family: GongGothicBold;
   font-size: 13px;
   color: #666666;
   line-height: 1.5;
 }
 
 .txt2 {
-  font-family: Poppins-Regular;
+  font-family: GongGothicBold;
   font-size: 13px;
   color: #333333;
   line-height: 1.5;
@@ -201,7 +208,7 @@ iframe {
 
 .login100-form-title {
   display: block;
-  font-family: Poppins-Bold;
+  font-family: GongGothicBold;
   font-size: 30px;
   color: #333333;
   line-height: 1.2;
@@ -217,14 +224,14 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  border-bottom: 2px solid #adadad;
+  border-bottom: 4px solid#9BC286;
   margin-bottom: 37px;
 }
 
 .input100 {
-  font-family: Poppins-Regular;
+  font-family: GongGothicBold;
   font-size: 15px;
-  color: #555555;
+  color: #9BC286 ;
   line-height: 1.2;
 
   display: block;
@@ -267,7 +274,7 @@ iframe {
 }
 
 .focus-input100::after {
-  font-family: Poppins-Regular;
+  font-family: GongGothicBold;
   font-size: 15px;
   color: #999999;
   line-height: 1.2;
@@ -383,7 +390,7 @@ iframe {
 }
 
 .login100-form-btn {
-  font-family: Poppins-Medium;
+  font-family: GongGothicBold;
   font-size: 15px;
   color: #fff;
   line-height: 1.2;
@@ -441,7 +448,7 @@ iframe {
   right: 0px;
   pointer-events: none;
 
-  font-family: Poppins-Regular;
+  font-family: GongGothicBold;
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;

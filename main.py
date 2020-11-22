@@ -1,4 +1,4 @@
-from flask import Flask, session, app, request, render_template
+from flask import Flask, session, app, request, render_template, redirect
 from connection import mysql_info, mysql_connect
 from exts import db
 
@@ -16,6 +16,12 @@ db.init_app(app)
 from user import user
 from product import product
 
+@app.route('/')
+def please_login():
+    if 'user_idx' in session:
+        return redirect('/home')
+    else:
+        return redirect('/login')
 
 app.register_blueprint(product.product_blue)
 app.register_blueprint(user.user_blue)

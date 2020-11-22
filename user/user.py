@@ -9,6 +9,8 @@ user_blue = Blueprint('user_blue', __name__)
 #login page
 @user_blue.route('/login')
 def login():
+    if 'user_idx' in session:
+        return redirect('/home')
     html = render_template('/login.html')
     return html
 
@@ -20,17 +22,18 @@ def user_login():
     user_email = request.form['User_Email']
     user_img = request.form['User_Image_URL']
     
-    print(user_email)
-    print(user_img)
+    if not user_dao.check_user(user_id):
+        user_dao.add_user(user_id, user_name, user_email, user_img)
     
-    #user_idx = user_dao.user_login(user_id)
+    user_idx = user_dao.user_login(user_id)
     
-    #if not user_idx:
-    #    return 'NO'
+    if not user_idx:
+        return 'NO'
     
-    #session['user_idx'] = user_idx
-    #session['login'] = 1
+    session['user_idx'] = user_idx
+    session['login'] = 1
     
+    print(user_idx)
     return 'OK'
 
 #logout post if not?

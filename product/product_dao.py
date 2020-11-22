@@ -86,7 +86,32 @@ def post_detail(post_idx):
     
     return result
 
-def sub_post(user_idx):
+def post_comment(post_idx):
+    sql = '''select post_idx, user_idx, text from comment
+             where post_idx=%s order by comment_idx'''
+             
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute(sql, post_idx)
+        result = cursor.fetchall()
+    finally:
+        if conn is not None: conn.close()
+    
+    if not result:
+        return False
+    
+    data_list = []
+    for row in result:
+        temp_dict = {}
+        temp_dict['post_idx'] = row[0]
+        temp_dict['user_idx'] = row[1]
+        temp_dict['text'] = row[2]
+        data_list.append(temp_dict)    
+    print(data_list)
+    return data_list
+
+def sub_post_list(user_idx):
     sql = '''select posts.post_idx, posts.user_idx, title, description, tags, post_like, location, comment_count 
              from posts inner join post_file on posts.post_idx=post_file.post_idx
              where posts.user_idx in (select followed from user_follow where following=%s)
@@ -117,32 +142,50 @@ def sub_post(user_idx):
         data_list.append(temp_dict)    
     print(data_list)
     return data_list    
-        
-def post_comment(post_idx):
-    sql = '''select post_idx, user_idx, text from comment
-             where post_idx=%s order by comment_idx'''
+
+def check_sub(following, followed):
+    sql = '''select follow_idx from user_follow
+             where following=%s and followed=%s'''
              
     try:
         conn = get_connection()
         cursor = conn.cursor()
-        cursor.execute(sql, post_idx)
-        result = cursor.fetchall()
+        cursor.execute(sql, (following, followed))
+        result = cursor.fetchone()
     finally:
         if conn is not None: conn.close()
-    
+        
     if not result:
         return False
     
-    data_list = []
-    for row in result:
-        temp_dict = {}
-        temp_dict['post_idx'] = row[0]
-        temp_dict['user_idx'] = row[1]
-        temp_dict['text'] = row[2]
-        data_list.append(temp_dict)    
-    print(data_list)
-    return data_list
+    return result[0]
 
+def add_sub(following, followed):
+    sql = '''insert into user_follow (following, followed)
+             values (%s, %s)'''
+             
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute(sql, (following, followed))
+        conn.commit()
+    finally:
+        if conn is not None: conn.close()
+    
+    return 'OK'
+
+def delete_sub(following, followed):
+    sql = '''delete from user_follow where following=%s and followed=%s'''
+    
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute(sql, (following, followed))
+        conn.commit()
+    finally:
+        if conn is not None: conn.close()
+        
+    return 'OK'
 
 #test, not in notion to
 def get_wishlist(user_idx):

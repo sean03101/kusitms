@@ -9,11 +9,11 @@ from datetime import datetime
 product_blue = Blueprint('product_blue', __name__)
 
 #메인페이지 1차
-@product_blue.route('/')
+@product_blue.route('/home')
 def main_page():
     data_new = product_dao.post_list(0)
     data_like = product_dao.post_list(1)
-    
+    print(session)
     html = render_template('main.html', data_new=data_new, data_like=data_like)
     return html
 
@@ -26,7 +26,7 @@ def search_posts():
 #등록페이지 얘기가 필요..
 @product_blue.route('/write_post')
 def register_post():
-    html = render_template('register.html') #필요한거 없을듯..? user 정보?
+    html = render_template('register.html')
     return html
 
 #상품 업로드 틀   
@@ -71,7 +71,7 @@ def subscribe_list():
     else:
         user_idx = 2
     
-    post_list = product_dao.sub_post(user_idx)
+    post_list = product_dao.sub_post_list(user_idx)
     
     if not post_list:
         html = render_template('subscribe.html', post_list=False)
@@ -89,10 +89,20 @@ def subscribe_list():
 def add_subscription():
     if 'user_idx' in session:
         user_idx = session['user_idx']
-
+    else:
+        return 'NO'
+    
+    followed = request.form['user_idx'] #maybe get?
+    
+    checked_idx = product_dao.check_sub(user_idx, followed)
+    
+    if not checked_idx:
+        product_dao.add_sub(user_idx, followed)
+    else:
+        product_dao.delete_sub(user_idx, followed)
+    
     return 'OK'
 
-#구독취소
 
 #위시리스트페이지
 @product_blue.route('/wishlist')
@@ -104,9 +114,8 @@ def wishlist():
         
     data = get_wishlist(user_idx)
     
-    return data[0]
+    html = render_template('like.html', data=data)
+    
+    return html
 
-#위시리스트추가
- 
-
-#위시리스트취소
+#위시리스트

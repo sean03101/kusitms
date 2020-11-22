@@ -12,27 +12,24 @@ def login():
     html = render_template('/login.html')
     return html
 
-#join post
-@user_blue.route('/user_join_pro', methods=['post'])
-def user_join():
-    user_id = 'id'
-    user_name = 'nmae'
-    
-    user_dao.add_user(user_id, user_name)
-    
-    return 'OK'
-
 #login post
 @user_blue.route('/user_login_pro', methods=['post'])
 def user_login():
-    user_id = 'id'
-    user_idx = user_dao.user_login(user_id)
+    user_id = request.form['User_Id']
+    user_name = request.form['User_Name']
+    user_email = request.form['User_Email']
+    user_img = request.form['User_Image_URL']
     
-    if not user_idx:
-        return 'NO'
+    print(user_email)
+    print(user_img)
     
-    session['user_idx'] = user_idx
-    session['login'] = 1
+    #user_idx = user_dao.user_login(user_id)
+    
+    #if not user_idx:
+    #    return 'NO'
+    
+    #session['user_idx'] = user_idx
+    #session['login'] = 1
     
     return 'OK'
 

@@ -107,6 +107,6 @@ def wishlist():
     return data[0]
 
 #위시리스트추가
-
+ 
 
 #위시리스트취소

@@ -24,7 +24,7 @@ def search_posts():
     return html
 
 #등록페이지 얘기가 필요..
-@product_blue.route('/write_post')
+@product_blue.route('/register')
 def register_post():
     html = render_template('register.html')
     return html
@@ -48,17 +48,19 @@ def upload_post():
     file_list = request.file.get_list() #check
     img_count = len(file_list)
     
+    print(request.form)
+    
     post_dir = current_app.config['POST_FILE']
 
-    post_idx = product_dao.add_post(user_idx, title, description, tags, price, category, size, brand, certificate, receipt)
+    #post_idx = product_dao.add_post(user_idx, title, description, tags, price, category, size, brand, certificate, receipt)
     
-    n=1
-    for post_file in file_list:
-        f_name = datetime.datetime.now().strftime("%Y%m%d_")+'{post_idx}_{num}'.format(post_idx=post_idx, num=n)+secure_filename(post_file.filename)
-        f_location = os.path.join(post_dir,f_name)
-        post_file.save(f_location)
-        user_dao.add_post_file(post_idx, 1, f_location)
-        n += 1
+    #n=1
+    #for post_file in file_list:
+    #    f_name = datetime.datetime.now().strftime("%Y%m%d_")+'{post_idx}_{num}'.format(post_idx=post_idx, num=n)+secure_filename(post_file.filename)
+    #    f_location = os.path.join(post_dir,f_name)
+    #    post_file.save(f_location)
+    #    user_dao.add_post_file(post_idx, 1, f_location)
+    #    n += 1
 
     return 'OK'
 

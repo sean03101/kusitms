@@ -49,7 +49,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100"> 
 				<div class="navbar">
-					<a href="main.html"> <img class="logo" src="../static/images/icons/logo4.png" width="89" height="103" class="d-inline-block align-top" alt="">
+					<a href="{{url_for('static',filename='home')}}"> <img class="logo" src="{{url_for('static',filename='images/icons/logo4.png')}}" width="89" height="103" class="d-inline-block align-top" alt="">
 						</a>
 					<div class="brandname">
 						NEW POST
@@ -81,18 +81,18 @@
 							  but hey, it's pure CSS magic.
 							  -->
 							  <ul id="menu">
-								<a href="main.html"><li>Home</li></a>
-								<a href="subsscribe.html"><li>구독</li></a>
-								<a href="register.html"><li>제품 등록</li></a>
-								<a href="bookmark.html"><li>찜</li></a>
-								<a href="mypage.html"><li>마이 페이지</li></a>
+								<a href="{{url_for('static',filename='main')}}"><li>Home</li></a>
+								<a href="{{url_for('static',filename='subsscribe')}}"><li>구독</li></a>
+								<a href="{{url_for('static',filename='register')}}"><li>제품 등록</li></a>
+								<a href="{{url_for('static',filename='bookmark')}}"><li>찜</li></a>
+								<a href="{{url_for('static',filename='mypage')}}"><li>마이 페이지</li></a>
 							  </ul>
 							</div>
 						  </nav>
 
 						<ul class="nav__logos">
 							
-							<li><a href="shoppingcart.html"><img src="../static/images/icons/shopping-cart.png" width="30" height="30" class="d-inline-block align-top" alt="" ></a></li>
+							<li><a href="{{url_for('static',filename='shoppingcart')}}"><img src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="30" height="30" class="d-inline-block align-top" alt="" ></a></li>
 						</ul>
 
 
@@ -102,7 +102,7 @@
 			<div class="content">
 			    <div id="main_container">
 					<div class="post_form_container">
-						<form action="#" class="post_form">
+						<div action="#" class="post_form">
 							<div class="title">
 						
 							</div>
@@ -173,7 +173,7 @@
 								
 
 							</p>
-							<
+							
 							<div class="button-group" id = "button-gender">
 								<button type="button" class="btn btn-info" id = "btn-gender1" onclick = "button_gender1();">남</button>
 								<button type="button" class="btn btn-info" id = "btn-gender2" onclick = "button_gender2();">여</button>
@@ -202,15 +202,14 @@
 
 							
 							
-
-							<form>
+						<form action="home">
 								<div class="form-group">
 								  <label for="exampleInputEmail1"></label>
 								  <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="가격: 60,000">
 								</div>
-								<button class="submit_btn" onclick="button1_click();"> </button>
+							<button class="submit_btn"  value="UPLOAD" ></button>
 
-							</form>
+						</form>
 
 							
 
@@ -221,7 +220,7 @@
 
 							
 							
-							
+						</div>
 					</div>
 
 				</div>
@@ -303,15 +302,16 @@
 							 $.ajax({
 								url: '/upload_post',
 								type: 'POST',
-								data: dictlogin,
+								data: dictregister,
 
 								success: function(response) {
 
 									alert('로그인이 완료되었습니다');
 
-									location.replace("/");
+									
 									
 								},
+
 								error : function(data) { console.log("에이젝스 실패")},
 
 
@@ -326,7 +326,7 @@
 						var result_gender = '남';
 						console.log(result_gender);
 						dictregister['product_gender'] = result_gender;
-						return result_gender
+						return dictregister
 						
 						
 						}
@@ -334,14 +334,18 @@
 						function button_gender2(){
 						
 						var result_gender = '여';
-						return result_gender
+						console.log(result_gender);
+						dictregister['product_gender'] = result_gender;
+						return dictregister
 						
 						}
 						
 						function button_gender3(){
 						
 						var result_gender = '공용';
-						return result_gender
+						console.log(result_gender);
+						dictregister['product_gender'] = result_gender;
+						return dictregister
 						
 						}
 

@@ -43,6 +43,23 @@ def user_logout():
     return 'OK'
 
 #좋아요 업데이트
+@user_blue.route('/like_update', methods=['post'])
+def add_likepost():
+    if 'user_idx' in session:
+        user_idx = session['user_idx']
+    else:
+        return 'NO'
+    
+    post_idx = request.form['user_idx'] #maybe get?
+    
+    checked_idx = product_dao.check_like(user_idx, post_idx)
+    
+    if not checked_idx:
+        product_dao.add_like(user_idx, post_idx)
+    else:
+        product_dao.delete_like(user_idx, post_idx)
+    
+    return 'OK'
 
 #mypage, 다른사람 페이지 접근 시 고려해야함, 좋아요리스트?
 @user_blue.route('/mypage')
@@ -53,9 +70,10 @@ def mypage():
         user_idx = 1
     
     user = user_dao.user_info(user_idx)
-    post_list = user_dao.mypost_list(user_idx)
+    mypost_list = user_dao.mypost_list(user_idx)
+    likepost_list = user_dao.likepost_list(user_idx)
 
-    #html = render_template('mypage.html', user=user, post_list=post_list) #유저정보, 유저 포스트 정보, 판매유무 등
+    html = render_template('mypage.html', user=user, post_list=post_list, like_list=likepost_list) #유저정보, 유저 포스트 정보, 판매유무 등
     return post_list[0]
     
 #장바구니
@@ -74,7 +92,7 @@ def shopping_cart():
 @user_blue.route('/add_cart_pro')
 def add_cart():
     user_idx = session['user_idx']
-    post_idx = 1
+    post_idx = request.form['post_idx']
     
     user_dao.add_cart(user_idx, post_idx)
     
@@ -84,13 +102,13 @@ def add_cart():
 @user_blue.route('/delete_cart_pro')
 def delete_cart():
     user_idx = session['user_idx']
-    post_idx = 1
+    post_idx = request.form['post']
     
     user_dao.delete_cart(user_idx, post_idx)
     
     return 'OK'
 
-#결제페이지
+#결제페이지 미완성!!
 @user_blue.route('/payment')
 def check_payment():
     user_idx = session['user_idx']

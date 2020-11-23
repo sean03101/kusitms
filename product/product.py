@@ -81,7 +81,7 @@ def upload_comment():
     if 'user_idx' in session:
         user_idx = session['user_idx']
     else:
-        user_idx = 2
+        return 'NO'
     
     post_idx = request.form['post_idx']
     comment_text = request.form['text']
@@ -92,7 +92,20 @@ def upload_comment():
     
     return 'OK'
     
-#코멘트 삭제?
+#코멘트 삭제? 사용안할수도 있음..
+@product_blue.route('/delete_comment', methods=['post'])
+def delete_comment():
+    if 'user_idx' in session:
+        user_idx = session['user_idx']
+    else:
+        return 'NO'
+    
+    post_idx = request.form['post_idx']
+    comment_idx = request.form['comment']
+    
+    product_dao.delete_comment(comment_idx)
+    
+    return 'OK'
 
 #구독페이지 1차
 @product_blue.route('/subscribe')
@@ -112,11 +125,11 @@ def subscribe_list():
         if post['comment_count'] != 0:
             comments = product_dao.post_comment(post['post_idx'])
             post['comments'] = comments        
-    html = render_template('subscribe.html', post_list=post_list) #user, 구독 리스트(이미지 등), 좋아요, 댓글 등
+    html = render_template('subscribe.html', post_list=post_list)
     return html
  
 #구독추가와 취소를 동시에? 같은버튼?
-@product_blue.route('/subscription_update')
+@product_blue.route('/subscription_update', methods=['post'])
 def add_subscription():
     if 'user_idx' in session:
         user_idx = session['user_idx']
@@ -148,3 +161,20 @@ def wishlist():
     return html
 
 #위시리스트 업데이트
+@product_blue.route('/wishlist_update', methods=['post'])
+def add_wishlist():
+    if 'user_idx' in session:
+        user_idx = session['user_idx']
+    else:
+        return 'NO'
+    
+    post_idx = request.form['user_idx'] #maybe get?
+    
+    checked_idx = product_dao.check_wish(user_idx, post_idx)
+    
+    if not checked_idx:
+        product_dao.add_wish(user_idx, post_idx)
+    else:
+        product_dao.delete_wish(user_idx, post_idx)
+    
+    return 'OK'

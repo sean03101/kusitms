@@ -5,7 +5,7 @@
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/util.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/subscribe.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/nav.css')}}">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
@@ -99,7 +99,7 @@
 						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/heart.png')}}" class="icon-subscribe"></i>
 						<span class="nav__text">구독</span>
 					</a>
-					<a href="register.html" class="nav__link">
+					<a href="{{url_for('static',filename='register.html')}}" class="nav__link">
 						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/add-button.png')}}" class="icon-add"></i>
 						<span class="nav__text">등록</span>
 					</a>
@@ -123,7 +123,7 @@
 	</div>
 
 	
-<!--===============================================================================================-->
+<<!--===============================================================================================-->
 <script type="text/javascript" src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->
 	<script type="text/javascript" src="{{url_for('static',filename='vendor/animsition/js/animsition.min.js')}}"></script>
@@ -140,6 +140,5 @@
 <!--===============================================================================================-->
 	<script type="text/javascript" src="{{url_for('static',filename='js/main.js')}}"></script>
 	<script type="text/javascript" src="{{url_for('static',filename='js/mypage.js')}}"></script>
-
 
 </body></html>

@@ -3,16 +3,16 @@ import pymysql
 
 
 #input column 수정
-def add_post(user_idx, title, description, tags, price, category, size, brand, certificate, receipt, image_count):
-    sql = '''insert into posts(user_idx, title, written_time, description, tags, price, category, size, brand, certificate, receipt, image_count, post_like, sell_yn, comment_count)
-             values(%s, %s, now(), %s, %s, %s, %s, %s, %s, %s, %s, %s, 0, 0, 0)'''
+def add_post(user_idx, title, description, tags, price, category, size, brand, gender, certificate, receipt, image_count):
+    sql = '''insert into posts(user_idx, title, written_time, description, tags, price, category, size, brand, gender, certificate, receipt, image_count, post_like, sell_yn, comment_count)
+             values(%s, %s, now(), %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 0, 0, 0)'''
     
     sql1 = '''select last_insert_id()'''
     
     try:
         conn = get_connection()
         cursor = conn.cursor()
-        cursor.execute(sql, (user_idx, title, description, tags, price, category, size, brand, certificate, receipt, image_count))
+        cursor.execute(sql, (user_idx, title, description, tags, price, category, size, brand, gender, certificate, receipt, image_count))
         conn.commit()
         cursor.execute(sql1)
         result = cursor.fetchone()
@@ -22,7 +22,7 @@ def add_post(user_idx, title, description, tags, price, category, size, brand, c
     return result[0]
 
 
-def add_post_file(post_idx):
+def add_post_file(post_idx, file_type, location):
     sql = '''insert into post_file(post_idx, file_type, location)
              values (%s, %s, %s)'''
              
@@ -30,7 +30,7 @@ def add_post_file(post_idx):
         conn = get_connection()
         cursor = conn.cursor()
         cursor.execute(sql, (post_idx, file_type, location))
-        conn.commit
+        conn.commit()
     finally:
         if conn is not None: conn.close()
     
@@ -72,9 +72,9 @@ def post_list(order_type):
     print(data_list)
     return data_list
 
-#dict
+#한글 인코딩 생각해야됨
 def post_detail(post_idx):
-    sql = '''select post_idx, user_idx, title, written_time, description, tags, price, category, size, brand, certificate, receipt, post_like, sell_yn, comment_count 
+    sql = '''select post_idx, user_idx, title, written_time, description, tags, price, category, size, brand, gender, certificate, receipt, post_like, sell_yn, comment_count 
              from posts where post_idx=%s'''
     
     try:
@@ -100,11 +100,12 @@ def post_detail(post_idx):
     data['category'] = result[7]
     data['size'] = result[8]
     data['brand'] = result[9]
-    data['certificate'] = result[10]
-    data['receipt'] = result[11]
-    data['post_like'] = result[12]
-    data['sell_yn'] = result[13]
-    data['comment_count'] = result[14]
+    data['gender'] = result[10]
+    data['certificate'] = result[11]
+    data['receipt'] = result[12]
+    data['post_like'] = result[13]
+    data['sell_yn'] = result[14]
+    data['comment_count'] = result[15]
     
     return data
 

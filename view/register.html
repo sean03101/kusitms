@@ -1,9 +1,8 @@
-
 <head>
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
 	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/util.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/hamburgernav.css')}}">
@@ -12,137 +11,153 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-    <!-- Facebook Meta Tags / 페이스북 오픈 그래프 -->
-    <meta property="og:url" content="http://kindtiger.dothome.co.kr/insta">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="instagram">
-    <meta property="og:description" content="instagram clone">
-    <meta property="og:image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
-    .
-    <!-- Twitter Meta Tags / 트위터 -->
-    <meta name="twitter:card" content="instagram clone">
-    <meta name="twitter:title" content="instagram">
-    <meta name="twitter:description" content="instagram clone">
-    <meta name="twitter:image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
+	<!-- Facebook Meta Tags / 페이스북 오픈 그래프 -->
+	<meta property="og:url" content="http://kindtiger.dothome.co.kr/insta">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="instagram">
+	<meta property="og:description" content="instagram clone">
+	<meta property="og:image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
+	.
+	<!-- Twitter Meta Tags / 트위터 -->
+	<meta name="twitter:card" content="instagram clone">
+	<meta name="twitter:title" content="instagram">
+	<meta name="twitter:description" content="instagram clone">
+	<meta name="twitter:image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
 
-    <!-- Google / Search Engine Tags / 구글 검색 엔진 -->
-    <meta itemprop="name" content="instagram">
-    <meta itemprop="description" content="instagram clone">
-    <meta itemprop="image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
+	<!-- Google / Search Engine Tags / 구글 검색 엔진 -->
+	<meta itemprop="name" content="instagram">
+	<meta itemprop="description" content="instagram clone">
+	<meta itemprop="image" content="http://kindtiger.dothome.co.kr/insta/imgs/instagram.jpeg">
 
 
-    <title>instagram</title>
-    <link rel="stylesheet" href="{{url_for('static',filename='css/reset.css')}}">
-    <link rel="stylesheet" href="{{url_for('static',filename='css/common.css')}}">
-    <link rel="stylesheet" href="{{url_for('static',filename='css/new_post.css')}}">
+	<title>instagram</title>
+	<link rel="stylesheet" href="{{url_for('static',filename='css/reset.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename='css/common.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename='css/new_post.css')}}">
 
 </head>
+
 <body>
-	
+
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100"> 
+			<div class="wrap-login100">
 				<div class="navbar">
-					<a href="{{url_for('static',filename='home')}}"> <img class="logo" src="{{url_for('static',filename='images/icons/logo4.png')}}" width="89" height="103" class="d-inline-block align-top" alt="">
-						</a>
+					<a href="{{url_for('static',filename='home')}}"> <img class="logo"
+							src="{{url_for('static',filename='images/icons/logo4.png')}}" width="89" height="103"
+							class="d-inline-block align-top" alt="">
+					</a>
 					<div class="brandname">
 						NEW POST
 					</div>
 					<nav>
 
-						
+
 
 						<nav role='navigation'>
 							<div id="menuToggle">
-							  <!--
+								<!--
 							  A fake / hidden checkbox is used as click reciever,
 							  so you can use the :checked selector on it.
 							  -->
-							  <input type="checkbox" />
-							  
-							  <!--
+								<input type="checkbox" />
+
+								<!--
 							  Some spans to act as a hamburger.
 							  
 							  They are acting like a real hamburger,
 							  not that McDonalds stuff.
 							  -->
-							  <span></span>
-							  <span></span>
-							  <span></span>
-							  
-							  <!--
+								<span></span>
+								<span></span>
+								<span></span>
+
+								<!--
 							  Too bad the menu has to be inside of the button
 							  but hey, it's pure CSS magic.
 							  -->
-							  <ul id="menu">
-								<a href="{{url_for('static',filename='main')}}"><li>Home</li></a>
-								<a href="{{url_for('static',filename='subsscribe')}}"><li>구독</li></a>
-								<a href="{{url_for('static',filename='register')}}"><li>제품 등록</li></a>
-								<a href="{{url_for('static',filename='bookmark')}}"><li>찜</li></a>
-								<a href="{{url_for('static',filename='mypage')}}"><li>마이 페이지</li></a>
-							  </ul>
+								<ul id="menu">
+									<a href="{{url_for('static',filename='main')}}">
+										<li>Home</li>
+									</a>
+									<a href="{{url_for('static',filename='subsscribe')}}">
+										<li>구독</li>
+									</a>
+									<a href="{{url_for('static',filename='register')}}">
+										<li>제품 등록</li>
+									</a>
+									<a href="{{url_for('static',filename='bookmark')}}">
+										<li>찜</li>
+									</a>
+									<a href="{{url_for('static',filename='mypage')}}">
+										<li>마이 페이지</li>
+									</a>
+								</ul>
 							</div>
-						  </nav>
+						</nav>
 
 						<ul class="nav__logos">
-							
-							<li><a href="{{url_for('static',filename='shoppingcart')}}"><img src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="30" height="30" class="d-inline-block align-top" alt="" ></a></li>
+
+							<li><a href="{{url_for('static',filename='shoppingcart')}}"><img
+										src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="30"
+										height="30" class="d-inline-block align-top" alt=""></a></li>
 						</ul>
 
 
 					</nav>
 				</div>
 
-			<div class="content">
-			    <div id="main_container">
-					<div class="post_form_container">
-						<div action="#" class="post_form">
-							<div class="title">
-						
-							</div>
-							<div class="preview">
-								<div class="upload">
-									<div class="post_btn">
-										<div class="plus_icon">
-											<span></span>
-											<span></span>
+				<div class="content">
+					<div id="main_container">
+						<div class="post_form_container">
+							<div action="#" class="post_form">
+								<div class="title">
+
+								</div>
+								<div class="preview">
+									<div class="upload">
+										<div class="post_btn">
+											<div class="plus_icon">
+												<span></span>
+												<span></span>
+											</div>
+											<p>포스트 이미지 추가</p>
+											<canvas id="imageCanvas"></canvas>
+											<!--<p><img id="img_id" src="#" style="width: 300px; height: 300px; object-fit: cover" alt="thumbnail"></p>-->
 										</div>
-										<p>포스트 이미지 추가</p>
-										<canvas id="imageCanvas"></canvas>
-										<!--<p><img id="img_id" src="#" style="width: 300px; height: 300px; object-fit: cover" alt="thumbnail"></p>-->
 									</div>
 								</div>
-							</div>
-							<p>
-								<input type="file" name="photo" id="id_photo" required="required">
-							</p>
-							<p>
-								<textarea name="content" id="text_field" cols="50" rows="5" placeholder="판매자 댓글"></textarea>
+								<p>
+									<input type="file" name="photo" id="id_photo" accept="image/*" required="required"/>
+								</p>
+								<p>
+									<textarea name="content" id="text_field" cols="50" rows="5"
+										placeholder="판매자 댓글"></textarea>
 
 								<p>
 									<text id="instruction">
-									상품의 착용 시 정보 제공을 위해 전신샷을 반드시 찍어주세요.
-									플랫폼 무드와 맞지 않는 상품은 검열을 통해 업로드가 불가할 수 있습니다.
-									제품별 세부 이미지 약관에 따라 여러분의 상품을 상세하게 보여주세요.
+										상품의 착용 시 정보 제공을 위해 전신샷을 반드시 찍어주세요.
+										플랫폼 무드와 맞지 않는 상품은 검열을 통해 업로드가 불가할 수 있습니다.
+										제품별 세부 이미지 약관에 따라 여러분의 상품을 상세하게 보여주세요.
 									</text>
 								</p>
 
 								<div class="dropdown">
 
-									<select class="mdb-select md-form" id = "mdb-selectmd-form-cloth">
+									<select class="mdb-select md-form" id="mdb-selectmd-form-cloth">
 										<option value="" disabled selected>카테고리</option>
 										<option value="1">상의</option>
 										<option value="2">하의</option>
 										<option value="3">기타</option>
 									</select>
 
-									<select class="mdb-select md-form" id = "mdb-selectmd-form-brand">
+									<select class="mdb-select md-form" id="mdb-selectmd-form-brand">
 										<option value="" disabled selected>브랜드</option>
 										<option value="1">Polo</option>
 										<option value="2">Saint Laurent</option>
@@ -157,7 +172,7 @@
 										<option value="15">Other</option>
 									</select>
 
-									<select class="mdb-select md-form" id = "mdb-selectmd-form-size">
+									<select class="mdb-select md-form" id="mdb-selectmd-form-size">
 										<option value="" disabled selected>사이즈</option>
 										<option value="1">XS</option>
 										<option value="2">S</option>
@@ -166,232 +181,254 @@
 										<option value="5">XL</option>
 										<option value="5">FREE</option>
 									</select>
-									
+
 								</div>
-	
 
-								
 
-							</p>
-							
-							<div class="button-group" id = "button-gender">
-								<button type="button" class="btn btn-info" id = "btn-gender1" onclick = "button_gender1();">남</button>
-								<button type="button" class="btn btn-info" id = "btn-gender2" onclick = "button_gender2();">여</button>
-								<button type="button" class="btn btn-info" id = "btn-gender3" onclick = "button_gender3();">공용</button>
-							</div>
-							
 
-							<div class="secondform">
-								요소 체크박스
 
-							<div class="form-check">
-											<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-											<label class="form-check-label" for="defaultCheck1">
-												영수증 유무
-											</label>
-							</div>
+								</p>
 
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-								<label class="form-check-label" for="defaultCheck1">
-									품질 증명서
-								</label>
-							</div>
-
-							</div>
-
-							
-							
-						<form action="home">
-								<div class="form-group">
-								  <label for="exampleInputEmail1"></label>
-								  <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="가격: 60,000">
+								<div class="button-group" id="button-gender">
+									<button type="button" class="btn btn-info" id="btn-gender1"
+										onclick="button_gender1();">남</button>
+									<button type="button" class="btn btn-info" id="btn-gender2"
+										onclick="button_gender2();">여</button>
+									<button type="button" class="btn btn-info" id="btn-gender3"
+										onclick="button_gender3();">공용</button>
 								</div>
-							<button class="submit_btn"  value="UPLOAD" ></button>
-
-						</form>
-
-							
 
 
-						
+								<div class="secondform">
+									요소 체크박스
 
-							
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+										<label class="form-check-label" for="defaultCheck1">
+											영수증 유무
+										</label>
+									</div>
 
-							
-							
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+										<label class="form-check-label" for="defaultCheck1">
+											품질 증명서
+										</label>
+									</div>
+
+								</div>
+
+
+
+								<form action="home">
+									<div class="form-group">
+										<label for="exampleInputEmail1"></label>
+										<input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+											placeholder="가격: 60,000">
+									</div>
+								</form>
+								<div>
+									<button class="submit_btn" onclick="button1_click();" value="UPLOAD"></button>
+								</div>
+							</div>
 						</div>
+
 					</div>
+
+
+					</section>
+
+
+					<script>
+						var fileInput = document.querySelector("#id_photo"),
+							button = document.querySelector(".input-file-trigger"),
+							the_return = document.querySelector(".file-return");
+
+						// Show image
+						fileInput.addEventListener('change', handleImage, false);
+						var canvas = document.getElementById('imageCanvas');
+						var ctx = canvas.getContext('2d');
+
+
+						function handleImage(e) {
+							var reader = new FileReader();
+							reader.onload = function (event) {
+								var img = new Image();
+								// var imgWidth =
+								img.onload = function () {
+									canvas.width = 300;
+									canvas.height = 300;
+									ctx.drawImage(img, 0, 0, 300, 300);
+								};
+								img.src = event.target.result;
+								// img.width = img.width*0.5
+								// canvas.height = img.height;
+							};
+							reader.readAsDataURL(e.target.files[0]);
+						}
+
+
+					</script>
+
+					<script>
+
+						//var dictregister = {};
+						var fd = new FormData();
+
+						function button1_click() {
+						
+							let files = $(`#id_photo`)[0].files[0];
+							let describe = $("#text_field").val();
+							let category = $("#mdb-selectmd-form-cloth option:selected").text();
+							let brand = $("#mdb-selectmd-form-brand option:selected").text();
+							let size = $("#mdb-selectmd-form-size option:selected").text();
+							let price = $("#exampleInputEmail1").val();
+
+							fd.set("file", files);
+							fd.append('describe', describe);
+							fd.append('category', category);
+							fd.append('brand', brand);
+							fd.append('size', size);
+							fd.append('price', price);
+
+
+							// dictregister['image'] = $("#id_photo").val();
+							// dictregister['describe'] = $("#text_field").val();
+							// dictregister['category'] = $("#mdb-selectmd-form-cloth option:selected").text();
+							// dictregister['brand'] = $("#mdb-selectmd-form-brand option:selected").text();
+							// dictregister['size'] = $("#mdb-selectmd-form-size option:selected").text();
+							// dictregister['price'] = $("#exampleInputEmail1").val();
+
+
+							if ($('input:checkbox[id="defaultCheck1"]').is(":checked") == true) {
+								fd.append('isreceipt',1);
+							}
+							else {
+								fd.append('isreceipt',0);
+							}
+
+							// if ($('input:checkbox[id="defaultCheck1"]').is(":checked") == true) {
+							// 	dictregister['isreceipt'] = 1;
+							// }
+							// else {
+							// 	dictregister['isreceipt'] = 0;
+							// }
+
+							if ($('input:checkbox[id="defaultCheck2"]').is(":checked") == true) {
+								fd.append('isguarantee', 1);
+							}
+							else {
+								fd.append('isguarantee', 0);
+							}
+
+							// if ($('input:checkbox[id="defaultCheck2"]').is(":checked") == true) {
+							// 	dictregister['isguarantee'] = 1;
+							// }
+							// else {
+							// 	dictregister['isguarantee'] = 0;
+							// }
+
+							for (let key of fd.keys()) {
+								console.log('key:', key);
+							}
+							for (let value of fd.values()) {
+								console.log('value:', value);
+							}
+
+							$.ajax({
+								url: '/upload_post',
+								type: 'post',
+								data: fd,
+								datatype: 'text',
+								contentType: false,
+								processData: false,
+								success: function (response) {
+									if (response=='OK'){
+										alert('상품 등록이 완료되었습니다');
+										location.href = "/home";
+									}
+								},
+								error: function (data) { console.log("에이젝스 실패") },
+							});
+
+						}
+
+
+						function button_gender1() {
+
+							var result_gender = '남';
+							fd.append('gender', result_gender)
+							//dictregister['gender'] = result_gender;
+							return fd
+
+
+						}
+
+						function button_gender2() {
+
+							var result_gender = '여';
+							fd.append('gender', result_gender)
+							//dictregister['gender'] = result_gender;
+							return fd
+
+						}
+
+						function button_gender3() {
+
+							var result_gender = '공용';
+							fd.append('gender', result_gender)
+							//dictregister['gender'] = result_gender;
+							return fd
+
+						}
+
+
+
+					</script>
+
+
+
+
+
+				</div>
+
+				<div>
+
+
 
 				</div>
 
 
-			</section>
 
-
-			<script>
-				   var fileInput  = document.querySelector( "#id_photo" ),
-					   button     = document.querySelector( ".input-file-trigger" ),
-					   the_return = document.querySelector(".file-return");
-
-				   // Show image
-				   fileInput.addEventListener('change', handleImage, false);
-				   var canvas = document.getElementById('imageCanvas');
-				   var ctx = canvas.getContext('2d');
-
-
-					function handleImage(e){
-					   var reader = new FileReader();
-					   reader.onload = function(event){
-						   var img = new Image();
-						   // var imgWidth =
-						   img.onload = function(){
-							   canvas.width = 300;
-							   canvas.height = 300;
-							   ctx.drawImage(img,0,0,300,300);
-						   };
-						   img.src = event.target.result;
-						   // img.width = img.width*0.5
-						   // canvas.height = img.height;
-					   };
-					   reader.readAsDataURL(e.target.files[0]);
-				   }
-
-
-			</script>
-			
-					<script>
-					
-					var dictregister ={};
-					
-					
-					
-					function button1_click() {
-					
-							dictregister['product_image'] = $("#id_photo").val();
-							dictregister['product_text'] = $("#text_field").val();
-							dictregister['product_select_cloth'] = $("#mdb-selectmd-form-cloth option:selected").text();
-							dictregister['product_select_brand'] = $("#mdb-selectmd-form-brand option:selected").text();
-							dictregister['product_select_size'] = $("#mdb-selectmd-form-size option:selected").text();
-									
-							
-									
-									
-									
-									
-							if ($('input:checkbox[id="defaultCheck1"]').is(":checked") == true)		
-									 {
-										dictregister['product_isreceipt'] = 1;
-										}
-							else{
-								dictregister['product_isreceipt'] = 0;
-								}
-									
-									
-							if ($('input:checkbox[id="defaultCheck2"]').is(":checked") == true) {
-										dictregister['product_isguarantee'] = 1;
-										}
-							else{
-									dictregister['product_isguarantee'] = 0;
-								}
-										
-							dictregister['product_price'] = $("#exampleInputEmail1").val();
-							
-							console.log(dictregister);
-							
-							 $.ajax({
-								url: '/upload_post',
-								type: 'POST',
-								data: dictregister,
-
-								success: function(response) {
-
-									alert('로그인이 완료되었습니다');
-
-									
-									
-								},
-
-								error : function(data) { console.log("에이젝스 실패")},
-
-
-							
-							});
-								
-							}
-							
-							
-						function button_gender1(){
-						
-						var result_gender = '남';
-						console.log(result_gender);
-						dictregister['product_gender'] = result_gender;
-						return dictregister
-						
-						
-						}
-						
-						function button_gender2(){
-						
-						var result_gender = '여';
-						console.log(result_gender);
-						dictregister['product_gender'] = result_gender;
-						return dictregister
-						
-						}
-						
-						function button_gender3(){
-						
-						var result_gender = '공용';
-						console.log(result_gender);
-						dictregister['product_gender'] = result_gender;
-						return dictregister
-						
-						}
-
-
-
-			</script>
-			
-			
-			
-			
-			
-			</div>
-		
-			<div>
-				
-
-			
-			</div>
-			
-
-			
 			</div>
 
 		</div>
 	</div>
-	
-<!--===============================================================================================-->
+
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
-<!--===============================================================================================-->
-	<script type="text/javascript" src="{{url_for('static',filename='vendor/animsition/js/animsition.min.js')}}"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<script type="text/javascript"
+		src="{{url_for('static',filename='vendor/animsition/js/animsition.min.js')}}"></script>
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="{{url_for('static',filename='vendor/bootstrap/js/popper.js')}}"></script>
 	<script type="text/javascript" src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="{{url_for('static',filename='vendor/select2/select2.min.js')}}"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="{{url_for('static',filename='vendor/daterangepicker/moment.min.js')}}"></script>
-	<script type="text/javascript" src="{{url_for('static',filename='vendor/daterangepicker/daterangepicker.js')}}"></script>
-<!--===============================================================================================-->
-	<script type="text/javascript" src="{{url_for('static',filename='vendor/countdowntime/countdowntime.js')}}"></script>
-<!--===============================================================================================-->
+	<script type="text/javascript"
+		src="{{url_for('static',filename='vendor/daterangepicker/daterangepicker.js')}}"></script>
+	<!--===============================================================================================-->
+	<script type="text/javascript"
+		src="{{url_for('static',filename='vendor/countdowntime/countdowntime.js')}}"></script>
+	<!--===============================================================================================-->
 	<script type="text/javascript" src="{{url_for('static',filename='js/main.js')}}"></script>
 	<script type="text/javascript" src="{{url_for('static',filename='js/hamburgernav.js')}}"></script>
 	<script type="text/javascript" src="{{url_for('static',filename='js/materialselect.js')}}"></script>
 
 </body>
+
 </html>
 
 

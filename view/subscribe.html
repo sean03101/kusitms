@@ -38,20 +38,20 @@
 						<div class="contents_box">
 
 							{% for sublist in post_list %}
-							{% set productpicture = sublist.img_url %}
-							{% set username = "sungho Lee" %}
-							{% set useremail = "sean03101@gmail.com" %}
+								{% set productpicture = sublist.img_url %}
+								
+						
 
 
 							<article class="contents">
 								<header class="top">
 									<div class="user_container">
 										<div class="profile_img">
-											<img src="{{productpicture[8:]}}" alt="프로필이미지"> <!-- 유저 프로필사진-->
+											<img src="{{sublist.user_img}}" alt="프로필이미지"> <!-- 유저 프로필사진-->
 										</div>
 										<div class="user_name">
-											<div class="nick_name m_text"> {{username}} </div> <!-- 유저 이름-->
-											<div class="country s_text"> {{useremail}}</div>    <!-- 유저 이메일-->
+											<div class="nick_name m_text"> {{sublist.user_name}} </div> <!-- 유저 이름-->
+											<div class="country s_text"> {{sublist.user_email}} </div>    <!-- 유저 이메일-->
 										</div>
 			
 									</div>
@@ -91,26 +91,28 @@
 		
 				<div>
 					<nav class="nav_bottom">
-					<a href="main.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/home-2.png')}}" class="icon-home"></i> 
-						<span class="nav__text">Home</span>
-					</a>
-					<a href="subscribe.html" class="nav__link nav__link--active">
-						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/heart.png')}}" class="icon-subscribe"></i>
-						<span class="nav__text">구독</span>
-					</a>
-					<a href="{{url_for('static',filename='register.html')}}" class="nav__link">
-						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/add-button.png')}}" class="icon-add"></i>
-						<span class="nav__text">등록</span>
-					</a>
-					<a href="like.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/bookmark.png')}}" class="icon-bookmark"></i>
-						<span class="nav__text">저장</span>
-					</a>
-					<a href="mypage.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/user.png')}}" class="icon-user"></i>
-						<span class="nav__text">My Page</span>
-					</a>
+
+						<a href="{{url_for('static',filename='home')}}" class="nav__link">
+							<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/home-2.png')}}" class="icon-home"></i> 
+							<span class="nav__text">Home</span>
+						</a>
+						<a href="{{url_for('static',filename='subscribe')}}" class="nav__link nav__link--active">
+							<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/heart.png')}}" class="icon-subscribe"></i>
+							<span class="nav__text">구독</span>
+						</a>
+						<a href="{{url_for('static',filename='register')}}" class="nav__link">
+							<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/add-button.png')}}" class="icon-add"></i>
+							<span class="nav__text">등록</span>
+						</a>
+						<a href="{{url_for('static',filename='like')}}" class="nav__link">
+							<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/bookmark.png')}}" class="icon-bookmark"></i>
+							<span class="nav__text">저장</span>
+						</a>
+						<a href="{{url_for('static',filename='mypage')}}" class="nav__link">
+							<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/user.png')}}" class="icon-user"></i>
+							<span class="nav__text">My Page</span>
+						</a>
+
 	
 				</nav>
 				</div>

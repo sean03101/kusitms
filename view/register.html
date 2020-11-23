@@ -3,9 +3,12 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/nav.css">
+	
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/hamburgernav.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
@@ -35,10 +38,10 @@
 
 
     <title>instagram</title>
-    <link rel="stylesheet" href="../static/css/reset.css">
-    <link rel="stylesheet" href="../static/css/common.css">
-    <link rel="stylesheet" href="../static/css/new_post.css">
-    <link rel="shortcut icon" href="../static/imgs/instagram.png">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/reset.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/common.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/new_post.css')}}">
+
 </head>
 <body>
 	
@@ -46,15 +49,53 @@
 		<div class="container-login100">
 			<div class="wrap-login100"> 
 				<div class="navbar">
-					<img class="logo" src="../static/images/icons/leaf.png" width="30" height="30" class="d-inline-block align-top" alt="">
+					<a href="main.html"> <img class="logo" src="../static/images/icons/logo4.png" width="89" height="103" class="d-inline-block align-top" alt="">
+						</a>
 					<div class="brandname">
-						RE-FIT 리핏
+						NEW POST
 					</div>
 					<nav>
+
+						
+
+						<nav role='navigation'>
+							<div id="menuToggle">
+							  <!--
+							  A fake / hidden checkbox is used as click reciever,
+							  so you can use the :checked selector on it.
+							  -->
+							  <input type="checkbox" />
+							  
+							  <!--
+							  Some spans to act as a hamburger.
+							  
+							  They are acting like a real hamburger,
+							  not that McDonalds stuff.
+							  -->
+							  <span></span>
+							  <span></span>
+							  <span></span>
+							  
+							  <!--
+							  Too bad the menu has to be inside of the button
+							  but hey, it's pure CSS magic.
+							  -->
+							  <ul id="menu">
+								<a href="main.html"><li>Home</li></a>
+								<a href="subsscribe.html"><li>구독</li></a>
+								<a href="register.html"><li>제품 등록</li></a>
+								<a href="bookmark.html"><li>찜</li></a>
+								<a href="mypage.html"><li>마이 페이지</li></a>
+							  </ul>
+							</div>
+						  </nav>
+
 						<ul class="nav__logos">
-							<li><a href="#"><img src="../static/images/icons/search.png" width="20" height="20" class="d-inline-block align-top" alt=""></a></li>
-							<li><a href="shoppingcart.html"><img src="../static/images/icons/shopping-cart.png" width="20" height="20" class="d-inline-block align-top" alt="" ></a></li>
+							
+							<li><a href="shoppingcart.html"><img src="../static/images/icons/shopping-cart.png" width="30" height="30" class="d-inline-block align-top" alt="" ></a></li>
 						</ul>
+
+
 					</nav>
 				</div>
 
@@ -63,7 +104,7 @@
 					<div class="post_form_container">
 						<form action="#" class="post_form">
 							<div class="title">
-								NEW POST
+						
 							</div>
 							<div class="preview">
 								<div class="upload">
@@ -82,14 +123,105 @@
 								<input type="file" name="photo" id="id_photo" required="required">
 							</p>
 							<p>
-								<textarea name="content" id="text_field" cols="50" rows="5" placeholder="140자 까지 등록 가능합니다.
-			#태그명 을 통해서 검색 태그를 등록할 수 있습니다.
-			예시 : I # love # insta!"></textarea>
+								<textarea name="content" id="text_field" cols="50" rows="5" placeholder="판매자 댓글"></textarea>
+
+								<p>
+									<text id="instruction">
+									상품의 착용 시 정보 제공을 위해 전신샷을 반드시 찍어주세요.
+									플랫폼 무드와 맞지 않는 상품은 검열을 통해 업로드가 불가할 수 있습니다.
+									제품별 세부 이미지 약관에 따라 여러분의 상품을 상세하게 보여주세요.
+									</text>
+								</p>
+
+								<div class="dropdown">
+
+									<select class="mdb-select md-form" id = "mdb-selectmd-form-cloth">
+										<option value="" disabled selected>카테고리</option>
+										<option value="1">상의</option>
+										<option value="2">하의</option>
+										<option value="3">기타</option>
+									</select>
+
+									<select class="mdb-select md-form" id = "mdb-selectmd-form-brand">
+										<option value="" disabled selected>브랜드</option>
+										<option value="1">Polo</option>
+										<option value="2">Saint Laurent</option>
+										<option value="3">Zara</option>
+										<option value="4">H&M</option>
+										<option value="5">Balenciaga</option>
+										<option value="6">Under Armor</option>
+										<option value="7">Zara</option>
+										<option value="8">New Balance</option>
+										<option value="10">Nike</option>
+										<option value="14">thisisneverthat</option>
+										<option value="15">Other</option>
+									</select>
+
+									<select class="mdb-select md-form" id = "mdb-selectmd-form-size">
+										<option value="" disabled selected>사이즈</option>
+										<option value="1">XS</option>
+										<option value="2">S</option>
+										<option value="3">M</option>
+										<option value="4">L</option>
+										<option value="5">XL</option>
+										<option value="5">FREE</option>
+									</select>
+									
+								</div>
+	
+
+								
 
 							</p>
-							<input class="submit_btn" type="submit" value="저장">
-						</form>
+							<
+							<div class="button-group" id = "button-gender">
+								<button type="button" class="btn btn-info" id = "btn-gender1" onclick = "button_gender1();">남</button>
+								<button type="button" class="btn btn-info" id = "btn-gender2" onclick = "button_gender2();">여</button>
+								<button type="button" class="btn btn-info" id = "btn-gender3" onclick = "button_gender3();">공용</button>
+							</div>
+							
 
+							<div class="secondform">
+								요소 체크박스
+
+							<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+											<label class="form-check-label" for="defaultCheck1">
+												영수증 유무
+											</label>
+							</div>
+
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+								<label class="form-check-label" for="defaultCheck1">
+									품질 증명서
+								</label>
+							</div>
+
+							</div>
+
+							
+							
+
+							<form>
+								<div class="form-group">
+								  <label for="exampleInputEmail1"></label>
+								  <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="가격: 60,000">
+								</div>
+								<button class="submit_btn" onclick="button1_click();"> </button>
+
+							</form>
+
+							
+
+
+						
+
+							
+
+							
+							
+							
 					</div>
 
 				</div>
@@ -97,7 +229,6 @@
 
 			</section>
 
-			<script src="js/insta.js"></script>
 
 			<script>
 				   var fileInput  = document.querySelector( "#id_photo" ),
@@ -130,34 +261,104 @@
 
 			</script>
 			
+					<script>
+					
+					var dictregister ={};
+					
+					
+					
+					function button1_click() {
+					
+							dictregister['product_image'] = $("#id_photo").val();
+							dictregister['product_text'] = $("#text_field").val();
+							dictregister['product_select_cloth'] = $("#mdb-selectmd-form-cloth option:selected").text();
+							dictregister['product_select_brand'] = $("#mdb-selectmd-form-brand option:selected").text();
+							dictregister['product_select_size'] = $("#mdb-selectmd-form-size option:selected").text();
+									
+							
+									
+									
+									
+									
+							if ($('input:checkbox[id="defaultCheck1"]').is(":checked") == true)		
+									 {
+										dictregister['product_isreceipt'] = 1;
+										}
+							else{
+								dictregister['product_isreceipt'] = 0;
+								}
+									
+									
+							if ($('input:checkbox[id="defaultCheck2"]').is(":checked") == true) {
+										dictregister['product_isguarantee'] = 1;
+										}
+							else{
+									dictregister['product_isguarantee'] = 0;
+								}
+										
+							dictregister['product_price'] = $("#exampleInputEmail1").val();
+							
+							console.log(dictregister);
+							
+							 $.ajax({
+								url: '/upload_post',
+								type: 'POST',
+								data: dictlogin,
+
+								success: function(response) {
+
+									alert('로그인이 완료되었습니다');
+
+									location.replace("/");
+									
+								},
+								error : function(data) { console.log("에이젝스 실패")},
+
+
+							
+							});
+								
+							}
+							
+							
+						function button_gender1(){
+						
+						var result_gender = '남';
+						console.log(result_gender);
+						dictregister['product_gender'] = result_gender;
+						return result_gender
+						
+						
+						}
+						
+						function button_gender2(){
+						
+						var result_gender = '여';
+						return result_gender
+						
+						}
+						
+						function button_gender3(){
+						
+						var result_gender = '공용';
+						return result_gender
+						
+						}
+
+
+
+			</script>
+			
+			
+			
+			
+			
 			</div>
 		
 			<div>
-				<nav class="nav_bottom">
-					<a href="main.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/home-2.png" class="icon-home"></i> 
-						<span class="nav__text">Home</span>
-					</a>
-					<a href="subscribe.html" class="nav__link nav__link--active">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/heart.png" class="icon-subscribe"></i>
-						<span class="nav__text">구독</span>
-					</a>
-					<a href="register.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/add-button.png" class="icon-add"></i>
-						<span class="nav__text">등록</span>
-					</a>
-					<a href="like.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/bookmark.png" class="icon-bookmark"></i>
-						<span class="nav__text">저장</span>
-					</a>
-					<a href="mypage.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/user.png" class="icon-user"></i>
-						<span class="nav__text">My Page</span>
-					</a>
-	
-				</nav>
+				
 
-			</nav>
+			
 			</div>
 			
 
@@ -166,24 +367,25 @@
 
 		</div>
 	</div>
-
 	
 <!--===============================================================================================-->
-	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/animsition/js/animsition.min.js"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='vendor/animsition/js/animsition.min.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/bootstrap/js/popper.js"></script>
-	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='vendor/bootstrap/js/popper.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/select2/select2.min.js"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='vendor/select2/select2.min.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/daterangepicker/moment.min.js"></script>
-	<script src="../static/vendor/daterangepicker/daterangepicker.js"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='vendor/daterangepicker/moment.min.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='vendor/daterangepicker/daterangepicker.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/countdowntime/countdowntime.js"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='vendor/countdowntime/countdowntime.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/js/main.js"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='js/main.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='js/hamburgernav.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='js/materialselect.js')}}"></script>
 
 </body>
 </html>

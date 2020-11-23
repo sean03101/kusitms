@@ -7,6 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/util.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/subscribe.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/nav.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/hamburgernav.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
@@ -18,16 +20,53 @@
 		<div class="container-login100">
 			<div class="wrap-login100"> 
 				<div class="navbar">
-					<img class="logo" src="{{url_for('static',filename='images/icons/logo1.png')}}" width="89" height="103" class="d-inline-block align-top" alt="">
-				
-					   <div id="input-form">
-							<input type="text" id="searchbar" placeholder="검색어를 입력하세요." onkeyup="search(this);">
-						</div>
+					<a href="{{url_for('static',filename='home')}}" > <img class="logo" src="{{url_for('static',filename='images/icons/logo4.png')}}" width="89" height="103" class="d-inline-block align-top" alt="">
+						</a>
+					<div class="brandname">
+						NEW POST
+					</div>
 					<nav>
+
+						
+
+						<nav role='navigation'>
+							<div id="menuToggle">
+							  <!--
+							  A fake / hidden checkbox is used as click reciever,
+							  so you can use the :checked selector on it.
+							  -->
+							  <input type="checkbox" />
+							  
+							  <!--
+							  Some spans to act as a hamburger.
+							  
+							  They are acting like a real hamburger,
+							  not that McDonalds stuff.
+							  -->
+							  <span></span>
+							  <span></span>
+							  <span></span>
+							  
+							  <!--
+							  Too bad the menu has to be inside of the button
+							  but hey, it's pure CSS magic.
+							  -->
+							  <ul id="menu">
+								<a href="{{url_for('static',filename='home')}}"><li>Home</li></a>
+								<a href="{{url_for('static',filename='subsscribe')}}"><li>구독</li></a>
+								<a href="{{url_for('static',filename='register')}}"><li>제품 등록</li></a>
+								<a href="{{url_for('static',filename='bookmark')}}"><li>찜</li></a>
+								<a href="{{url_for('static',filename='mypage')}}"><li>마이 페이지</li></a>
+							  </ul>
+							</div>
+						  </nav>
+
 						<ul class="nav__logos">
-							<li><a href="#" id="btn_search"><img src="{{url_for('static',filename='images/icons/search.png')}}" width="20" height="20" class="d-inline-block align-top" alt=""></a></li>
-							<li><a href="shoppingcart.html"><img src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="40" height="40" class="d-inline-block align-top" alt="" ></a></li>
+							
+							<li><a href="{{url_for('static',filename='shoppingcart')}}"><img src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="30" height="30" class="d-inline-block align-top" alt="" ></a></li>
 						</ul>
+
+
 					</nav>
 				</div>
 					
@@ -124,6 +163,38 @@
 		</div>
 	</div>
 
+
+	<script>
+		var fileInput  = document.querySelector( "#id_photo" ),
+			button     = document.querySelector( ".input-file-trigger" ),
+			the_return = document.querySelector(".file-return");
+
+		// Show image
+		fileInput.addEventListener('change', handleImage, false);
+		var canvas = document.getElementById('imageCanvas');
+		var ctx = canvas.getContext('2d');
+
+
+		 function handleImage(e){
+			var reader = new FileReader();
+			reader.onload = function(event){
+				var img = new Image();
+				// var imgWidth =
+				img.onload = function(){
+					canvas.width = 300;
+					canvas.height = 300;
+					ctx.drawImage(img,0,0,300,300);
+				};
+				img.src = event.target.result;
+				// img.width = img.width*0.5
+				// canvas.height = img.height;
+			};
+			reader.readAsDataURL(e.target.files[0]);
+		}
+
+
+ </script>
+
 	
 <<!--===============================================================================================-->
 <script type="text/javascript" src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
@@ -142,5 +213,8 @@
 <!--===============================================================================================-->
 	<script type="text/javascript" src="{{url_for('static',filename='js/main.js')}}"></script>
 	<script type="text/javascript" src="{{url_for('static',filename='js/mypage.js')}}"></script>
+
+	<script type="text/javascript" src="{{url_for('static',filename='js/hamburgernav.js')}}"></script>
+	<script type="text/javascript" src="{{url_for('static',filename='js/materialselect.js')}}"></script>
 
 </body></html>

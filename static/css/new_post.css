@@ -1,9 +1,54 @@
+@font-face {
+    font-family: GongGothicBold;
+    src: url(../fonts/GongGothicBold.ttf.ttf);
+  }
+  @font-face {
+    font-family: GongGothiLight;
+    src: url(../fonts/GongGothicLight.ttf.ttf);
+  }
+  @font-face {
+    font-family: GongGothicMedium;
+    src: url(../fonts/GongGothicMedium.ttf.ttf);
+  }
+
+
+.wrap-login100 {
+    width: 390px; 
+    height: 100%;
+    background: #fff;
+    border-radius: 10px;
+    overflow: auto;
+    overflow-x: hidden;
+    height: 98vh;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    
+  
+  
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wrap-login100::-webkit-scrollbar {
+    display: none;
+  }
+  
+p{
+    font-family: GongGothicLight;
+    line-height: 15px;
+    font-size: 14px;
+}
+
 
 #imageCanvas{
     position: absolute;
     left: 0;
     top: 0;
     pointer-events:none;
+   
 }
 
 #img_id{
@@ -12,18 +57,87 @@
     top: 0;
 }
 
+.logo{
+    margin-top: 0px;
+}
+
+.navbar {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0,0,0,0 ;
+    height: 80px;
+    padding-bottom: 10px;
+    padding-top: 0px;
+}
+
+
+.brandname{
+    font-family: GongGothicBold;
+    margin-right: auto;
+    font-size: 25px;
+    margin-top: ;
+    
+}
+
+.nav__logos{
+    margin-right: 50px;
+}
+
+.d-inline-block {
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: 0px;
+    top: 0px;
+}
+
 .post_form_container{
     max-width: 550px;
     margin: 0 auto;
+    margin-right: 10px;
+    height: 100%;
+    
 }
+
+.post_form_container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  #text_field::-webkit-scrollbar {
+    display: none;
+  }
 
 
 .post_form{
     padding: 40px;
     background-color: #fff;
-    border: 1px solid #e6e6e6;
-    margin: 0 0 10px;
+    margin: 0 0 ;
 }
+
+.dropdown-menu{
+    font-size: 13px;
+}
+
+textarea{
+    font-family: GongGothicLight;
+    font-size: 14px;
+}
+
+.form-control{
+    border: 1px solid  #9BC286;
+    font-size: 14px;
+}
+
+.button-group{
+    margin-bottom: 10px;
+}
+
 
 .post_form .title{
     margin: 0 10px 40px;
@@ -40,7 +154,7 @@
 .post_form .preview .upload{
     max-width: 300px;
     height: 300px;
-    border: 1px solid #e6e6e6;
+    border: 1px solid #9BC286;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -53,7 +167,7 @@
     height: 80px;
     border-radius: 50%;
     margin: 0 auto 10px;
-    border: 1px solid dodgerblue;
+    border: 1px solid #9BC286;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +179,7 @@
     display: block;
     width: 2px;
     height: 30px;
-    background: dodgerblue;
+    background: #9BC286;
 
 }
 
@@ -75,12 +189,13 @@
 
 .post_form p{
     margin-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .post_form input[type=file]{
     width: 100%;
     background: 0 0;
-    border: 1px solid #efefef;
+    border: 1px solid #9BC286;
     border-radius: 3px;
     box-sizing: border-box;
     color: #262626;
@@ -92,7 +207,7 @@
 .post_form textarea{
     width: 100%;
     background: 0 0;
-    border: 1px solid #efefef;
+    border: 1px solid #9BC286;
     border-radius: 3px;
     box-sizing: border-box;
     color: #262626;
@@ -100,13 +215,68 @@
     padding: 7px 8px 7px;
 }
 
+.active {
+    background-color:#9BC286 !important;
+  }
 
+.md-form {
+    width: 90px;
+    align-items: center;
+    height: 25px;
+    font-family: GongGothicMedium;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #9BC286 ;
+    border-color: grey;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    color: #fff;
+    background-color: #9BC286;
+    border-color: #9BC286;
+    box-shadow: 0 0 0 0.2rem rgba(38,143,255,.5);
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #9BC286;
+    border-color: #9BC286;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #9BC286;
+    border-color: #9BC286;
+}
+
+.form-check-label{
+    line-height: 30px;
+    font-family: GongGothicMedium;
+    font-size: 12px;
+    margin-left: 5px;
+    margin-top: 0px;
+}
+
+.form-check{
+    padding-bottom: 0px;
+}
+
+.secondform{
+    line-height: 30px;
+    font-family: GongGothicBold;
+    font-size: 12px;
+    border: 1px solid #9BC286;
+    padding: 5px;
+    margin-bottom: 5px;
+}
 
 .submit_btn {
-    background: #3897f0;
-    border-color: #3897f0;
-    color: #fff;
-    border-radius: 3px;
+    background: #9BC286;
+    border-color: #707070;
+    color: black;
+    border-radius: 10px;
     border-style: solid;
     border-width: 1px;
     font-size: 14px;
@@ -114,7 +284,8 @@
     line-height: 28px;
     outline: none;
     width: 100%;
-    padding: 0;
+    padding: 2px;
     margin-top: 10px;
+    font-family: GongGothicBold;
 }
 

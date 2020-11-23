@@ -55,7 +55,7 @@ def user_login(id):
 
 #can change columns
 def user_info(user_idx):
-    sql = '''select id, name, email from user where user_idx=%s'''
+    sql = '''select id, name, email, user_img from user where user_idx=%s'''
     
     try:
         conn = get_connection()
@@ -72,6 +72,7 @@ def user_info(user_idx):
     data['id'] = result[0]
     data['name'] = result[1]
     data['email'] = result[2]
+    data['img'] = result[3]
     
     return data
 
@@ -102,6 +103,78 @@ def mypost_list(user_idx):
     print(data_list)
     return data_list
 
+def likepost_list(user_idx):
+    sql = '''select like_idx, posts.post_idx, location
+             from like_post inner join posts on posts.post_idx=like_post.post_idx
+             inner join post_file on posts.post_idx=post_file.post_idx
+             where file_idx in (select min(file_idx) from post_file group by post_idx)
+             and like_post.user_idx=%s'''
+             
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute(sql, user_idx)
+        result = fetchall(user_idx)
+    finally:
+        if conn is not None: conn.close()
+    
+    if not result:
+        return False
+    
+    data_list = []
+    
+    for row in result:
+        temp_dict = {}
+        temp_dict['like_idx'] = row[0]
+        temp_dict['post_idx'] = row[1]
+        temp_dict['location'] = row[2]
+        data_list.append(temp_dict)
+    
+    return data_list
+
+def check_like(user_idx, post_idx):
+    sql = '''select like_idx from like_posts
+             where user_idx=%s and post_idx=%s'''
+             
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute(sql, (user_idx, post_idx))
+        result = cursor.fetchone()
+    finally:
+        if conn is not None: conn.close()
+        
+    if not result:
+        return False
+    
+    return result[0]
+
+def add_like(user_idx, post_idx):
+    sql = '''insert into like_posts (user_idx, post_idx, datetime)
+             values (%s, %s, NOW())'''
+             
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute(sql, (user_idx, post_idx))
+        conn.commit()
+    finally:
+        if conn is not None: conn.close()
+    
+    return 'OK'
+
+def delete_like(user_idx, post_idx):
+    sql = '''delete from like_posts where user_idx=%s and post_idx=%s'''
+    
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute(sql, (user_idx, post_idx))
+        conn.commit()
+    finally:
+        if conn is not None: conn.close()
+        
+    return 'OK'
 
 def cart_list(user_idx):
     sql = '''select posts.post_idx, title, price, location

@@ -135,8 +135,21 @@ def update_comment_count(post_idx, comment_count):
     
     return 'OK'
 
+def delete_comment(comment_idx):
+    sql = '''delete from comment where comment_idx=%s'''
+    
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute(sql, comment_idx)
+        conn.commit()
+    finally:
+        if conn is not None: conn.close()
+        
+    return 'OK'
+
 def post_comment(post_idx):
-    sql = '''select post_idx, user_idx, text from comment
+    sql = '''select comment_idx, post_idx, user_idx, text from comment
              where post_idx=%s order by comment_idx'''
              
     try:
@@ -153,9 +166,10 @@ def post_comment(post_idx):
     data_list = []
     for row in result:
         temp_dict = {}
-        temp_dict['post_idx'] = row[0]
-        temp_dict['user_idx'] = row[1]
-        temp_dict['text'] = row[2]
+        temp_dict['comment_idx'] = row[0]
+        temp_dict['post_idx'] = row[1]
+        temp_dict['user_idx'] = row[2]
+        temp_dict['text'] = row[3]
         data_list.append(temp_dict)    
     print(data_list)
     return data_list
@@ -273,3 +287,47 @@ def get_wishlist(user_idx):
         data_list.append(temp_dict)    
     print(data_list)
     return data_list  
+
+def check_wish(user_idx, post_idx):
+    sql = '''select wish_idx from wishlist
+             where user_idx=%s and post_idx=%s'''
+             
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute(sql, (user_idx, post_idx))
+        result = cursor.fetchone()
+    finally:
+        if conn is not None: conn.close()
+        
+    if not result:
+        return False
+    
+    return result[0]
+
+def add_wish(user_idx, post_idx):
+    sql = '''insert into wishlist (user_idx, post_idx)
+             values (%s, %s)'''
+             
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute(sql, (user_idx, post_idx))
+        conn.commit()
+    finally:
+        if conn is not None: conn.close()
+    
+    return 'OK'
+
+def delete_wish(user_idx, post_idx):
+    sql = '''delete from wishlist where user_idx=%s and post_idx=%s'''
+    
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute(sql, (user_idx, post_idx))
+        conn.commit()
+    finally:
+        if conn is not None: conn.close()
+        
+    return 'OK'

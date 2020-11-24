@@ -203,9 +203,6 @@ html boi
 
 
                                             <div class="commet_container">
-
-
-
                                                 <div class="commet">
                                                     <div class="nick_name_comment">
                                                         popo213
@@ -215,14 +212,11 @@ html boi
                                                     </div>
                                                 </div>
 
-
-
                                                 <div class="commit_field">
-                                                    <input class="commentbox" type="text" placeholder="댓글달기..">
+                                                    <input class="commentbox" id="commentinput" type="text" placeholder="댓글달기..">
 
-                                                    <button type="button" class="btn btn-primary">게시</button>
+                                                    <button type="button" class="btn btn-primary" onclick="AddComment();">게시</button>
                                                 </div>
-
                                             </div>
                                         </div>
 
@@ -239,16 +233,6 @@ html boi
 
 
                     </section>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -351,6 +335,33 @@ html boi
                                 },
                                 error: function (data) { console.log("에이젝스 실패") },
                             });
+                        }
+
+                        function AddComment(){
+                            let post_id = '{{data["post_idx"]}}';
+                            let comment = $("#commentinput").val();
+                            let comment_count = '{{data["comment_count"]}}';
+
+                            param = {
+                                post_idx: post_id,
+                                text: comment,
+                                count: comment_count
+                            }
+
+                            console.log(param)
+
+                            $.ajax({
+                                url: '/upload_comment',
+                                type: 'post',
+                                data: param,
+                                dataType: 'text',
+                                success: function(response){
+                                    if (response=='OK'){
+                                        alert('댓글이 등록되었습니다');
+                                    }
+                                },
+                            });
+
                         }
 
                     </script>

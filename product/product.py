@@ -90,14 +90,14 @@ def upload_comment():
     if 'user_idx' in session:
         user_idx = session['user_idx']
     else:
-        return 'NO'
+        user_idx = 2
     
     post_idx = request.form['post_idx']
     comment_text = request.form['text']
-    comment_count = request.form['comment']
+    comment_count = request.form['count']
     
     product_dao.add_comment(post_idx, user_idx, comment_text)
-    product_dao.update_comment_count(post_idx, comment_count)
+    product_dao.update_comment_count(post_idx, comment_count+1)
     
     return 'OK'
     

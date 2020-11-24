@@ -1,24 +1,24 @@
-
 <!DOCTYPE html>
 
 html boi
+
 <head>
 
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/util.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/hamburgernav.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/util.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/hamburgernav.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
 
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-<!--===============================================================================================-->
+    <!--===============================================================================================-->
 
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
     <!-- Facebook Meta Tags / 페이스북 오픈 그래프 -->
     <meta property="og:url" content="http://kindtiger.dothome.co.kr/insta">
@@ -47,8 +47,7 @@ html boi
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
-
-        .b_inner .contents_box{
+        .b_inner .contents_box {
             float: none;
             display: flex;
             justify-content: center;
@@ -57,244 +56,341 @@ html boi
 
 
 </head>
+
 <body>
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100"> 
-				<div class="navbar">
-					<a href="{{url_for('static',filename='home')}}"><img class="logo" src="{{url_for('static',filename='images/icons/logo4.png')}}" width="89" height="103" class="d-inline-block align-top" alt="">
-						</a>
-					<div class="brandname"> 
-						<img src="{{url_for('static',filename='images/icons/refitimage.png')}}" height="45"> 
-					</div>
-					<nav>
 
-						
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="navbar">
+                    <a href="{{url_for('static',filename='home')}}"><img class="logo"
+                            src="{{url_for('static',filename='images/icons/logo4.png')}}" width="89" height="103"
+                            class="d-inline-block align-top" alt="">
+                    </a>
+                    <div class="brandname">
+                        <img src="{{url_for('static',filename='images/icons/refitimage.png')}}" height="45">
+                    </div>
+                    <nav>
 
-						<nav role='navigation'>
-							<div id="menuToggle">
-							  <!--
+
+
+                        <nav role='navigation'>
+                            <div id="menuToggle">
+                                <!--
 							  A fake / hidden checkbox is used as click reciever,
 							  so you can use the :checked selector on it.
 							  -->
-							  <input type="checkbox" />
-							  
-							  <!--
+                                <input type="checkbox" />
+
+                                <!--
 							  Some spans to act as a hamburger.
 							  
 							  They are acting like a real hamburger,
 							  not that McDonalds stuff.
 							  -->
-							  <span></span>
-							  <span></span>
-							  <span></span>
-							  
-							  <!--
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                                <!--
 							  Too bad the menu has to be inside of the button
 							  but hey, it's pure CSS magic.
 							  -->
-							  <ul id="menu">
-								<a href="{{url_for('static',filename='home')}}"><li>Home</li></a>
-								<a href="{{url_for('static',filename='subsscribe')}}"><li>구독</li></a>
-								<a href="{{url_for('static',filename='register')}}"><li>제품 등록</li></a>
-								<a href="{{url_for('static',filename='bookmark')}}"><li>찜</li></a>
-								<a href="{{url_for('static',filename='mypage')}}"><li>마이 페이지</li></a>
-							  </ul>
-							</div>
-						  </nav>
+                                <ul id="menu">
+                                    <a href="{{url_for('static',filename='home')}}">
+                                        <li>Home</li>
+                                    </a>
+                                    <a href="{{url_for('static',filename='subsscribe')}}">
+                                        <li>구독</li>
+                                    </a>
+                                    <a href="{{url_for('static',filename='register')}}">
+                                        <li>제품 등록</li>
+                                    </a>
+                                    <a href="{{url_for('static',filename='bookmark')}}">
+                                        <li>찜</li>
+                                    </a>
+                                    <a href="{{url_for('static',filename='mypage')}}">
+                                        <li>마이 페이지</li>
+                                    </a>
+                                </ul>
+                            </div>
+                        </nav>
 
-						<ul class="nav__logos">
-							
-							<li><a href="{{url_for('static',filename='shoppingcart')}}"><img src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="30" height="30" class="d-inline-block align-top" alt="" ></a></li>
-						</ul>
+                        <ul class="nav__logos">
+
+                            <li><a href="{{url_for('static',filename='shoppingcart')}}"><img
+                                        src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="30"
+                                        height="30" class="d-inline-block align-top" alt=""></a></li>
+                        </ul>
 
 
-					</nav>
-				</div>
-
-			<div class="content">
-			    
-                <div id="main_container">
-
-                    <section class="b_inner">
-            
-                        <div class="contents_box">
-            
-                            <article class="contents cont01">
-                        
-            
-                                <div class="img_section">
-
-                                     <header class="top">
-                                    <div class="user_container">
-                                        <div class="profile_img">
-                                            <img src="{{url_for('static',filename='images/img_section/thumb.jpeg')}}" alt="">
-                                        </div>
-                                        <div class="user_name">
-                                            <div class="nick_name">큐시즘 어흥 <button type="button" class="btn btn-success subscribebtn">구독</button></div>
-                                            
-                                            <div class="country"></div>
-                                        </div>
-                                    </div>
-                                    <div class="sprite_more_icon"></div>
-                                </header>
-
-                                    <div class="trans_inner">
-                                        <div class="imageframe"><img src="{{url_for('static',filename='images/detailframe.png')}}"></div>
-                                        <div class="detailimage"><img src="{{url_for('static',filename='images/detailimage.png')}}" class="detailimage" alt=""></div>
-                                        <p class="captionbox">
-                                            카키색 야상 하나로 가을 맞이 #ootd #감성룩#아우터
-                                        </p>
-
-                                        
-                                    </div>
-
-                                    <div class="bottombox">
-                                        <div class="bottom_icons">
-                                            <div class="left_icons">
-                                                <button type="button" class="btn btn-success"><i class="fa fa-bookmark-o"></i></button>
-
-                                                <div class="heart-container">
-                                                    <?xml version="1.0" encoding="utf-8"?>
-                                                    <!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                                                    <svg version="1.1" class="heart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                       viewBox="0 0 494 384" style="enable-background:new 0 0 494 384;" xml:space="preserve">
-                                                    <style type="text/css">
-                                                    </style>
-                                                    <path class="st0" d="M381,136.5c0-43.4-35.1-78.5-78.5-78.5c-19.9,0-38,7.4-51.9,19.6c-6.2,5.5-11.5,11.9-15.8,19.1
-                                                      c-3.8-7.1-8.6-13.6-14.3-19.2c-14.2-13.9-33.6-22.6-55-22.6C122.1,55,87,90.1,87,133.5c0,22.9,9.8,43.5,25.4,57.8l123.1,123.1
-                                                      l122.1-122.1l0.7-0.7l3.2-3.2l-0.1-0.1C373.6,174.5,381,156.4,381,136.5z"/>
-                                                    </svg>
-                                                    <div class="attach"></div>
-                                                  </div> 
-    
-                                            </div>
-                                        </div>
-                    
-                                    
-                    
-                                        <div class="commet_container">
-
-                                            
-
-                                            <div class="commet">
-                                                <div class="nick_name_comment">
-                                                    popo213
-                                                </div>
-                                                <div>
-                                                    우와...너무 축하해...!!!
-                                                </div>
-                                            </div>
-                    
-                                    
-                    
-                                        <div class="commit_field">
-                                            <input class="commentbox" type="text" placeholder="댓글달기..">
-                    
-                                            <button type="button" class="btn btn-primary">게시</button>
-                                        </div>
-                    
-                                    </div>
-                                </div>
-            
-                        
-            
-                            </article>
-            
-            
-            
-                        </div>
-            
-                    </section>
+                    </nav>
                 </div>
-            
-            
-            </section>
-            
-							
+
+                <div class="content">
+
+                    <div id="main_container">
+
+                        <section class="b_inner">
+
+                            <div class="contents_box">
+
+                                <article class="contents cont01">
 
 
-						
+                                    <div class="img_section">
 
-							
+                                        <header class="top">
+                                            <div class="user_container">
+                                                <div class="profile_img">
+                                                    <img src="{{url_for('static',filename='images/img_section/thumb.jpeg')}}"
+                                                        alt="">
+                                                </div>
+                                                <div class="user_name">
+                                                    <div class="nick_name">큐시즘 어흥 
+                                                        <button type="button" class="btn btn-success subscribebtn" onclick="UpdateSub();">
+                                                            구독
+                                                        </button>
+                                                    </div>
+                                                    <div class="country"></div>
+                                                </div>
+                                            </div>
+                                            <div class="sprite_more_icon"></div>
+                                        </header>
 
-							
-							
-							
-					
-
-
-			</section>
-
-			<script>
-				   var fileInput  = document.querySelector( "#id_photo" ),
-					   button     = document.querySelector( ".input-file-trigger" ),
-					   the_return = document.querySelector(".file-return");
-
-				   // Show image
-				   fileInput.addEventListener('change', handleImage, false);
-				   var canvas = document.getElementById('imageCanvas');
-				   var ctx = canvas.getContext('2d');
-
-
-					function handleImage(e){
-					   var reader = new FileReader();
-					   reader.onload = function(event){
-						   var img = new Image();
-						   // var imgWidth =
-						   img.onload = function(){
-							   canvas.width = 300;
-							   canvas.height = 300;
-							   ctx.drawImage(img,0,0,300,300);
-						   };
-						   img.src = event.target.result;
-						   // img.width = img.width*0.5
-						   // canvas.height = img.height;
-					   };
-					   reader.readAsDataURL(e.target.files[0]);
-				   }
+                                        <div class="trans_inner">
+                                            <div class="imageframe"><img
+                                                    src="{{url_for('static',filename='images/detailframe.png')}}"></div>
+                                            <div class="detailimage"><img
+                                                    src="{{url_for('static',filename='images/detailimage.png')}}"
+                                                    class="detailimage" alt=""></div>
+                                            <p class="captionbox">
+                                                카키색 야상 하나로 가을 맞이 #ootd #감성룩#아우터
+                                            </p>
 
 
-			</script>
-			
-			</div>
-		
-			<div>
-				
+                                        </div>
 
-			
-			</div>
-			
+                                        <div class="bottombox">
+                                            <div class="bottom_icons">
+                                                <div class="left_icons">
+                                                    <button type="button" class="btn btn-success" onclick="UpdateWishlist();"><i
+                                                            class="fa fa-bookmark-o"></i></button>
 
-			
-			</div>
+                                                    <div class="heart-container">
+                                                        <?xml version="1.0" encoding="utf-8"?>
+                                                        <!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                                                        <svg version="1.1" class="heart"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                            viewBox="0 0 494 384"
+                                                            style="enable-background:new 0 0 494 384;"
+                                                            xml:space="preserve"
+                                                            onclick="UpdateLike();">
+                                                            <style type="text/css">
+                                                            </style>
+                                                            <path class="st0"
+                                                                d="M381,136.5c0-43.4-35.1-78.5-78.5-78.5c-19.9,0-38,7.4-51.9,19.6c-6.2,5.5-11.5,11.9-15.8,19.1
+                                                      c-3.8-7.1-8.6-13.6-14.3-19.2c-14.2-13.9-33.6-22.6-55-22.6C122.1,55,87,90.1,87,133.5c0,22.9,9.8,43.5,25.4,57.8l123.1,123.1
+                                                      l122.1-122.1l0.7-0.7l3.2-3.2l-0.1-0.1C373.6,174.5,381,156.4,381,136.5z" />
+                                                        </svg>
+                                                        <div class="attach"></div>
+                                                    </div>
 
-		</div>
-	</div>
+                                                </div>
+                                            </div>
 
-	
-<!--===============================================================================================-->
-	<script src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
-<!--===============================================================================================-->
-	<script src="{{url_for('static',filename='vendor/animsition/js/animsition.min.js')}}"></script>
-<!--===============================================================================================-->
-	<script src="{{url_for('static',filename='vendor/bootstrap/js/popper.js')}}"></script>
-	<script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-<!--===============================================================================================-->
-	<script src="{{url_for('static',filename='vendor/select2/select2.min.js')}}"></script>
-<!--===============================================================================================-->
-	<script src="{{url_for('static',filename='vendor/daterangepicker/moment.min.js')}}"></script>
-	<script src="{{url_for('static',filename='vendor/daterangepicker/daterangepicker.js')}}"></script>
-<!--===============================================================================================-->
-	<script src="{{url_for('static',filename='vendor/countdowntime/countdowntime.js')}}"></script>
-<!--===============================================================================================-->
-	<script src="{{url_for('static',filename='js/main.js')}}"></script>
-	<script src="{{url_for('static',filename='js/hamburgernav.js')}}"></script>
+
+
+                                            <div class="commet_container">
+
+
+
+                                                <div class="commet">
+                                                    <div class="nick_name_comment">
+                                                        popo213
+                                                    </div>
+                                                    <div>
+                                                        우와...너무 축하해...!!!
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="commit_field">
+                                                    <input class="commentbox" type="text" placeholder="댓글달기..">
+
+                                                    <button type="button" class="btn btn-primary">게시</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+                                </article>
+
+
+
+                            </div>
+
+                        </section>
+                    </div>
+
+
+                    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </section>
+
+                    <script>
+                        var fileInput = document.querySelector("#id_photo"),
+                            button = document.querySelector(".input-file-trigger"),
+                            the_return = document.querySelector(".file-return");
+
+                        // Show image
+                        fileInput.addEventListener('change', handleImage, false);
+                        var canvas = document.getElementById('imageCanvas');
+                        var ctx = canvas.getContext('2d');
+
+                        function handleImage(e) {
+                            var reader = new FileReader();
+                            reader.onload = function (event) {
+                                var img = new Image();
+                                // var imgWidth =
+                                img.onload = function () {
+                                    canvas.width = 300;
+                                    canvas.height = 300;
+                                    ctx.drawImage(img, 0, 0, 300, 300);
+                                };
+                                img.src = event.target.result;
+                                // img.width = img.width*0.5
+                                // canvas.height = img.height;
+                            };
+                            reader.readAsDataURL(e.target.files[0]);
+                        }
+
+                        function UpdateSub() {
+                            let user_id = '{{data["user_idx"]}}';
+
+                            param = {
+                                user_idx: user_id,
+                            }
+                            console.log(param)
+
+                            $.ajax({
+                                url: '/subscription_update',
+                                type: 'post',
+                                data: param,
+                                success: function(response){
+                                    if (response == 'ADD'){
+                                        alert('구독하셨습니다.')
+                                    }
+                                    else if (response == 'DEL'){
+                                        alert('구독 취소하셨습니다.')
+                                    }
+                                }
+                            })
+                        }
+
+                        function UpdateWishlist() {
+
+                            let post_id = '{{data["post_idx"]}}';
+                            
+                            param = {
+                                post_idx : post_id, 
+                            };
+                            console.log(param)
+                            $.ajax({
+                                url: '/wishlist_update',
+                                type: 'post',
+                                data: param,
+                                success: function (response) {
+                                    if (response == 'ADD') {
+                                        alert('해당 상품을 찜하셨습니다.');
+                                    }
+                                    else if (response == 'DEL'){
+                                        alert('찜을 취소하셨습니다.')
+                                    }
+                                },
+                                error: function (data) { console.log("에이젝스 실패") },
+                            });
+                        }
+
+                        function UpdateLike() {
+
+                            let post_id = '{{data["post_idx"]}}';
+                            
+                            param = {
+                                post_idx : post_id, 
+                            };
+                            console.log(param)
+                            $.ajax({
+                                url: '/like_update',
+                                type: 'post',
+                                data: param,
+                                success: function (response) {
+                                    if (response == 'ADD') {
+                                        alert('해당 상품을 좋아요하셨습니다.');
+                                    }
+                                    else if (response == 'DEL'){
+                                        alert('좋아요를 취소하셨습니다.')
+                                    }
+                                },
+                                error: function (data) { console.log("에이젝스 실패") },
+                            });
+                        }
+
+                    </script>
+
+                </div>
+
+                <div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--===============================================================================================-->
+    <script src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{url_for('static',filename='vendor/animsition/js/animsition.min.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{url_for('static',filename='vendor/bootstrap/js/popper.js')}}"></script>
+    <script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{url_for('static',filename='vendor/select2/select2.min.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{url_for('static',filename='vendor/daterangepicker/moment.min.js')}}"></script>
+    <script src="{{url_for('static',filename='vendor/daterangepicker/daterangepicker.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{url_for('static',filename='vendor/countdowntime/countdowntime.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{url_for('static',filename='js/main.js')}}"></script>
+    <script src="{{url_for('static',filename='js/hamburgernav.js')}}"></script>
     <script src="{{url_for('static',filename='js/materialselect.js')}}"></script>
     <script src="{{url_for('static',filename='js/heart.js')}}"></script>
 
 </body>
+
 </html>
-
-

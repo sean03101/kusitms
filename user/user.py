@@ -48,16 +48,18 @@ def add_likepost():
     if 'user_idx' in session:
         user_idx = session['user_idx']
     else:
-        return 'NO'
+        user_idx = 2
     
-    post_idx = request.form['user_idx'] #maybe get?
+    post_idx = request.form['post_idx']
     
-    checked_idx = product_dao.check_like(user_idx, post_idx)
+    checked_idx = user_dao.check_like(user_idx, post_idx)
     
     if not checked_idx:
-        product_dao.add_like(user_idx, post_idx)
+        user_dao.add_like(user_idx, post_idx)
+        return 'ADD'
     else:
-        product_dao.delete_like(user_idx, post_idx)
+        user_dao.delete_like(user_idx, post_idx)
+        return 'DEL'
     
     return 'OK'
 

@@ -128,7 +128,7 @@ html boi
                 </div>
 
                 <div class="content">
-
+                    
                     <div id="main_container">
 
                         <section class="b_inner">
@@ -148,6 +148,7 @@ html boi
                                                 </div>
                                                 <div class="user_name">
                                                     <div class="nick_name">큐시즘 어흥 
+                                                        
                                                         <button type="button" class="btn btn-success subscribebtn" onclick="UpdateSub();">
                                                             구독
                                                         </button>
@@ -165,7 +166,8 @@ html boi
                                                     src="{{url_for('static',filename='images/detailimage.png')}}"
                                                     class="detailimage" alt=""></div>
                                             <p class="captionbox">
-                                                카키색 야상 하나로 가을 맞이 #ootd #감성룩#아우터
+                                                <!-- 카키색 야상 하나로 가을 맞이 #ootd #감성룩#아우터 -->
+                                                {{ data.tags, data.price, data.category, data.size, data.brand, data.gende }}
                                             </p>
 
 
@@ -196,6 +198,7 @@ html boi
                                                         </svg>
                                                         <div class="attach"></div>
                                                     </div>
+                                                    <p>좋아요 {{ data.post_like }}개</p>
 
                                                 </div>
                                             </div>
@@ -204,12 +207,16 @@ html boi
 
                                             <div class="commet_container">
                                                 <div class="commet">
+                                                {% for comm in data.comments %}
                                                     <div class="nick_name_comment">
-                                                        popo213
+                                                        <!-- popo213 -->
+                                                        <p>{{ comm.text }}</p>
                                                     </div>
-                                                    <div>
+                                                {% endfor %}
+                                                    <!-- <div>
                                                         우와...너무 축하해...!!!
                                                     </div>
+                                                    -->
                                                 </div>
 
                                                 <div class="commit_field">

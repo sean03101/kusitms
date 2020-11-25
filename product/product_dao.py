@@ -74,8 +74,9 @@ def post_list(order_type):
 
 #한글 인코딩 생각해야됨
 def post_detail(post_idx):
-    sql = '''select post_idx, user_idx, title, written_time, description, tags, price, category, size, brand, gender, certificate, receipt, post_like, sell_yn, comment_count 
-             from posts where post_idx=%s'''
+    sql = '''select post_idx, posts.user_idx, email, user_img, title, written_time, description, tags, price, category, size, brand, gender, certificate, receipt, post_like, sell_yn, comment_count 
+             from posts inner join user on user.user_idx = posts.user_idx
+             where post_idx=%s'''
     
     try:
         conn = get_connection()
@@ -92,20 +93,22 @@ def post_detail(post_idx):
 
     data['post_idx'] = result[0]
     data['user_idx'] = result[1]
-    data['title'] = result[2]
-    data['time'] = result[3]
-    data['text'] = result[4]
-    data['tags'] = result[5]
-    data['price'] = result[6]
-    data['category'] = result[7]
-    data['size'] = result[8]
-    data['brand'] = result[9]
-    data['gender'] = result[10]
-    data['certificate'] = result[11]
-    data['receipt'] = result[12]
-    data['post_like'] = result[13]
-    data['sell_yn'] = result[14]
-    data['comment_count'] = result[15]
+    data['user_email'] = result[2]
+    data['user_img'] = result[3]
+    data['title'] = result[4]
+    data['time'] = result[5]
+    data['text'] = result[6]
+    data['tags'] = result[7]
+    data['price'] = result[8]
+    data['category'] = result[9]
+    data['size'] = result[10]
+    data['brand'] = result[11]
+    data['gender'] = result[12]
+    data['certificate'] = result[13]
+    data['receipt'] = result[14]
+    data['post_like'] = result[15]
+    data['sell_yn'] = result[16]
+    data['comment_count'] = result[17]
     
     return data
 

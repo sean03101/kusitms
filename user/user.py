@@ -75,8 +75,8 @@ def mypage():
     mypost_list = user_dao.mypost_list(user_idx)
     likepost_list = user_dao.likepost_list(user_idx)
 
-    html = render_template('mypage.html', user=user, post_list=post_list, like_list=likepost_list) #유저정보, 유저 포스트 정보, 판매유무 등
-    return post_list[0]
+    html = render_template('mypage.html', user=user, post_list=mypost_list, like_list=likepost_list) #유저정보, 유저 포스트 정보, 판매유무 등
+    return html
     
 #장바구니
 @user_blue.route('/cart')

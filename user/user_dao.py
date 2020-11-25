@@ -105,16 +105,16 @@ def mypost_list(user_idx):
 
 def likepost_list(user_idx):
     sql = '''select like_idx, posts.post_idx, location
-             from like_post inner join posts on posts.post_idx=like_post.post_idx
+             from like_posts inner join posts on posts.post_idx=like_posts.post_idx
              inner join post_file on posts.post_idx=post_file.post_idx
              where file_idx in (select min(file_idx) from post_file group by post_idx)
-             and like_post.user_idx=%s'''
+             and like_posts.user_idx=%s'''
              
     try:
         conn = get_connection()
         cursor = conn.cursor()
         cursor.execute(sql, user_idx)
-        result = fetchall(user_idx)
+        result = cursor.fetchall()
     finally:
         if conn is not None: conn.close()
     

@@ -4,9 +4,11 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/nav.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/shoppingcart.css">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/nav.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/hamburgernav.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/shoppingcart.css')}}">
+
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 
 	rel="stylesheet">
@@ -21,19 +23,55 @@
 		<div class="container-login100">
 			<div class="wrap-login100"> 
 					<div class="navbar">
-					<img class="logo" src="../static/images/icons/leaf.png" width="30" height="30" class="d-inline-block align-top" alt="">
+					<img class="logo" src="{{url_for('static',filename='images/icons/logo4.png')}}" width="89" height="103" class="d-inline-block align-top" alt="">
 					<div class="brandname">
-						RE-FIT 리핏
+						Shopping Cart
 					</div>
-					   <div id="input-form">
-							<input type="text" id="searchbar" placeholder="검색어를 입력하세요." onkeyup="search(this);">
-						</div>
+
 					<nav>
-						<ul class="nav__logos">
-							<li><a href="#" id="btn_search"><img src="../static/images/icons/search.png" width="20" height="20" class="d-inline-block align-top" alt=""></a></li>
-							<li><a href="shoppingcart.html"><img src="../static/images/icons/shopping-cart.png" width="20" height="20" class="d-inline-block align-top" alt="" ></a></li>
-						</ul>
+
+			
+						<nav role='navigation'>
+							<div id="menuToggle">
+							  <!--
+							  A fake / hidden checkbox is used as click reciever,
+							  so you can use the :checked selector on it.
+							  -->
+							  <input type="checkbox" />
+							  
+							  <!--
+							  Some spans to act as a hamburger.
+							  
+							  They are acting like a real hamburger,
+							  not that McDonalds stuff.
+							  -->
+							  <span></span>
+							  <span></span>
+							  <span></span>
+							  
+							  <!--
+							  Too bad the menu has to be inside of the button
+							  but hey, it's pure CSS magic.
+							  -->
+							  <ul id="menu">
+								<a href="{{url_for('static',filename='home')}}"><li>Home</li></a>
+								<a href="{{url_for('static',filename='subsscribe')}}"><li>구독</li></a>
+								<a href="{{url_for('static',filename='register')}}"><li>제품 등록</li></a>
+								<a href="{{url_for('static',filename='bookmark')}}"><li>찜</li></a>
+								<a href="{{url_for('static',filename='mypage')}}"><li>마이 페이지</li></a>
+							  </ul>
+							</div>
+						  </nav>
+
+							<ul class="nav__logos">
+								
+								<li><a href="{{url_for('static',filename='shoppingcart')}}"><img src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="30" height="30" class="d-inline-block align-top" alt="" ></a></li>
+							</ul>
+
+
 					</nav>
+			
+				
 					</div>
 
 					<div class="container">
@@ -41,9 +79,9 @@
 					<div id="app">
 
 						<!-- Header -->
+						{% set carttotal = cart_list %}
 						<header class="container">
-						  <h1>장바구니</h1>
-						  <span class="count"> 3 items in the bag</span>
+						  <span class="count"> {{ carttotal|length }} items in the bag </span>
 						</header>
 						<!-- End Header -->
 					  
@@ -58,16 +96,17 @@
 									<img :src="product.image" :alt="product.name" />
 								  </a>
 								</div>
+								{% for cartlist in cart_list %}
 								<div class="detail">
-								  <div class="name"><a href="#">코틀린으로 쇼핑몰 앱 만들기</a></div>
+								  <div class="name"><a href="/post/post_id={{cartlist['post_idx']}}">{{cartlist.title}}</a></div>
 								  <div class="description">안드로이드 과제를 위한 책</div>
-								  <div class="price">15000<a>원</a></div>
+								  <div class="price">{{cartlist.price}}<a>원</a></div>
 								</div>
 								</div>
 					  
 							  <div class="col right">
 								<div class="quantity">
-								  <a href="#"><img src="../static/images/1.png" alt=""></a>
+								  <a href="#"><img src="{{cartlist.location[8:]}}" alt=""></a>
 								</div>
 								
 								<div class="remove">
@@ -79,86 +118,14 @@
 						  </ul>
 						  </div>
 						  
-						  <div v-if="products.length > 0">
-							<ul class="products">
-							<li class="row" v-for="(product, index) in products">
-							  <div class="col left">
-								<div class="thumbnail">
-								  <a href="#">
-									<img :src="product.image" :alt="product.name" />
-								  </a>
-								</div>
-								<div class="detail">
-								  <div class="name"><a href="#">물 만난 물고기</a></div>
-								  <div class="description">악뮤 이찬혁 책</div>
-								  <div class="price">14000<a>원</a></div>
-								</div>
-								</div>
-					  
-							  <div class="col right">
-								<div class="quantity">
-								  <a href="#"><img src="../static/images/2.png" alt=""></a>
-								</div>
-								
-								<div class="remove">
-								  <svg @click="removeItem(index)" version="1.1" class="close" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" enable-background="new 0 0 60 60" xml:space="preserve"><polygon points="38.936,23.561 36.814,21.439 30.562,27.691 24.311,21.439 22.189,23.561 28.441,29.812 22.189,36.064 24.311,38.186 30.562,31.934 36.814,38.186 38.936,36.064 32.684,29.812"></polygon></svg>
-								</div>
-							  </div>
-							</li>
-							
-						  </ul>
-						  </div>
-						  
-						  
-						  <div v-if="products.length > 0">
-							<ul class="products">
-							<li class="row" v-for="(product, index) in products">
-							  <div class="col left">
-								<div class="thumbnail">
-								  <a href="#">
-									<img :src="product.image" :alt="product.name" />
-								  </a>
-								</div>
-								<div class="detail">
-								  <div class="name"><a href="#">컴퓨터 네트워킹</a></div>
-								  <div class="description">컴넷 교재</div>
-								  <div class="price">10000 <a>원</a> </div> 
-								</div>
-								</div>
-					  
-							  <div class="col right">
-								<div class="quantity">
-								  <a href="#"><img src="../static/images/3.png" alt=""></a>
-								</div>
-								
-								<div class="remove">
-								  <svg @click="removeItem(index)" version="1.1" class="close" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" enable-background="new 0 0 60 60" xml:space="preserve"><polygon points="38.936,23.561 36.814,21.439 30.562,27.691 24.311,21.439 22.189,23.561 28.441,29.812 22.189,36.064 24.311,38.186 30.562,31.934 36.814,38.186 38.936,36.064 32.684,29.812"></polygon></svg>
-								</div>
-							  </div>
-							</li>
-							
-						  </ul>
-						  </div>
 						   
 						  <div v-else class="empty-product">
-							<button>쇼핑하러 가기</button>
+							<button href="{{url_for('static',filename='home')}}">쇼핑하러 가기</button>
 						  </div>
 						</section>
+						{% endfor %}
 						<!-- End Product List -->
-						
-						<script>
-						function addPrice() {
-		
-
-						 var num1 = document.getElementsByTagName("price")[0].value; 
-						 var num2 = document.getElementsByTagName("price")[1].value; 
-						 var num3 = document.getElementsByTagName("price")[2].value;
-						 
-						 var result = parseInt(num1) + parseInt(num2) + parseInt(num3);
-						 
-						 document.getElementsByTagName("totalsum")[1].value= result; 
-						 }
-						</script>		
+							
 						
 						
 						
@@ -166,21 +133,24 @@
 						<!-- Summary -->
 						<section class="container" v-if="products.length > 0" >
 						  <div class="promotion">
-							<label for="promo-code">Have A Promo Code?</label>
+							<label for="promo-code">쿠폰적용</label>
 							<input type="text" id="promo-code" v-model="promoCode" /> <button type="button" @click="checkPromoCode"></button>
 						  </div>
 					  
 						  <div class="summary">
-							<ul>
-							  <li class = "totalsum">물품 총합 <a class = "totalsum"> </a> <span> 원</span></li>
+							  {% set total_sum = cart_list.price|sum() %}
+							  {% set total_fee = total_sum * 0.03 %}
+							  {% set total_pay = total_fee + total_sum %}
 
-							  <li id = "totalfee">수수료 <span></span></li>
-							  <li class="total">지불해야할 가격 <span></span></li>
+							<ul>
+							  <li class = "totalsum">물품 총합 : {{total_sum}} 원</li>
+							  <li id = "totalfee">수수료 : {{total_fee}} 원</li>
+							  <li class="total">총 결제 가격 : {{total_pay}} 원</li>
 							</ul>
 						  </div>
 					  
 						  <div class="checkout">
-							<button type="button">계산하기</button>
+							<button type="button">결제하기</button>
 						  </div>
 						</section>
 						<!-- End Summary -->
@@ -196,59 +166,61 @@
 		
 			<div>
 				<nav class="nav_bottom">
-					<a href="main.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/home-2.png" class="icon-home"></i> 
+
+
+					<a href="{{url_for('static',filename='home')}}" class="nav__link">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/home-2.png')}}" class="icon-home"></i> 
 						<span class="nav__text">Home</span>
 					</a>
-					<a href="subscribe.html" class="nav__link nav__link--active">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/heart.png" class="icon-subscribe"></i>
+					<a href="{{url_for('static',filename='subscribe')}}" class="nav__link nav__link--active">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/heart.png')}}" class="icon-subscribe"></i>
 						<span class="nav__text">구독</span>
 					</a>
-					<a href="register.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/add-button.png" class="icon-add"></i>
+					<a href="{{url_for('static',filename='register')}}" class="nav__link">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/add-button.png')}}" class="icon-add"></i>
 						<span class="nav__text">등록</span>
 					</a>
-					<a href="like.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/bookmark.png" class="icon-bookmark"></i>
+					<a href="{{url_for('static',filename='like')}}" class="nav__link">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/bookmark.png')}}" class="icon-bookmark"></i>
 						<span class="nav__text">저장</span>
 					</a>
-					<a href="mypage.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/user.png" class="icon-user"></i>
+					<a href="{{url_for('static',filename='mypage')}}" class="nav__link">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/user.png')}}" class="icon-user"></i>
 						<span class="nav__text">My Page</span>
 					</a>
-	
-				</nav>
 
-			</nav>
+
+
+				</nav>
 			</div>
 			
 
 				
-			</div>
+			
 
 		</div>
 	</div>
 <div>
 	
 <!--===============================================================================================-->
-	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/animsition/js/animsition.min.js"></script>
+	<script src="{{url_for('static',filename='vendor/animsition/js/animsition.min.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/bootstrap/js/popper.js"></script>
-	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="{{url_for('static',filename='vendor/bootstrap/js/popper.js')}}"></script>
+	<script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/select2/select2.min.js"></script>
+	<script src="{{url_for('static',filename='vendor/select2/select2.min.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/daterangepicker/moment.min.js"></script>
-	<script src="../static/vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="{{url_for('static',filename='vendor/daterangepicker/moment.min.js')}}"></script>
+	<script src="{{url_for('static',filename='vendor/daterangepicker/daterangepicker.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/countdowntime/countdowntime.js"></script>
+	<script src="{{url_for('static',filename='vendor/countdowntime/countdowntime.js')}}"></script>
 <!--===============================================================================================-->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="../static/js/shoppingcart.js"></script>
-<script src="../static/js/main.js"></script>
-<script src="../static/js/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js')}}"></script>
+<script src="{{url_for('static',filename='js/shoppingcart.js')}}"></script>
+<script src="{{url_for('static',filename='js/main.js')}}"></script>
+<script src="{{url_for('static',filename='js/vue.js')}}"></script>
 
 
 

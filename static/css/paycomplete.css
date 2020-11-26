@@ -1,0 +1,103 @@
+
+
+.hanger{
+    position: absolute;
+    flex: column
+
+
+}
+
+.photobox{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    top: 65px;
+    z-index: 2;
+    box-shadow: .3px .3px 10px rgba(0,0,0,0.4);
+    
+}
+
+.photobox_img img{
+    right: 30px;
+    
+}
+
+.nav__logos{
+    margin-right: 15px !important;
+    margin-left: 10px !important;
+}
+
+.checkproduct{
+    position: absolute;
+    width: 270px;
+    height: 30px;
+    border: 1px solid black;
+    top: 515px;
+    left: auto;
+    z-index: 3;
+    text-align: center;
+    font-family: GongGothicMedium;
+    font-size: 15px;
+    padding-top: 5px;
+    border-radius: 5px;
+
+
+}
+
+
+.form-check-label{
+    margin-left: 5px;
+}
+
+.productdetail{
+    position: absolute;
+    border: 1px solid black;
+    width: 270px;
+    height: 145px;
+    top: 550px;
+    font-family: GongGothicLight;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+.productdetail_title{
+    font-family: GongGothicMedium;
+    font-size: 14px;
+}
+
+.price{
+    position: absolute;
+    width: 270px;
+    height: 30px;
+    border: 1px solid black;
+    top: 700px ;
+    left: auto;
+    z-index: 3;
+    text-align: center;
+    font-family: GongGothicMedium;
+    font-size: 15px;
+    padding-top: 5px;
+    border-radius: 5px;
+
+}
+
+.checkout{
+    position: absolute;
+    width: 270px;
+    height: 30px;
+    top: 770px ;
+    left: auto;
+    z-index: 3;
+    text-align: center;
+    font-family: GongGothicMedium ;
+    font-size: 15px;
+    border-radius: 5px;
+    right: 700px;
+}
+
+#menuToggle{
+    z-index: 4;
+}

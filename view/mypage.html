@@ -5,79 +5,145 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/instagramprofilelayout.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/instagramprofilelayout.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/nav.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/hamburgernav.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 
 <!--===============================================================================================-->
 </head>
-<body>
-	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100"> 
-				<div class="navbar">
-					<img class="logo" src="../static/images/icons/leaf.png" width="30" height="30" class="d-inline-block align-top" alt="">
-					<div class="brandname">RE-FIT</div>
-					<nav>
-						<ul class="nav__logos">
-							<li><a href="#"><img src="../static/images/icons/search.png" width="20" height="20" class="d-inline-block align-top" alt=""></a></li>
-							<li><a href="shoppingcart.html"><img src="../static/images/icons/shopping-cart.png" width="20" height="20" class="d-inline-block align-top" alt="" ></a></li>
+<div class="limiter">
+	<div class="container-login100">
+		<div class="wrap-login100"> 
+			<div class="navbar">
+				<a href="{{url_for('static',filename='home')}}"> <img class="logo" src="{{url_for('static',filename='images/icons/logo4.png')}}" width="89" height="103" class="d-inline-block align-top" alt="">
+					</a>
+				<div class="brandname">
+					MYPOCKET
+				</div>
+				<nav>
+
+					
+
+					<nav role='navigation'>
+						<div id="menuToggle">
+						  <!--
+						  A fake / hidden checkbox is used as click reciever,
+						  so you can use the :checked selector on it.
+						  -->
+						  <input type="checkbox" />
+						  
+						  <!--
+						  Some spans to act as a hamburger.
+						  
+						  They are acting like a real hamburger,
+						  not that McDonalds stuff.
+						  -->
+						  <span></span>
+						  <span></span>
+						  <span></span>
+						  
+						  <!--
+						  Too bad the menu has to be inside of the button
+						  but hey, it's pure CSS magic.
+						  -->
+						  <ul id="menu">
+							<a href="{{url_for('static',filename='home')}}">
+								<li>Home</li>
+							</a>
+							<a href="{{url_for('static',filename='subsscribe')}}">
+								<li>구독</li>
+							</a>
+							<a href="{{url_for('static',filename='register')}}">
+								<li>제품 등록</li>
+							</a>
+							<a href="{{url_for('static',filename='bookmark')}}">
+								<li>찜</li>
+							</a>
+							<a href="{{url_for('static',filename='mypage')}}">
+								<li>마이 페이지</li>
+							</a>
 						</ul>
-					</nav>
+						</div>
+					  </nav>
+
+					  <ul class="nav__logos">
+
+						<li><a href="{{url_for('static',filename='cart')}}"><img
+									src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="30"
+									height="30" class="d-inline-block align-top" alt=""></a></li>
+					</ul>
+
+
+				</nav>
+			</div>
+	
+	<div class="content">
+		<div class="container">
+
+			<div class="profile">
+
+				<div class="profile-image">
+					{%set profile_img = user.img %}
+					<img src="{{ profile_img }}" alt="">
 				</div>
 
-			<div class="content">
-				<div class="container">
+				<div class = "profile-user-settings">
 
-					<div class="profile">
+					<div class="profile-stats">
+						<ul>
+							<li><span class="profile-stat-count">1055</span> 구독자 </li>
+							<li><span class="profile-stat-count">50</span> 구독중 </li>
+							<li><span class="profile-stat-count">130</span> 구매성사 </li>
+						</ul>
 
-						<div class="profile-image">
-							<img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" alt="">
-						</div>
+					
+					</div>
 
-						<div class = "profile-user-settings">
+					{% if user.user_idx == user_idx %}
+					<button class="btn follow-btn">팔로우 하기</button>
+					 {% endif %} 
 
-							<h1 class="profile-user-name"> kts_705 </h1>
+					<button class="btn-reviews"> 후기</button> 
+				</div>
+				
 
-							<button class="btn profile-edit-btn"> 스타 등급은 여기  </button> 
-							<button class="btn follow-btn">팔로우 하기</button>
-						</div>
-
-						<div class="profile-stats">
-							<ul>
-								<li><span class="profile-stat-count">1055</span> 구독자 </li>
-								<li><span class="profile-stat-count">50</span> 구독중 </li>
-								<li><span class="profile-stat-count">130</span> 구매성사 </li>
-							</ul>
-							<button class="btn-reviews"> 장터/후기 모아보기 </button> 
-						</div>
+				
 
 
-						<div class="profile-bio">
+				<div class="profile-bio">
 
-							<p><span class="profile-real-name">희희가게</span><br>희희가게에 오신걸 환영합니다📷✈️🏕️</p>
-						</div>
+					<p><span class="profile-real-name">
+						{%set user_name = user.name.split('@') %}
+						<h1 class="profile-user-name">{{ user.name }}<!--({{ user_name[0] }})--> 님</h1>
+							
+					</span><br>내 삶은 like a VVS📷✈️🏕️</p>
+				</div>
 
-						<!--<div class="btn-reviews">
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
 
-						<button class="btn-reviews"> 장터/후기 모아보기 </button> 
+				<!--<div class="btn-reviews">
 
-						</div><!-->
-			
+				<button class="btn-reviews"> 장터/후기 모아보기 </button> 
 
-				</div> <!--end of profilesection-->
-		
-			
-				 <!--end of container-->
+				</div><!-->
+	
 
-				 <p class="about">
-					<span class="nick_name">올린거</span>
-					<span class="book_mark">안팔린거</span>
-				</p>
+		</div> <!--end of profilesection-->
+
+	
+		 <!--end of container-->
+
+		 <p class="about">
+			<span class="nick_name">올린거</span>
+			<span class="book_mark">안팔린거</span>
+		</p>
 				
 
 			<div class="content">
@@ -85,20 +151,36 @@
 			
 
 				<div class="mylist_contents contents_container active">
+				
+				{% if post_list|length > 0 %} <!--안팔린거-->
+					{% if post_list.sell_yn == 0 %}
+						{% for post in post_list %}
+						<div class="pic">
+							<a href="/post/post_id={{post['post_idx']}}"><img src="{{post.location[8:]}}" alt=""></a>
+						</div>
+						{% endfor %}
+					{% endif %}
+				{% else %}
 					<div class="pic">
-						<a href="#"><img src="../static/images/1.png" alt=""></a>
+						<p style="text-align: center;">No Data </p>
+						
+					</div>
+				{% endif %}
+				<!--
+					<div class="pic">
+						<a href="#"><img src="{{url_for('static',filename='images/2.png')}}" alt=""></a>
 					</div>
 					<div class="pic">
-						<a href="#"><img src="../static/images/2.png" alt=""></a>
+						<a href="#"> <img src="{{url_for('static',filename='images/3.png')}}" alt=""></a>
 					</div>
 					<div class="pic">
-						<a href="#"> <img src="../static/images/3.png" alt=""></a>
+						<a href="#"> <img src="{{url_for('static',filename='images/4.png')}}" alt=""></a>
 					</div>
 					<div class="pic">
-						<a href="#"> <img src="../static/images/4.png" alt=""></a>
+						<a href="#"> <img src="{{url_for('static',filename='images/5.jpg')}}" alt=""></a>
 					</div>
 					<div class="pic">
-						<a href="#"> <img src="../static/images/5.jpg" alt=""></a>
+						<a href="#"> <img src="{{url_for('static',filename='images/6.jpg')}}" alt=""></a>
 					</div>
 					<div class="pic">
 						<a href="#"> <img src="../static/images/6.jpg" alt=""></a>
@@ -109,40 +191,25 @@
 					<div class="pic">
 						<a href="#"> <img src="../static/images/6.jpg" alt=""></a>
 					</div>
-					<div class="pic">
-						<a href="#"> <img src="../static/images/6.jpg" alt=""></a>
-					</div>
+				-->
 				</div>
 	
 	
 				<div class="bookmark_contents contents_container">
-					<div class="pic">
-						<a href="#"><img src="../static/images/6.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"><img src="../static/images/5.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="../static/images/4.png" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="../static/images/3.png" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="../static/images/2.png" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="../static/images/1.png" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img01.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img02.jpg" alt=""></a>
-					</div>
-					<div class="pic">
-						<a href="#"> <img src="imgs/img_section/img02.jpg" alt=""></a>
-					</div>
+					
+					{% if post_list|length > 0 %} <!--팔린거-->
+						{% if post_list.sell_yn == 1 %}
+							{% for post in post_list %}
+							<div class="pic">
+								<a href="/post/post_id={{post['post_idx']}}"><img src="{{post.location[8:]}}" alt=""></a>
+							</div>
+							{% endfor %}
+						{% endif %}
+					{% else %}
+						<div class="pic">
+							<p style="text-align: center;">No Data</p>
+						</div>
+					{% endif %}
 				</div>
 					
 				
@@ -160,24 +227,24 @@
 		
 			<div>
 				<nav class="nav_bottom">
-					<a href="main.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/home-2.png" class="icon-home"></i> 
+					<a href="{{url_for('static',filename='home')}}" class="nav__link">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/home-2.png')}}" class="icon-home"></i> 
 						<span class="nav__text">Home</span>
 					</a>
-					<a href="subscribe.html" class="nav__link nav__link--active">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/heart.png" class="icon-subscribe"></i>
+					<a href="{{url_for('static',filename='subscribe')}}" class="nav__link nav__link--active">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/heart.png')}}" class="icon-subscribe"></i>
 						<span class="nav__text">구독</span>
 					</a>
-					<a href="register.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/add-button.png" class="icon-add"></i>
+					<a href="{{url_for('static',filename='register')}}" class="nav__link">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/add-button.png')}}" class="icon-add"></i>
 						<span class="nav__text">등록</span>
 					</a>
-					<a href="like.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/bookmark.png" class="icon-bookmark"></i>
+					<a href="{{url_for('static',filename='bookmark')}}" class="nav__link">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/bookmark.png')}}" class="icon-bookmark"></i>
 						<span class="nav__text">저장</span>
 					</a>
-					<a href="instagramprofilelayout.html" class="nav__link">
-						<i class="material-icons nav__icon"><img src="../static/images/icons/user.png" class="icon-user"></i>
+					<a href="{{url_for('static',filename='mypage')}}" class="nav__link">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/user.png')}}" class="icon-user"></i>
 						<span class="nav__text">My Page</span>
 					</a>
 	
@@ -200,22 +267,22 @@
 
 
 	
-<!--===============================================================================================-->
-	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="../static/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="../static/vendor/bootstrap/js/popper.js"></script>
-	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="../static/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="../static/vendor/daterangepicker/moment.min.js"></script>
-	<script src="../static/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="../static/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="../static/js/mypage.js"></script>
+    <!--===============================================================================================-->
+    <script src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{url_for('static',filename='vendor/animsition/js/animsition.min.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{url_for('static',filename='vendor/bootstrap/js/popper.js')}}"></script>
+    <script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{url_for('static',filename='vendor/select2/select2.min.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{url_for('static',filename='vendor/daterangepicker/moment.min.js')}}"></script>
+    <script src="{{url_for('static',filename='vendor/daterangepicker/daterangepicker.js')}}"></script>
+    <!--===============================================================================================-->
+    <script src="{{url_for('static',filename='vendor/countdowntime/countdowntime.js')}}"></script>
+    <!--===============================================================================================-->
+	<script src="{{url_for('static',filename='js/mypage.js')}}"></script>
 
 </body>
 </html>

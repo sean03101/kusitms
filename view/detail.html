@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-html boi
+<html>
 
 <head>
 
@@ -72,6 +71,7 @@ html boi
                     </div>
                     <nav>
 
+                       
 
 
                         <nav role='navigation'>
@@ -118,7 +118,7 @@ html boi
 
                         <ul class="nav__logos">
 
-                            <li><a href="{{url_for('static',filename='shoppingcart')}}"><img
+                            <li><a href="{{url_for('static',filename='cart')}}"><img
                                         src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="30"
                                         height="30" class="d-inline-block align-top" alt=""></a></li>
                         </ul>
@@ -140,15 +140,13 @@ html boi
 
                                     <div class="img_section">
 
-                                        <header class="top">
-                                            <div class="user_container">
+                                        <header class="top" >
+                                            <div class="user_container" style="padding-left: 35px;">  
                                                 <div class="profile_img">
-                                                    <img src="{{url_for('static',filename='images/img_section/thumb.jpeg')}}"
-                                                        alt="">
+                                                    <img src = "{{data.user_img}}" alt="">                                                  
                                                 </div>
                                                 <div class="user_name">
-                                                    <div class="nick_name">큐시즘 어흥 
-                                                        
+                                                    <div class="nick_name" style="padding-left: 3px;">{{data.user_email[:-10]}}
                                                         <button type="button" class="btn btn-success subscribebtn" onclick="UpdateSub();">
                                                             구독
                                                         </button>
@@ -167,7 +165,24 @@ html boi
                                                     class="detailimage" alt=""></div>
                                             <p class="captionbox">
                                                 <!-- 카키색 야상 하나로 가을 맞이 #ootd #감성룩#아우터 -->
-                                                {{ data.tags, data.price, data.category, data.size, data.brand, data.gende }}
+                                                <p>상품 등록 시간 : {{data.time}}</p>
+                                                <p>해쉬 태그 : {{data.tags}}</p>
+                                                <p>판매 가격 : {{data.price}}</p>
+                                                <p>상품 카테고리 : {{data.category}}</p>
+                                                <p>사이즈 : {{data.size}}</p>
+                                                <p>브랜드 : {{data.brand}}</p>
+                                                <p>{{data.gender}}</p>
+                                                {% if data.certificate == 1 %}
+                                                <p>검증 O</p>
+                                                {% elif data.receipt == 0 %}
+                                                <p>검증 X</p>
+                                                {% endif %}
+
+                                                {% if data.receipt == 1 %}
+                                                <p>영수증 O</p>
+                                                {% elif data.receipt == 0 %}
+                                                <p>영수증 O</p>
+                                                {% endif %}
                                             </p>
 
 
@@ -198,7 +213,7 @@ html boi
                                                         </svg>
                                                         <div class="attach"></div>
                                                     </div>
-                                                    <p>좋아요 {{ data.post_like }}개</p>
+                                                    <p style="padding-left: 27px; padding-top: 5px;">좋아요 {{ data.post_like }}개</p>
 
                                                 </div>
                                             </div>
@@ -207,6 +222,7 @@ html boi
 
                                             <div class="commet_container">
                                                 <div class="commet">
+                                                    <div>총 {{data.comment_count}}개의 댓글</div>
                                                 {% for comm in data.comments %}
                                                     <div class="nick_name_comment">
                                                         <!-- popo213 -->

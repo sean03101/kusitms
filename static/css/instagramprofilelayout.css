@@ -1,3 +1,16 @@
+@font-face {
+    font-family: GongGothicBold;
+    src: url(../fonts/GongGothicBold.ttf.ttf);
+  }
+  @font-face {
+    font-family: GongGothicLight;
+    src: url(../fonts/GongGothicLight.ttf.ttf);
+  }
+  @font-face {
+    font-family: GongGothicMedium;
+    src: url(../fonts/GongGothicMedium.ttf.ttf);
+  }
+
 
 html{
     overflow-y: hidden;
@@ -32,32 +45,44 @@ h1{
     position:absolute;
     top:50%; left:50%;
     transform: translate(-50%, -50%);
+    overflow-y: hidden;
   }
   
-  .navbar{
-    display:flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0;
-  }
+  
   
   .logo{
-    cursor: pointer;
-    margin-right: auto;
-    margin-left: 15px;
+   margin-top: 0px;
   }
   
+.navbar{
+    background-color: white;
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 0,0,0,0;
+        height: 80px;
+        padding-bottom: 10px;
+        padding-top: 0px;
+    }
   
-  .brandname{
-    margin-right: auto;
-    font-family: 'GongGothicMedium';
-    font-weight: normal; 
-    font-style: normal;
-    color: #014029
+
+  
+.brandname {
+        font-family: GongGothicBold;
+        margin-right: auto;
+        font-size: 22px;
+        color: #014029;
+        margin-left: 0;
   }
   
   .nav__logos{
-    list-style: none
+    margin-right: 50px;
   }
   
   .nav__logos li {
@@ -71,11 +96,12 @@ h1{
   
   }
   
-  .d-inline-block{
-    margin-top: 10px;
+.d-inline-block {
+    margin-top: 0px;
     margin-left: auto;
-    margin-right: 15px;
-  }
+    margin-right: 0px;
+    top: 0px;
+}
   
   
   .wrap-login100 {
@@ -83,7 +109,7 @@ h1{
     height: 100%;
     background: #fff;
     border-radius: 10px;
-    overflow: auto;
+    overflow-y: hidden;
 
 
 
@@ -129,7 +155,18 @@ h1{
 .about > span.on:after{
     width:100%;
 }
-  
+
+span.nick_name,
+span.book_mark{
+    border: 1px solid black;
+    width: 130px;
+    background-color: #9BC286;
+}
+
+span.book_mark{
+
+}
+
 .content{
     height: 100%;
     max-height: 78vh;
@@ -180,6 +217,10 @@ h1{
 }
 
 
+.nick_name,
+.book_mark{
+    font-family: GongGothicMedium;
+}
 
 
 @media screen and (max-width:1000px){
@@ -197,11 +238,6 @@ h1{
 }
   
   
-  .navbar{
-    background-color: #9BC286;
-    height: 55px;
-    align-items: center;
-  }
 
 
   
@@ -222,14 +258,6 @@ h1{
     box-sizing: border-box;
 }
 
-body {
-    font-family: "Open Sans", Arial, sans-serif;
-    min-height: 100vh;
-    background-color: #fafafa;
-    color: #262626;
-    padding-bottom: 3rem;
-}
-
 img {
     display: block;
 }
@@ -248,6 +276,7 @@ img {
     color: inherit;
     padding: 0;
     cursor: pointer;
+    
 }
 
 .btn:focus {
@@ -266,6 +295,7 @@ img {
 
 .profile {
     padding: 0;
+    
 }
 
 .profile::after {
@@ -280,7 +310,6 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 3rem;
 }
 
 .profile-image img {
@@ -305,26 +334,52 @@ img {
     font-weight: 300;
 }
 
+.btn {
+    display: inline-block;
+    font-family: GongGothicBold;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #9BC286 !important;
+    border: 1px solid black !important;
+    padding: .375rem .75rem;
+    font-size: 1.3rem !important;
+    line-height: 1.5;
+    border-radius: .25rem;
+    
+}
+
 .profile-edit-btn {
     font-size: 1.4rem;
     line-height: 1;
-    border: 0.1rem solid #dbdbdb;
+    border: 0.1rem solid  #9BC286;
     border-radius: 0.3rem;
     padding: 0 2.4rem;
     margin-left: 2rem;
-    margin-top: auto;
 }
 
-.follow-btn{
-    font-size: 1.4rem;
+.follow-btn, .btn-reviews{
+    font-size: 1.3rem;
     line-height: 1;
-    border: 0.1rem solid #dbdbdb;
+    border: 1px solid black  ;
     border-radius: 0.3rem;
-    padding: 0, 2.4rem;
     margin-left: 0;
     margin-top: auto;
     height: 40px;
-
+    background-color:  #9BC286;
+    order: 1;
+    padding: 0.5;
+    text-align: center;
+    margin-top: 0;
+    margin-left: 15px;
+    width: 40%;
+    margin-bottom: 10px;
+    font-family: GongGothicBold;
 }
 
 .profile-settings-btn {
@@ -342,6 +397,7 @@ img {
     line-height: 1.5;
     margin-right: 4rem;
     cursor: pointer;
+    font-family: GongGothicLight;
 }
 
 .profile-stats ul{
@@ -365,79 +421,18 @@ img {
 .profile-edit-btn,
 .follow-btn {
     font-weight: 600;
+    font-family: GongGothicMedium;
 }
 
-.btn-reviews{
-    margin: 0 auto;
-    display: block;
-    border: solid #dbdbdb;
-    border-radius: 0.3rem;
-    width: 100%;
-
+p{
+    font-family: GongGothicLight;
 }
 
-/* Gallery Section 
 
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -1rem -1rem;
-    padding-bottom: 3rem;
+.progress{
+    margin-top: 20px;
 }
-
-.gallery-item {
-    position: relative;
-    flex: 1 0 22rem;
-    margin: 1rem;
-    color: #fff;
-    cursor: pointer;
-}
-
-.gallery-item:hover .gallery-item-info,
-.gallery-item:focus .gallery-item-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.gallery-item-info {
-    display: none;
-}
-
-.gallery-item-info li {
-    display: inline-block;
-    font-size: 1.7rem;
-    font-weight: 600;
-}
-
-.gallery-item-likes {
-    margin-right: 2.2rem;
-}
-
-.gallery-item-type {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 2.5rem;
-    text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
-}
-
-.fa-clone,
-.fa-comment {
-    transform: rotateY(180deg);
-}
-
-.gallery-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
+    
 
 
 
@@ -479,25 +474,14 @@ img {
         margin-top: 10px;
     }
 
-    .profile-edit-btn {
-        order: 1;
-        padding: 0;
-        text-align: center;
-        margin-top: 1rem;
+  
 
-    }
-
-    .follow-btn{
-        order: 0;
-        padding: 0.5;
-        text-align: center;
-        margin-top: 0;
-        margin-left: 15px;
-        background-color:  #9BC286;
-    }
-
+    
     .profile-edit-btn {
         margin-left: 0;
+        order: 2;
+        padding: 0;
+        text-align: center;
     }
 
     .profile-bio {
@@ -560,15 +544,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
        /*( align-items: center;*/
     }
 
-    .profile-image {
-    
-    }
 
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-        grid-gap: 2rem;
-    }
 
     .profile-image,
     .profile-user-settings,
@@ -613,5 +589,42 @@ Remove or comment-out the code block below to see how the browser will fall-back
             margin: 0;
         }
     }
+}
+
+.contents_container .active .pic{ 
+    position: relative;
+    display: inline-block;
+    width: 165px;
+    height: 165px;
+
+}
+
+.contents_container .active .pic .imagebox{
+    position: relative;
+}
+.contents_container .active .pic .imagebox img{
+    position: relative;
+    max-width: 100%;
+
+
+    
+}
+
+.soldout{
+    position: absolute;
+    background: rgba(0,0,0,0.6);
+    max-width: 165px;
+    max-height: 165px;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+}
+
+.soldout p{
+    text-align: center;
+    margin-top: 25px;
+    font-size: 40px;
 }
   

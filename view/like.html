@@ -1,16 +1,219 @@
-<html lang="ko">
+<!DOCTYPE html>
 
+<html lang="ko">
 <head>
 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/like.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/hamburgernav.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+
+<!--===============================================================================================-->
 </head>
-
 <body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100"> 
+				<div class="navbar">
+					<a href="main.html"> <img class="logo" src="../static/images/icons/logo4.png" width="89" height="103" class="d-inline-block align-top" alt="">
+						</a>
+					<div class="brandname">
+						찜
+					</div>
+					<nav>
 
-Hello world
+						
 
-좋아요 누른거
+						<nav role='navigation'>
+							<div id="menuToggle">
+							  <!--
+							  A fake / hidden checkbox is used as click reciever,
+							  so you can use the :checked selector on it.
+							  -->
+							  <input type="checkbox" />
+							  
+							  <!--
+							  Some spans to act as a hamburger.
+							  
+							  They are acting like a real hamburger,
+							  not that McDonalds stuff.
+							  -->
+							  <span></span>
+							  <span></span>
+							  <span></span>
+							  
+							  <!--
+							  Too bad the menu has to be inside of the button
+							  but hey, it's pure CSS magic.
+							  -->
+							  <ul id="menu">
+								<a href="main.html"><li>Home</li></a>
+								<a href="subsscribe.html"><li>구독</li></a>
+								<a href="register.html"><li>제품 등록</li></a>
+								<a href="bookmark.html"><li>찜</li></a>
+								<a href="mypage.html"><li>마이 페이지</li></a>
+							  </ul>
+							</div>
+						  </nav>
+
+						<ul class="nav__logos">
+							
+							<li><a href="shoppingcart.html"><img src="../static/images/icons/shopping-cart.png" width="30" height="30" class="d-inline-block align-top" alt="" ></a></li>
+						</ul>
+
+
+					</nav>
+				</div>
+			<div class="content">
+				<div class="container">
+		
+			
+				 <!--end of container-->
+
+		
+				
+
+			<div class="content">
+
+			
+
+				<div class="mylist_contents contents_container active">
+					<div class="pic">
+						<a href="#"><img src="../static/images/1.png" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"><img src="../static/images/2.png" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"> <img src="../static/images/3.png" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"> <img src="../static/images/4.png" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"> <img src="../static/images/5.jpg" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"> <img src="../static/images/5.jpg" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"> <img src="../static/images/4.png" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"> <img src="../static/images/3.png" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"> <img src="../static/images/2.png" alt=""></a>
+                    </div>
+	
+					<div class="pic">
+						<a href="#"><img src="../static/images/1.png" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"><img src="../static/images/3.png" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"> <img src="../static/images/4.png" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"> <img src="../static/images/3.png" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"> <img src="../static/images/2.png" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"> <img src="../static/images/1.png" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"> <img src="../static/images/1.png" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"> <img src="../static/images/1.png" alt=""></a>
+					</div>
+					<div class="pic">
+						<a href="#"> <img src="../static/images/1.png" alt=""></a>
+					</div>
+				</div>
+					
+				
+					
+			</div> <!--container-->
+
+		</div>
+	</div>
+
+	
+					
+
+
+				
+		
+			<div>
+				<nav class="nav_bottom">
+					<a href="main.html" class="nav__link">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/home-2.png" class="icon-home"></i> 
+						<span class="nav__text">Home</span>
+					</a>
+					<a href="subscribe.html" class="nav__link nav__link--active">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/heart.png" class="icon-subscribe"></i>
+						<span class="nav__text">구독</span>
+					</a>
+					<a href="register.html" class="nav__link">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/add-button.png" class="icon-add"></i>
+						<span class="nav__text">등록</span>
+					</a>
+					<a href="like.html" class="nav__link">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/bookmark.png" class="icon-bookmark"></i>
+						<span class="nav__text">저장</span>
+					</a>
+					<a href="instagramprofilelayout.html" class="nav__link">
+						<i class="material-icons nav__icon"><img src="../static/images/icons/user.png" class="icon-user"></i>
+						<span class="nav__text">My Page</span>
+					</a>
+	
+				</nav>
+			</div>
+
+		
+			</div> <!--extra-->
+			</div> <!--extra-->
+		</div> <!--wrap login-->
+	</div> <!--containerlogin-->
+</body> <!--limiter-->
+
+			
+
+		
+
+
+
+
+
+	
+<!--===============================================================================================-->
+	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/bootstrap/js/popper.js"></script>
+	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/js/mypage.js"></script>
 
 </body>
-
-
 </html>
+

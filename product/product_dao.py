@@ -132,7 +132,7 @@ def update_comment_count(post_idx, comment_count):
     try:
         conn = get_connection()
         cursor = conn.cursor()
-        cursor.execute(sql, (post_idx, comment_count))
+        cursor.execute(sql, (comment_count, post_idx))
         conn.commit()
     finally:
         if conn is not None: conn.close()
@@ -177,6 +177,22 @@ def post_comment(post_idx):
         data_list.append(temp_dict)    
     print(data_list)
     return data_list
+
+def check_user_like(user_idx, post_idx):
+    sql = '''select * from like_posts where user_idx=%s and post_idx=%s'''
+    
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        cursor.execute(sql, (user_idx, post_idx))
+        result = cursor.fetchone()
+    finally:
+        if conn is not None: conn.close()
+    
+    if not result:
+        return False
+        
+    return True
 
 def sub_post_list(user_idx):
     sql = '''select posts.post_idx, posts.user_idx, name, email, user_img, title, description, tags, post_like, location, comment_count 

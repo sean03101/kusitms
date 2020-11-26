@@ -54,14 +54,24 @@ def add_likepost():
     
     checked_idx = user_dao.check_like(user_idx, post_idx)
     
+    result = {}
+    
     if not checked_idx:
         user_dao.add_like(user_idx, post_idx)
-        return 'ADD'
+        liked = user_dao.count_like(post_idx)
+        user_dao.update_like_count(post_idx, liked+1)
+        result['type'] = 'ADD'
+        result['count'] = liked+1
+        return result
     else:
         user_dao.delete_like(user_idx, post_idx)
-        return 'DEL'
+        liked = user_dao.count_like(post_idx)
+        user_dao.update_like_count(post_idx, liked-1)
+        result['type'] = 'DEL'
+        result['count'] = liked-1
+        return result
     
-    return 'OK'
+    return result
 
 #mypage, 다른사람 페이지 접근 시 고려해야함, 좋아요리스트?
 @user_blue.route('/mypage')
@@ -113,14 +123,13 @@ def delete_cart():
 #결제페이지 미완성!!
 @user_blue.route('/payment')
 def check_payment():
-    user_idx = session['user_idx']
-    post_idx_list = ['if list']
+    if 'user_idx' in session:
+        user_idx = session['user_idx']
+    else:
+        user_idx = 2
     
-    data_list = []
-    for post_idx in post_idx_list:
-        data = user_dao.check_post(post_idx)
-        data_list.append(data)
+    data_list = user_dao.pay_list(user_idx)
     
-    html = render_template('payment.html', data_list=data_list)
+    html = render_template('paycomplete.html', data_list=data_list)
     return html
         

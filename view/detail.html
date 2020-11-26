@@ -12,7 +12,7 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
+    <script src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
     <!--===============================================================================================-->
 
     <meta charset="UTF-8">
@@ -148,7 +148,11 @@
                                                 <div class="user_name">
                                                     <div class="nick_name" style="padding-left: 3px;">{{data.user_email[:-10]}}
                                                         <button type="button" class="btn btn-success subscribebtn" onclick="UpdateSub();">
-                                                            구독
+                                                            {% if data.sub_yn == 'Y' %}
+                                                            <span>구독중</span>
+                                                            {% else %}
+                                                            <span>구독</span>
+                                                            {% endif %}
                                                         </button>
                                                     </div>
                                                     <div class="country"></div>
@@ -163,29 +167,30 @@
                                             <div class="detailimage"><img
                                                     src="{{url_for('static',filename='images/detailimage.png')}}"
                                                     class="detailimage" alt=""></div>
-                                            <p class="captionbox">
+                                            <div class="captionbox">
                                                 <!-- 카키색 야상 하나로 가을 맞이 #ootd #감성룩#아우터 -->
                                                 <p>상품 등록 시간 : {{data.time}}</p>
-                                                <p>해쉬 태그 : {{data.tags}}</p>
                                                 <p>판매 가격 : {{data.price}}</p>
-                                                <p>상품 카테고리 : {{data.category}}</p>
-                                                <p>사이즈 : {{data.size}}</p>
-                                                <p>브랜드 : {{data.brand}}</p>
+                                                <p>{{data.category}} / {{data.size}} / {{data.brand}}</p>
                                                 <p>{{data.gender}}</p>
+                                                <p>{{data.text}}</p>
+                                                
+                                                <p>
                                                 {% if data.certificate == 1 %}
-                                                <p>검증 O</p>
+                                                <span>검증 O / </span>
                                                 {% elif data.receipt == 0 %}
-                                                <p>검증 X</p>
+                                                <span>검증 X / </span>
                                                 {% endif %}
 
                                                 {% if data.receipt == 1 %}
-                                                <p>영수증 O</p>
+                                                <span>영수증 O</span>
                                                 {% elif data.receipt == 0 %}
-                                                <p>영수증 O</p>
+                                                <span>영수증 X</span>
+
+                                                </p>
+                                                
                                                 {% endif %}
-                                            </p>
-
-
+                                            </div>
                                         </div>
 
                                         <div class="bottombox">
@@ -197,7 +202,7 @@
                                                     <div class="heart-container">
                                                         <?xml version="1.0" encoding="utf-8"?>
                                                         <!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                                                        <svg version="1.1" class="heart"
+                                                        <svg version="1.1" class="heart" id="heartbutton"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                                             viewBox="0 0 494 384"
@@ -213,7 +218,7 @@
                                                         </svg>
                                                         <div class="attach"></div>
                                                     </div>
-                                                    <p style="padding-left: 27px; padding-top: 5px;">좋아요 {{ data.post_like }}개</p>
+                                                    <p style="padding-left: 27px; padding-top: 5px;">좋아요 <span className="Likecount">{{ data['post_like'] }}</span>개</p>
 
                                                 </div>
                                             </div>
@@ -263,6 +268,21 @@
                     </section>
 
                     <script>
+                        var likeready = 0;
+
+                        (function() {
+                            let like_yn = '{{data["user_like"]}}';
+
+                            if (like_yn == 'Y') {
+                                $('#heartbutton.heart').css({fill: '#ff0000'});
+                                console.error;
+                            }
+
+                            console.log('ready');
+                            likeready = 1;
+                        })();
+
+
                         var fileInput = document.querySelector("#id_photo"),
                             button = document.querySelector(".input-file-trigger"),
                             the_return = document.querySelector(".file-return");
@@ -336,28 +356,35 @@
                             });
                         }
 
+
                         function UpdateLike() {
 
-                            let post_id = '{{data["post_idx"]}}';
+                            if (likeready == 1){
+                                let post_id = '{{data["post_idx"]}}';
+                                let liked = '{{data["post_like"]}}';
+
+                                param = {
+                                    post_idx: post_id,
+                                };
+                                console.log(param)
+                                $.ajax({
+                                    url: '/like_update',
+                                    type: 'post',
+                                    data: param,
+                                    success: function (response) {
+                                        if (response['type'] == 'ADD') {
+                                            alert('해당 상품을 좋아요하셨습니다.');
+                                        }
+                                        else if (response['type'] == 'DEL') {
+                                            alert('좋아요를 취소하셨습니다.')
+                                        }
+                                        console.log(response['count'])
+                                        location.href = "/post/post_id={{data['post_idx']}}";
+                                    },
+                                    error: function (data) { console.log("에이젝스 실패") },
+                                });
+                            }
                             
-                            param = {
-                                post_idx : post_id, 
-                            };
-                            console.log(param)
-                            $.ajax({
-                                url: '/like_update',
-                                type: 'post',
-                                data: param,
-                                success: function (response) {
-                                    if (response == 'ADD') {
-                                        alert('해당 상품을 좋아요하셨습니다.');
-                                    }
-                                    else if (response == 'DEL'){
-                                        alert('좋아요를 취소하셨습니다.')
-                                    }
-                                },
-                                error: function (data) { console.log("에이젝스 실패") },
-                            });
                         }
 
                         function AddComment(){
@@ -381,6 +408,7 @@
                                 success: function(response){
                                     if (response=='OK'){
                                         alert('댓글이 등록되었습니다');
+                                        location.href = "/post/post_id={{data['post_idx']}}";
                                     }
                                 },
                             });
@@ -406,7 +434,7 @@
 
 
     <!--===============================================================================================-->
-    <script src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+
     <!--===============================================================================================-->
     <script src="{{url_for('static',filename='vendor/animsition/js/animsition.min.js')}}"></script>
     <!--===============================================================================================-->

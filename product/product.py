@@ -76,11 +76,27 @@ def upload_post():
 #상세페이지 컬럼 정해야
 @product_blue.route('/post/post_id=<post_idx>', methods=['get'])
 def post_detail(post_idx):
+    if 'user_idx' in session:
+        user_idx = session['user_idx']
+    else:
+        user_idx = 2
+    
     post_detail = product_dao.post_detail(post_idx)
 
     if post_detail['comment_count'] != 0:
         comments = product_dao.post_comment(post_idx)
         post_detail['comments'] = comments
+        
+    if product_dao.check_user_like(user_idx, post_idx):
+        post_detail['user_like'] = 'Y'
+    else:
+        post_detail['user_like'] = 'N'
+        
+    if not product_dao.check_sub(user_idx, post_detail['user_idx']):
+        post_detail['sub_yn'] = 'N'
+    else:
+        post_detail['sub_yn'] = 'Y'
+            
     html = render_template('detail.html', data=post_detail)
     return html
 
@@ -97,7 +113,7 @@ def upload_comment():
     comment_count = request.form['count']
     
     product_dao.add_comment(post_idx, user_idx, comment_text)
-    product_dao.update_comment_count(post_idx, comment_count+1)
+    product_dao.update_comment_count(post_idx, int(comment_count)+1)
     
     return 'OK'
     
@@ -160,7 +176,7 @@ def add_subscription():
 
 
 #위시리스트페이지
-@product_blue.route('/wishlist')
+@product_blue.route('/bookmark')
 def wishlist():
     if 'user_idx' in session:
         user_idx = session['user_idx']

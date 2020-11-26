@@ -148,14 +148,14 @@ p{
 .bottombox{
     position: relative;
     z-index: 2;
-    top: -130px;
+    top: -180px;
     left: 30px;
 }
 
 .captionbox{
     position: relative;
     z-index: 2;
-    top: -150px;
+    top: -200px;
     left: 20px;
 }
 
@@ -323,9 +323,9 @@ button {
   }
 
   .captionbox{
-      max-width: 200px;
+      max-width: 300px;
       margin: auto;
-      margin-left: 70px;
+      margin-left: 20px;
   }
 
   .commet{

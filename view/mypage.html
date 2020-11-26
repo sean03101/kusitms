@@ -153,13 +153,14 @@
 				<div class="mylist_contents contents_container active">
 				
 				{% if post_list|length > 0 %} <!--안팔린거-->
-					{% if post_list.sell_yn == 0 %}
-						{% for post in post_list %}
+					{% for post in post_list %}
+						{% if post['sell_yn'] == 0 %}
 						<div class="pic">
 							<a href="/post/post_id={{post['post_idx']}}"><img src="{{post.location[8:]}}" alt=""></a>
 						</div>
-						{% endfor %}
-					{% endif %}
+						{% endif %}
+					{% endfor %}
+					
 				{% else %}
 					<div class="pic">
 						<p style="text-align: center;">No Data </p>
@@ -197,14 +198,16 @@
 	
 				<div class="bookmark_contents contents_container">
 					
-					{% if post_list|length > 0 %} <!--팔린거-->
-						{% if post_list.sell_yn == 1 %}
-							{% for post in post_list %}
+					{% if post_list|length > 0 %} <!--안팔린거-->
+						{% for post in post_list %}
+							{% if post['sell_yn'] == 1 %}
 							<div class="pic">
 								<a href="/post/post_id={{post['post_idx']}}"><img src="{{post.location[8:]}}" alt=""></a>
 							</div>
-							{% endfor %}
-						{% endif %}
+							{% endif %}
+						{% endfor %}
+					
+				
 					{% else %}
 						<div class="pic">
 							<p style="text-align: center;">No Data</p>

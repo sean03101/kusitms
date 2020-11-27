@@ -135,9 +135,9 @@ p{
     margin-right: 10px;
     margin: auto;
     position: absolute;
-    top: 100px;
-    right: 300px;
-    padding-top: 30px;
+    top: 130px;
+    right: 330px;
+    /* padding-top: 30px; */
 }
 
 .top{
@@ -196,7 +196,15 @@ p{
 .nick_name{
     font-family: GongGothicMedium;
     font-size: 20px;
+    margin-top: 4px;
 
+}
+
+.shoppingcartbtn{
+    position: absolute;
+    top: 150px;
+    left: 35px;
+    width: 200px;
 }
 
 .commet_container{
@@ -273,7 +281,9 @@ element.style {
 }
 
 .subscribebtn{
-    margin-left: 140px;
+    position: absolute;
+    top: 5px;
+    left: 250px;
 }
 
 

@@ -289,35 +289,3 @@ def check_post(post_idx):
     data['location'] = result[3]
     
     return data
-
-def pay_list(user_idx):
-    sql = '''select posts.post_idx, user.user_idx, email, title, price, location
-             from cart inner join posts on posts.post_idx = cart.post_idx
-             inner join post_file on posts.post_idx = post_file.post_idx
-             inner join user on posts.user_idx = user.user_idx
-             where file_idx in (select min(file_idx) from post_file group by post_idx)
-             and cart.user_idx = %s'''
-             
-    try:
-        conn = get_connection()
-        cursor = conn.cursor()
-        cursor.execute(sql, user_idx)
-        result = cursor.fetchall()
-    finally:
-        if conn is not None: conn.close()
-        
-    if not result:
-        return False
-    
-    data_list = []
-    for row in result:
-        temp_dict = {}
-        temp_dict['post_idx'] = row[0]
-        temp_dict['uesr_idx'] = row[1]
-        temp_dict['user_email'] = row[2]
-        temp_dict['title'] = row[3]
-        temp_dict['price'] = row[4]
-        temp_dict['location'] = row[5]
-        data_list.append(temp_dict)
-    print(data_list)
-    return data_list

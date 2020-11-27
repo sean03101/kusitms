@@ -284,6 +284,7 @@ textarea{
     line-height: 28px;
     outline: none;
     width: 100%;
+    height: 40px;
     padding: 2px;
     margin-top: 10px;
     font-family: GongGothicBold;

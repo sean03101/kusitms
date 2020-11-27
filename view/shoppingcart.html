@@ -110,7 +110,7 @@
 								</div>
 								
 								<div class="remove">
-								  <svg @click="removeItem(index)" version="1.1" class="close" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" enable-background="new 0 0 60 60" xml:space="preserve"><polygon points="38.936,23.561 36.814,21.439 30.562,27.691 24.311,21.439 22.189,23.561 28.441,29.812 22.189,36.064 24.311,38.186 30.562,31.934 36.814,38.186 38.936,36.064 32.684,29.812"></polygon></svg>
+								  <svg onclick="removeCart()"  @click="removeItem(index)" version="1.1" class="close" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" enable-background="new 0 0 60 60" xml:space="preserve"><polygon points="38.936,23.561 36.814,21.439 30.562,27.691 24.311,21.439 22.189,23.561 28.441,29.812 22.189,36.064 24.311,38.186 30.562,31.934 36.814,38.186 38.936,36.064 32.684,29.812"></polygon></svg>
 								</div>
 							  </div>
 							</li>
@@ -151,15 +151,39 @@
 						  </div>
 					  
 						  <div class="checkout">
-							<button type="button">결제하기</button>
+							<button type="button" href="{{url_for('static',filename='payment')}}">결제하기</button>
 						  </div>
 						</section>
 						<!-- End Summary -->
 					 
 					</div>
 				</div>
-		
+
+				<script>
+					function removeCart(){
+						let post_id = '{{cart_list["post_idx"]}}';
+                            
+                            param = {
+                                post_idx : post_id, 
+                            };
+                            console.log(param)
+                            $.ajax({
+                                url: '/delete_cart_pro',
+                                type: 'post',
+                                data: param,
+                                success: function (response) {
+                                    
+                                    alert('해당 상품을 제거하셨습니다.');
+                                    location.href = "/cart"
+                  
+                                },
+                                error: function (data) { console.log("에이젝스 실패") },
+                            });
+					}
+
+				</script>
 				
+			
 	
 						
 							

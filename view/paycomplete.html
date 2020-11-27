@@ -6,12 +6,12 @@ html boi
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/hamburgernav.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/paycomplete.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/shoppingcart.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/reset.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/hamburgernav.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/paycomplete.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/shoppingcart.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -42,11 +42,10 @@ html boi
 
 
     <title>instagram</title>
-    <link rel="stylesheet" href="../static/css/reset.css">
-    <link rel="stylesheet" href="../static/css/common.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/detail.css">
-    <link rel="shortcut icon" href="../static/imgs/instagram.png">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/reset.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/common.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/detail.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
@@ -62,15 +61,17 @@ html boi
 </head>
 <body>
 	
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100"> 
-				<div class="navbar">
-					<a href="main.html"> <img class="logo" src="../static/images/icons/logo4.png" width="89" height="103" class="d-inline-block align-top" alt="">
-						</a>
-					<div class="brandname"> 
-						<img src="../static/images/icons/refitimage.png" height="45"> 
-					</div>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="navbar">
+                    <a href="{{url_for('static',filename='home')}}"><img class="logo"
+                            src="{{url_for('static',filename='images/icons/logo4.png')}}" width="89" height="103"
+                            class="d-inline-block align-top" alt="">
+                    </a>
+                    <div class="brandname">
+                        <img src="{{url_for('static',filename='images/icons/refitimage.png')}}" height="45">
+                    </div>
 				
 
 						
@@ -79,7 +80,7 @@ html boi
 
 						<ul class="nav__logos">
 							
-							<li><a href="shoppingcart.html"><img src="../static/images/icons/shopping-cart.png" width="30" height="30" class="d-inline-block align-top" alt="" ></a></li>
+							<li><a href="{{url_for('static',filename='cart')}}"><img src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="30" height="30" class="d-inline-block align-top" alt="" ></a></li>
 						</ul>
 
 
@@ -91,13 +92,16 @@ html boi
                 <div id="main_container">
 
                     <div class="hanger">
-                        <img src="../static/images/hanger.png">
+                     <img src="{{url_for('static',filename='images/hanger.png')}}">
                     </div>
 
                     <div class="photobox">
+                        
+                    
                         <div class="photobox_img">
-                            <img src="../static/images/payimage.png">
-
+                            {% for datalist in data_list %}
+                                <img src="{{datalist.location[8:]}}">
+                            {% endfor %}
                         </div>
 
                     </div>
@@ -128,11 +132,11 @@ html boi
                     </div>
 
                     <div class="price">
-                        가격: <div class="price_value"></div>
+                        가격: <div class="price_value"> {{data_list.price}}</div>
                     </div>
 
                     <div class="checkout">
-                        <button type="button">결제하기</button>
+                        <button type="button" onclick="location.href = '/backtomain'">결제하기</button>
                       </div>
             
                        
@@ -148,27 +152,27 @@ html boi
 
 	
 <!--===============================================================================================-->
-	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/animsition/js/animsition.min.js"></script>
+	<script src="{{url_for('static',filename='vendor/animsition/js/animsition.min.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/bootstrap/js/popper.js"></script>
-	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="{{url_for('static',filename='vendor/bootstrap/js/popper.js')}}"></script>
+	<script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/select2/select2.min.js"></script>
+	<script src="{{url_for('static',filename='vendor/select2/select2.min.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/daterangepicker/moment.min.js"></script>
-	<script src="../static/vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="{{url_for('static',filename='vendor/daterangepicker/moment.min.js')}}"></script>
+	<script src="{{url_for('static',filename='vendor/daterangepicker/daterangepicker.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/vendor/countdowntime/countdowntime.js"></script>
+	<script src="{{url_for('static',filename='vendor/countdowntime/countdowntime.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="../static/js/main.js"></script>
+	<script src="{{url_for('static',filename='js/main.js')}}"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="../static/js/shoppingcart.js"></script>
-<script src="../static/js/main.js"></script>
-<script src="../static/js/vue.js"></script>
+<script src="{{url_for('static',filename='js/shoppingcart.js')}}"></script>
+<script src="{{url_for('static',filename='js/main.js')}}"></script>
+<script src="{{url_for('static',filename='js/vue.js')}}"></script>
 
 </body>
 </html>

@@ -19,15 +19,15 @@
 		<div class="container-login100">
 			<div class="wrap-login100"> 
 				<div class="navbar">
-					<img class="logo" src="{{url_for('static',filename='images/icons/logo1.png')}}" width="89" height="103" class="d-inline-block align-top" alt="">
+					<a href="/home"><img class="logo" src="{{url_for('static',filename='images/icons/logo1.png')}}" width="89" height="103" class="d-inline-block align-top" alt=""></a>
 				
 					   <div id="input-form">
-							<input type="text" id="searchbar" placeholder="검색어를 입력하세요." onkeyup="search(this);">
+							<input type="text" id="searchbar" placeholder="검색어를 입력하세요." onclick="searchtag();">
 						</div>
 					<nav>
 						<ul class="nav__logos">
-							<li><a href="#" id="btn_search"><img src="{{url_for('static',filename='images/icons/search.png')}}" width="20" height="20" class="d-inline-block align-top" alt=""></a></li>
-							<li><a href="shoppingcart.html"><img src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="40" height="40" class="d-inline-block align-top" alt="" ></a></li>
+							<li><a href="/search" id="btn_search"><img src="{{url_for('static',filename='images/icons/search.png')}}" width="20" height="20" class="d-inline-block align-top" alt=""></a></li>
+							<li><a href="/cart"><img src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="40" height="40" class="d-inline-block align-top" alt="" ></a></li>
 						</ul>
 					</nav>
 				</div>
@@ -140,6 +140,29 @@
 		</div>
 	</div>
 
+
+	<script>
+		function searchtag(){
+            var input_tag = document.getElementById('searchbar');
+
+            param = {
+                search_tag: input_tag,
+                    }
+                console.log(param)
+
+                $.ajax({
+                    url: '/search_update',
+                    type: 'get',
+                    data: param,
+                success: function(response){
+
+                        }
+                    })
+                }
+
+
+	</script>
+
 	
 <!--===============================================================================================-->
 	<script type="text/javascript" src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
@@ -158,6 +181,8 @@
 <!--===============================================================================================-->
 	<script type="text/javascript" src="{{url_for('static',filename='js/main.js')}}"></script>
 	<script type="text/javascript" src="{{url_for('static',filename='js/mypage.js')}}"></script>
+
+
 
 </body>
 </html>

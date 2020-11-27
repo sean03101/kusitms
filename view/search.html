@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/search.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/nav.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/hamburgernav.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100"> 
+				<div class="navbar">
+					<a href="/home"> <img class="logo" src="{{url_for('static',filename='images/icons/logo4.png')}}"> width="89" height="103" class="d-inline-block align-top" alt="">
+						</a>
+					   <p id="input-form">
+							<input type="text" id="searchbar" placeholder="{{data_search.text}}" onclick="searchtag();">
+							<a href="/search" id="btn_search"><img src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="20" height="20" class="d-inline-block align-top" alt=""  ></a>
+					   </p>
+
+
+
+						
+
+						<nav role='navigation'>
+							<div id="menuToggle">
+							  <!--
+							  A fake / hidden checkbox is used as click reciever,
+							  so you can use the :checked selector on it.
+							  -->
+							  <input type="checkbox" />
+							  
+							  <!--
+							  Some spans to act as a hamburger.
+							  
+							  They are acting like a real hamburger,
+							  not that McDonalds stuff.
+							  -->
+							  <span></span>
+							  <span></span>
+							  <span></span>
+							  
+							  <!--
+							  Too bad the menu has to be inside of the button
+							  but hey, it's pure CSS magic.
+							  -->
+							  <ul id="menu">
+								<a href="/home"><li>Home</li></a>
+								<a href="/subscribe"><li>구독</li></a>
+								<a href="/register"><li>제품 등록</li></a>
+								<a href="/bookmark"><li>찜</li></a>
+								<a href="/mypage"><li>마이 페이지</li></a>
+							  </ul>
+							</div>
+						  </nav>
+
+						<ul class="nav__logos">
+							
+							<li><a href="/cart"><img src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="30" height="30" class="d-inline-block align-top" alt="" ></a></li>
+						</ul>
+
+
+					</nav>
+				</div>
+			<div class="content">
+				<div class="container">
+		
+			
+				 <!--end of container-->
+
+		
+				
+
+			<div class="content">
+
+			
+
+			{% for searchdata in data_search %}
+				{% set searchdata = data_search.img_url %}
+				<div class="pic">
+					<a href="/post/post_id={{searchdata['post_idx']}}"><img src = "{{searchdata[8:]}}" ></a>
+				</div>
+			
+			{% endfor %}
+					
+				
+					
+			</div> <!--container-->
+
+		</div>
+	</div>
+
+	
+	<script>
+		function searchtag(){
+            var input_tag = document.getElementById('searchbar');
+
+            param = {
+                search_tag: input_tag,
+                    }
+                console.log(param)
+
+                $.ajax({
+                    url: '/search_update',
+                    type: 'get',
+                    data: param,
+                success: function(response){
+
+                    location.href = "/search";
+                        }
+                    })
+                }
+
+	</script>				
+
+
+				
+		
+			<div>
+				<nav class="nav_bottom">
+					<a href="{{url_for('static',filename='home')}}" class="nav__link">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/home-2.png')}}" class="icon-home"></i> 
+						<span class="nav__text">Home</span>
+					</a>
+					<a href="{{url_for('static',filename='subscribe')}}" class="nav__link nav__link--active">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/heart.png')}}" class="icon-subscribe"></i>
+						<span class="nav__text">구독</span>
+					</a>
+					<a href="{{url_for('static',filename='register')}}" class="nav__link">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/add-button.png')}}" class="icon-add"></i>
+						<span class="nav__text">등록</span>
+					</a>
+					<a href="{{url_for('static',filename='bookmark')}}" class="nav__link">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/bookmark.png')}}" class="icon-bookmark"></i>
+						<span class="nav__text">저장</span>
+					</a>
+					<a href="{{url_for('static',filename='mypage')}}" class="nav__link">
+						<i class="material-icons nav__icon"><img src="{{url_for('static',filename='images/icons/user.png')}}" class="icon-user"></i>
+						<span class="nav__text">My Page</span>
+					</a>
+	
+				</nav>
+			</div>
+
+		
+			</div> <!--extra-->
+			</div> <!--extra-->
+		</div> <!--wrap login-->
+	</div> <!--containerlogin-->
+</body> <!--limiter-->
+
+			
+
+		
+
+
+
+
+
+	
+   <!--===============================================================================================-->
+   <script src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+   <!--===============================================================================================-->
+   <script src="{{url_for('static',filename='vendor/animsition/js/animsition.min.js')}}"></script>
+   <!--===============================================================================================-->
+   <script src="{{url_for('static',filename='vendor/bootstrap/js/popper.js')}}"></script>
+   <script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+   <!--===============================================================================================-->
+   <script src="{{url_for('static',filename='vendor/select2/select2.min.js')}}"></script>
+   <!--===============================================================================================-->
+   <script src="{{url_for('static',filename='vendor/daterangepicker/moment.min.js')}}"></script>
+   <script src="{{url_for('static',filename='vendor/daterangepicker/daterangepicker.js')}}"></script>
+   <!--===============================================================================================-->
+   <script src="{{url_for('static',filename='vendor/countdowntime/countdowntime.js')}}"></script>
+   <!--===============================================================================================-->
+   <script src="{{url_for('static',filename='js/mypage.js')}}"></script>
+
+</body>
+</html>
+

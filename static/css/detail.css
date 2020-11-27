@@ -3,7 +3,7 @@
     src: url(../fonts/GongGothicBold.ttf.ttf);
   }
   @font-face {
-    font-family: GongGothiLight;
+    font-family: GongGothicLight;
     src: url(../fonts/GongGothicLight.ttf.ttf);
   }
   @font-face {
@@ -58,6 +58,10 @@ p{
     top: 0;
 }
 
+.trans_innerr{
+    overflow-y: hidden;
+}
+
 .logo{
     margin-top: 0px;
 }
@@ -83,6 +87,13 @@ p{
     padding-top: 0px;
 }
 
+
+
+
+#main_container{
+    overflow-y: hidden;
+    padding-top: 0px;
+}
 
 .brandname{
     font-family: GongGothicBold;

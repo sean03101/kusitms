@@ -1,3 +1,17 @@
+@font-face {
+    font-family: GongGothicBold;
+    src: url(../fonts/GongGothicBold.ttf.ttf);
+  }
+  @font-face {
+    font-family: GongGothicLight;
+    src: url(../fonts/GongGothicLight.ttf.ttf);
+  }
+  @font-face {
+    font-family: GongGothicMedium;
+    src: url(../fonts/GongGothicMedium.ttf.ttf);
+  }
+  
+
 body {
     width: 360px;
     align-items: center;
@@ -23,7 +37,7 @@ body {
     min-width: 50px;
     overflow: hidden;
     white-space: nowrap;
-    font-family: sans-serif;
+    font-family: GongGothicLight;
     font-size: 13px;
     color: #444444;
     text-decoration: none;

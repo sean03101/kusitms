@@ -22,11 +22,11 @@
 		<div class="container-login100">
 			<div class="wrap-login100"> 
 				<div class="navbar">
-					<a href="/home"> <img class="logo" src="{{url_for('static',filename='images/icons/logo4.png')}}"> width="89" height="103" class="d-inline-block align-top" alt="">
+					<a href="/home"> <img class="logo" src="{{url_for('static',filename='images/icons/logo4.png')}}" width="89" height="103" class="d-inline-block align-top" alt="">
 						</a>
 					   <p id="input-form">
 							<input type="text" id="searchbar" placeholder="{{data_search.text}}" onclick="searchtag();">
-							<a href="/search" id="btn_search"><img src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="20" height="20" class="d-inline-block align-top" alt=""  ></a>
+							<a href="/search" id="btn_search"><img src="{{url_for('static',filename='images/icons/search.png')}}" width="20" height="20" class="d-inline-block align-top" alt=""  ></a>
 					   </p>
 
 
@@ -85,7 +85,7 @@
 			<div class="content">
 
 			
-
+				<div class="mylist_contents contents_container active">
 			{% for searchdata in data_search %}
 				{% set img_url = searchdata.img_url %}
 				<div class="pic">
@@ -95,7 +95,7 @@
 			{% endfor %}
 					
 				
-					
+				</div>
 			</div> <!--container-->
 
 		</div>

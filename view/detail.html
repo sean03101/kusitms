@@ -148,7 +148,7 @@
                                                 </div>
                                                 </a>  
                                                 <div class="user_name">
-                                                    <div class="nick_name" style="padding-left: 3px;">{{data.user_email[:-10]}}
+                                                    <div class="nick_name" style="padding-left: 3px;">{{data.user_email.split('@')[0]}}
                                                         <button type="button" class="btn btn-success subscribebtn" onclick="UpdateSub();">
                                                             {% if data.sub_yn == 'Y' %}
                                                             <span>구독중</span>
@@ -248,12 +248,10 @@
 
                                                     <button type="button" class="btn btn-primary" onclick="AddComment();">게시</button>
                                                 </div>
-                                                
-                                                <div class="shoppingcartbtn">
-                                                    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="UpdateCart();">쇼핑카트에 담기</button>
-                                                </div>
 
-
+                                            </div>
+                                            <div class="shoppingcartbtn">
+                                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="UpdateCart();">쇼핑카트에 담기</button>
                                             </div>
                                         </div>
 
@@ -428,11 +426,11 @@
 
 
                         function UpdateCart() {
-                            let user_id = '{{data["user_idx"]}}';
+                            let post_id = '{{data["post_idx"]}}';
 
                                 param = {
-                                    user_idx: user_id,
-                                }
+                                    post_idx: post_id,
+                                };
                                 console.log(param)
 
                                 $.ajax({
@@ -440,14 +438,11 @@
                                     type: 'post',
                                     data: param,
                                     success: function(response){
-                                        if (response == 'ADD'){
+                                        if (response == 'OK'){
                                             alert('장바구니에 추가했습니다.')
                                         }
-                                        else if (response == 'DEL'){
-                                            alert('장바구니에서 제거되었습니다.')
-                                        }
                                     }
-                                })
+                                });
                         }
 
                     </script>

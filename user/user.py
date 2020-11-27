@@ -115,35 +115,31 @@ def shopping_cart():
     return html
 
 #장바구니 추가
-@user_blue.route('/add_cart_pro')
+@user_blue.route('/add_cart_pro', methods=['post'])
 def add_cart():
-    user_idx = session['user_idx']
+    if 'user_idx' in session:
+        user_idx = session['user_idx']
+    else:
+        user_idx = 2
+    print(request.form)
     post_idx = request.form['post_idx']
-    
+    print(post_idx)
     user_dao.add_cart(user_idx, post_idx)
     
     return 'OK'
 
 #장바구니 삭제
-@user_blue.route('/delete_cart_pro')
+@user_blue.route('/delete_cart_pro', methods=['post'])
 def delete_cart():
-    user_idx = session['user_idx']
-    post_idx = request.form['post']
+    if 'user_idx' in session:
+        user_idx = session['user_idx']
+    else:
+        user_idx = 2
+        
+    post_idx = request.form['post_idx']
     
     user_dao.delete_cart(user_idx, post_idx)
     
     return 'OK'
 
-#결제페이지 미완성!!
-@user_blue.route('/payment')
-def check_payment():
-    if 'user_idx' in session:
-        user_idx = session['user_idx']
-    else:
-        user_idx = 2
-    
-    data_list = user_dao.pay_list(user_idx)
-    
-    html = render_template('paycomplete.html', data_list=data_list)
-    return html
         

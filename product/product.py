@@ -218,3 +218,20 @@ def add_wishlist():
         return 'DEL'
     
     return 'OK'
+
+#결제페이지 미완성!!
+@product_blue.route('/payment')
+def check_payment():
+    if 'user_idx' in session:
+        user_idx = session['user_idx']
+    else:
+        user_idx = 2
+    
+    post_idx = product_dao.cart_list(user_idx)
+    
+    post_detail = product_dao.post_detail(post_idx)
+    post_file = product_dao.post_file_list(post_idx)
+    post_detail['file'] = post_file
+    
+    html = render_template('paycomplete.html', data=post_detail)
+    return html

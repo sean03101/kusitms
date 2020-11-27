@@ -10,7 +10,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-
+	<script type="text/javascript" src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->
 </head>
 <body>
@@ -22,11 +22,11 @@
 					<a href="/home"><img class="logo" src="{{url_for('static',filename='images/icons/logo1.png')}}" width="89" height="103" class="d-inline-block align-top" alt=""></a>
 				
 					   <div id="input-form">
-							<input type="text" id="searchbar" placeholder="검색어를 입력하세요." onclick="searchtag();">
+							<input type="text" id="searchbar" placeholder="검색어를 입력하세요.">
 						</div>
 					<nav>
 						<ul class="nav__logos">
-							<li><a href="/search" id="btn_search"><img src="{{url_for('static',filename='images/icons/search.png')}}" width="20" height="20" class="d-inline-block align-top" alt=""></a></li>
+							<li><a id="btn_search" onclick="searchtag();"><img src="{{url_for('static',filename='images/icons/search.png')}}" width="20" height="20" class="d-inline-block align-top" alt=""></a></li>
 							<li><a href="/cart"><img src="{{url_for('static',filename='images/icons/shopping-cart.png')}}" width="40" height="40" class="d-inline-block align-top" alt="" ></a></li>
 						</ul>
 					</nav>
@@ -143,29 +143,32 @@
 
 	<script>
 		function searchtag(){
-            var input_tag = document.getElementById('searchbar');
+            var input_tag = $('#searchbar').val();
 
             param = {
                 search_tag: input_tag,
                     }
-                console.log(param)
+            console.log(param)
+			
+			location.href = '/search?search_tag='+input_tag
 
-                $.ajax({
-                    url: '/search_update',
-                    type: 'get',
-                    data: param,
-                success: function(response){
-
-                        }
-                    })
-                }
+            // $.ajax({
+            //     url: '/search',
+            //     type: 'get',
+            //     data: param,
+			// 	dataType: 'text',
+            //     success: function(response){
+					
+            //     }
+            // })
+        }
 
 
 	</script>
 
 	
 <!--===============================================================================================-->
-	<script type="text/javascript" src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+
 <!--===============================================================================================-->
 	<script type="text/javascript" src="{{url_for('static',filename='vendor/animsition/js/animsition.min.js')}}"></script>
 <!--===============================================================================================-->

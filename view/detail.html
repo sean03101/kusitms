@@ -141,10 +141,12 @@
                                     <div class="img_section">
 
                                         <header class="top" >
-                                            <div class="user_container" style="padding-left: 35px;">  
+                                            <div class="user_container" style="padding-left: 35px;">
+                                                <a href="/mypage/id={{data['user_idx']}}">
                                                 <div class="profile_img">
-                                                    <img src = "{{data.user_img}}" alt="">                                                  
+                                                    <img src="{{data.user_img}}" alt="">
                                                 </div>
+                                                </a>  
                                                 <div class="user_name">
                                                     <div class="nick_name" style="padding-left: 3px;">{{data.user_email[:-10]}}
                                                         <button type="button" class="btn btn-success subscribebtn" onclick="UpdateSub();">
@@ -164,8 +166,9 @@
                                         <div class="trans_inner">
                                             <div class="imageframe"><img
                                                     src="{{url_for('static',filename='images/detailframe.png')}}"></div>
-                                            <div class="detailimage"><img
-                                                    src="{{url_for('static',filename='images/detailimage.png')}}"
+                                            <div class="detailimage">
+                                                <img
+                                                    src="{{data['file'][0][8:]}}"
                                                     class="detailimage" alt=""></div>
                                             <div class="captionbox">
                                                 <!-- 카키색 야상 하나로 가을 맞이 #ootd #감성룩#아우터 -->
@@ -334,6 +337,7 @@
                                     else if (response == 'DEL'){
                                         alert('구독 취소하셨습니다.')
                                     }
+                                    location.href = "/post/post_id={{data['post_idx']}}";
                                 }
                             })
                         }

@@ -75,7 +75,7 @@ def add_likepost():
 
 #mypage, 다른사람 페이지 접근 시 고려해야함, 좋아요리스트?
 @user_blue.route('/mypage')
-def mypage():
+def mypage_mine():
     if 'user_idx' in session:
         user_idx = session['user_idx']
     else:
@@ -85,9 +85,23 @@ def mypage():
     mypost_list = user_dao.mypost_list(user_idx)
     likepost_list = user_dao.likepost_list(user_idx)
 
-    html = render_template('mypage.html', user=user, post_list=mypost_list, like_list=likepost_list) #유저정보, 유저 포스트 정보, 판매유무 등
+    html = render_template('mypage_mine.html', user=user, post_list=mypost_list, like_list=likepost_list) #유저정보, 유저 포스트 정보, 판매유무 등
     return html
+
+@user_blue.route('/mypage/id=<user_idx>', methods=['get'])
+def mypage(user_idx):
+    if 'user_idx' in session:
+        my_idx = session['user_idx']
+    else:
+        my_idx = 1
     
+    user = user_dao.user_info(user_idx)
+    mypost_list = user_dao.mypost_list(user_idx)
+    likepost_list = user_dao.likepost_list(user_idx)
+    
+    html = render_template('mypage.html', user=user, post_list=mypost_list, like_list=likepost_list)
+    return html
+
 #장바구니
 @user_blue.route('/cart')
 def shopping_cart():

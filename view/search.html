@@ -87,9 +87,9 @@
 			
 
 			{% for searchdata in data_search %}
-				{% set searchdata = data_search.img_url %}
+				{% set img_url = searchdata.img_url %}
 				<div class="pic">
-					<a href="/post/post_id={{searchdata['post_idx']}}"><img src = "{{searchdata[8:]}}" ></a>
+					<a href="/post/post_id={{searchdata['post_idx']}}"><img src = "{{img_url[8:]}}" ></a>
 				</div>
 			
 			{% endfor %}

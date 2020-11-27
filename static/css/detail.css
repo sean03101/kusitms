@@ -135,8 +135,8 @@ p{
     margin-right: 10px;
     margin: auto;
     position: absolute;
-    top: 110px;
-    right: 313px;
+    top: 100px;
+    right: 300px;
     padding-top: 30px;
 }
 
@@ -147,6 +147,7 @@ p{
 }
 
 .imageframe{
+    
     position: relative;
     z-index: 1;
     
@@ -159,15 +160,19 @@ p{
 .bottombox{
     position: relative;
     z-index: 2;
-    top: -180px;
+    top: -270px;
     left: 30px;
 }
 
 .captionbox{
     position: relative;
     z-index: 2;
-    top: -200px;
+    top: -285px;
     left: 20px;
+}
+
+.contents .top .profile_img {
+    margin-bottom: 3px !important;
 }
 
 .commentbox{

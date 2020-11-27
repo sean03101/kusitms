@@ -54,7 +54,7 @@
     position: absolute;
     border: 1px solid black;
     width: 270px;
-    height: 145px;
+    height: 110px;
     top: 550px;
     font-family: GongGothicLight;
     font-size: 12px;
@@ -73,7 +73,7 @@
     width: 270px;
     height: 30px;
     border: 1px solid black;
-    top: 700px ;
+    top: 660px ;
     left: auto;
     z-index: 3;
     text-align: center;

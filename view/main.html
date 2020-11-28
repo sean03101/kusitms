@@ -67,7 +67,7 @@
 						</div>
 
 					</div>
-						{% for bestpictures in data_new %}
+						{% for bestpictures in data_like %}
 							{% set bestpicture = bestpictures.img_url %}
 							<div class="pic">
 								<a href="/post/post_id={{bestpictures['post_idx']}}"><img src = "{{bestpicture[8:]}}" ></a>
@@ -88,7 +88,7 @@
 								<a href="#"><img src="{{url_for('static',filename='images/ad5.jpg')}}" alt=""></a>
 							</div>
 						</div>
-						{% for recentpictures in data_like %}
+						{% for recentpictures in data_new %}
 							{% set recentpicture = recentpictures.img_url %}
 						
 							<div class="pic">

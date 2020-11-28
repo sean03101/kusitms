@@ -13,7 +13,7 @@ product_blue = Blueprint('product_blue', __name__)
 def main_page():
     data_new = product_dao.post_list(0)
     data_like = product_dao.post_list(1)
-    print(session)
+
     html = render_template('main.html', data_new=data_new, data_like=data_like)
     return html
 

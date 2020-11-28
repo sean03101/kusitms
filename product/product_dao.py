@@ -69,7 +69,7 @@ def post_list(order_type):
         temp_dict['post_like'] = row[2]
         temp_dict['img_url'] = row[3]
         data_list.append(temp_dict)
-    
+    print(data_list)
     return data_list
 
 #한글 인코딩 생각해야됨

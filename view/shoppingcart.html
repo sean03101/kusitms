@@ -87,22 +87,24 @@
 					  
 						<!-- Product List -->
 						<section class="container">
+							{% for cartlist in cart_list %}
 						  <div v-if="products.length > 0">
 							<ul class="products">
 							<li class="row" v-for="(product, index) in products">
+
+								
 							  <div class="col left">
 								<div class="thumbnail">
 								  <a href="#">
 									<img :src="product.image" :alt="product.name" />
 								  </a>
 								</div>
-								{% for cartlist in cart_list %}
+								
 								<div class="detail">
 								  <div class="name"><a href="/post/post_id={{cartlist['post_idx']}}">{{cartlist.user_email[:-10]}}</a></div>
-								  <div class="description">{{cartlist.title}}</div>
 								  <div class="price">{{cartlist.price}}<a>원</a></div>
 								</div>
-								</div>
+							  </div>
 					  
 							  <div class="col right">
 								<div class="quantity">
@@ -110,20 +112,27 @@
 								</div>
 								
 								<div class="remove">
-								  <svg onclick="removeCart();"  @click="removeItem(index)" version="1.1" class="close" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" enable-background="new 0 0 60 60" xml:space="preserve"><polygon points="38.936,23.561 36.814,21.439 30.562,27.691 24.311,21.439 22.189,23.561 28.441,29.812 22.189,36.064 24.311,38.186 30.562,31.934 36.814,38.186 38.936,36.064 32.684,29.812"></polygon></svg>
+								  <svg onclick="removeCart(this.id);" id={{cartlist.post_idx}}  @click="removeItem(index)" version="1.1" class="close" 
+								  xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink" x="0px" y="0px" 
+								  viewBox="0 0 60 60" enable-background="new 0 0 60 60" xml:space="preserve">
+								  <polygon points="38.936,23.561 36.814,21.439 30.562,27.691 24.311,21.439 22.189,23.561 28.441,
+								  29.812 22.189,36.064 24.311,38.186 30.562,31.934 36.814,38.186 38.936,36.064 32.684,29.812"></polygon></svg>
 								</div>
+
+								
 							  </div>
+							  
+
 							</li>
-							
 						  </ul>
 						  </div>
 						  
-						   
+						  {% endfor %}
 						  <div v-else class="empty-product">
-							<button href="{{url_for('static',filename='home')}}">쇼핑하러 가기</button>
+							<a href="{{url_for('static',filename='home')}}"><button href="{{url_for('static',filename='home')}}">쇼핑하러 가기</button></a>
 						  </div>
 						</section>
-						{% endfor %}
+						
 						<!-- End Product List -->
 							
 						
@@ -151,7 +160,7 @@
 						  </div>
 					  
 						  <div class="checkout">
-							<button type="button" href="{{url_for('static',filename='payment')}}">결제하기</button>
+							<a href="{{url_for('static',filename='payment')}}"><button type="button" >결제하기</button></a>
 						  </div>
 						</section>
 						<!-- End Summary -->
@@ -160,8 +169,8 @@
 				</div>
 
 				<script>
-					function removeCart(){
-						let post_id = '{{cart_list["post_idx"]}}';
+					function removeCart(clicked_id){
+						var post_id = clicked_id;
                             
                             param = {
                                 post_idx : post_id, 

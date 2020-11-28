@@ -202,14 +202,19 @@ span.book_mark{
     margin-bottom: 5px;
     flex: 50%;
     padding-right: 10px;
+  
+  
+  
+  }
+
+  .contents_container .pic img {
+    width: 173px;
+    height: 173px;
+    object-fit: cover;
+  }
+  
 
 
-}
-
-.contents_container .pic img{
-    width: 100%;
-    height: 100%;
-}
 
 .mylist_contents,
 .bookmark_contents,{

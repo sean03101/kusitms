@@ -236,7 +236,7 @@ def check_payment():
     html = render_template('paycomplete.html', data=post_detail)
     return html
 
-@product_blue.route('/bakctomain')
+@product_blue.route('/backtomain')
 def backtomain():
     html = render_template('backtomain.html')
     return html

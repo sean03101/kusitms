@@ -61,6 +61,11 @@ h1{
   margin-top: 10px;
 }
 
+#searchbar{
+  margin-top: 10px;
+    margin-right: 50px;
+}
+
 
 .brandname{
   margin-right: auto;
@@ -73,6 +78,7 @@ h1{
 .nav__logos{
   list-style: none;
   padding-right: 15px;
+  padding-left: 10px;
 }
 
 .nav__logos li {
@@ -181,12 +187,16 @@ h1{
   padding-right: 10px;
 
 
+
 }
 
-.contents_container .pic img{
-  width: 100%;
-  height: 100%;
+.contents_container .pic img {
+  width: 173px;
+  height: 173px;
+  object-fit: cover;
 }
+
+
 
 .mylist_contents,
 .bookmark_contents,{
@@ -336,4 +346,26 @@ Remove or comment-out the code block below to see how the browser will fall-back
           margin: 0;
       }
   }
+}
+
+
+
+#searchbar{
+  margin-top: 10px;
+    margin-right: 50px;
+}
+
+
+.d-inline-block align-top img{
+    margin-left: 50px;
+}
+
+#searchbar{
+  margin-top: 10px;
+    margin-right: 50px;
+}
+
+
+.d-inline-block align-top img{
+    margin-left: 50px;
 }

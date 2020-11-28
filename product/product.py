@@ -29,7 +29,7 @@ def search_posts():
     print(text)
     result = product_dao.search_post(text)
 
-    html = render_template('search.html', data_search=result) #검색 결과 페이지
+    html = render_template('search.html', data_search=result, tags=text) #검색 결과 페이지
     return html
 
 #등록페이지 얘기가 필요..
@@ -234,4 +234,9 @@ def check_payment():
     post_detail['file'] = post_file
     
     html = render_template('paycomplete.html', data=post_detail)
+    return html
+
+@product_dao.route('/bakctomain')
+def backtomain():
+    html = render_template('backtomain.html')
     return html

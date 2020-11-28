@@ -13,7 +13,7 @@
 
 	rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-	
+	<script type="text/javascript" src="{{url_for('static',filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 
 <!--===============================================================================================-->
 </head>
@@ -181,7 +181,7 @@
                                 type: 'post',
                                 data: param,
                                 success: function (response) {
-                                    if(respose=='OK'){
+                                    if (response == 'OK') {
 										alert('해당 상품을 제거하셨습니다.');
 										location.href = "/cart"
 									}

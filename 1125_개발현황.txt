@@ -1,0 +1,15 @@
+큐시즘 어흥 {'post_idx': 2, 'user_idx': 1, 'title': 'test2', 'time': datetime.datetime(2020, 11, 23, 17, 26, 5), 'text': 'test222', 'tags': None, 'price': 20000, 'category': None, 'size': None, 'brand': None, 'gender': '남', 'certificate': 0, 'receipt': 0, 'post_like': 0, 'sell_yn': 0, 'comment_count': 1, 'comments': [{'comment_idx': 2, 'post_idx': 2, 'user_idx': 2, 'text': 'hihi'}]}
+
+1. 상품페이지 구독, 좋아요, 찜 버튼은 따로 ajax체크 로직을 사용해서 페이지 로딩시 버튼누름 확인을 하여
+   js로 css값 수정해주면 가능. 개발자도구로 눌렸을때 html상의 코드변화나 css적용 여부 참고
+
+2. 좋아요 같은 경우 정상적으로 좋아요 처리는되지만 posts테이블의 post_like 컬럼의 값 업데이트가 없음
+   like값이 add, delete 처리하면서 posts테이블의 post_like 카운트 + - 조치 필요
+
+3. user_dao.py에 mypage부분 fetchall(user_id)에 user_id제거 cursor.fetchall << 이걸로 오타수정
+   user.py에 렌더부분 post_list=mypost_list로 오타 수정 return 값 html로반환
+
+4. mypage 자기자신 팔로우 못하게 하기
+   user.py의 mypage부분의 렌더에 세션에 있는 user_idx를 반환해준다.
+   user_dao.py에서 user_info쿼리문에 DB user에 있는 user_idx값을 같이반환 해준다
+   그 후 mypage.html에서 두 값을 비교하여 자기자신일때 팔로우 버튼 비활성화
